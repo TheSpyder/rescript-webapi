@@ -1,3 +1,23 @@
+# rescript-webapi
+
+Bindings to the DOM and other browser-specific web APIs.
+
+## TODO
+
+everything.
+
+## License and Credits
+
+All code is licensed as MIT. See [LICENSE](LICENSE).
+
+This project has been forked from [bs-webapi](https://github.com/reasonml-community/bs-webapi-incubator) after it was mostly abandoned. Rather than offer to continue that project, we took the opportunity to make major changes to the API and bring it up to modern ReScript development practices by renaming it.
+
+Primary development on this project is sponsored by [Tiny](https://github.com/tinymce/).
+
+
+# NOTE
+This project is in the process of being forked; what follows is the original readme.
+
 # bs-webapi
 
 Experimental bindings to the DOM and other Web APIs.
