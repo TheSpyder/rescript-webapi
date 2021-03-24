@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "build": "bsb -make-world",
-    "start": "bsb -w",
+    "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "doc-install": "npm install --no-save bsdoc",
     "test": "bsb -make-world && bsdoc build api && bsdoc support-files"

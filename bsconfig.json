@@ -1,6 +1,6 @@
 {
   "name": "rescript-webapi",
-  "bsc-flags": ["-bs-no-version-header", "-bs-super-errors"],
+  "bsc-flags": ["-bs-no-version-header"],
   "sources": [
     {
       "dir": "src",
@@ -21,9 +21,8 @@
       "type": "dev"
     }
   ],
-  "refmt": 3,
   "warnings": {
-    "number": "+A-42-48-105",
+    "number": "+A-42-48-105-109",
     "error": "+A-3-44-102"
   },
   "bs-dependencies": [
