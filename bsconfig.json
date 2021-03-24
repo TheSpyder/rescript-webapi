@@ -1,5 +1,5 @@
 {
-  "name": "bs-webapi",
+  "name": "rescript-webapi",
   "bsc-flags": ["-bs-no-version-header", "-bs-super-errors"],
   "sources": [
     {

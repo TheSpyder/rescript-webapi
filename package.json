@@ -1,15 +1,16 @@
 {
-  "name": "bs-webapi",
+  "name": "rescript-webapi",
   "version": "0.19.2",
   "description": "Reason + BuckleScript bindings to DOM",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reasonml-community/bs-webapi-incubator.git"
+    "url": "https://github.com/tinymce/rescript-webapi.git"
   },
-  "homepage": "https://github.com/reasonml-community/bs-webapi-incubator#readme",
+  "homepage": "https://github.com/tinymce/rescript-webapi#readme",
   "keywords": [
     "reason",
     "bucklescript",
+    "rescript",
     "web",
     "dom"
   ],
@@ -24,10 +25,10 @@
     "src/",
     "bsconfig.json"
   ],
-  "author": "chenglou",
+  "author": "Tiny Technologies Inc",
   "license": "MIT",
   "devDependencies": {
-    "bs-platform": "^7.1.0"
+    "bs-platform": "^9.0.2"
   },
   "dependencies": {
     "bs-fetch": "^0.6.2"
