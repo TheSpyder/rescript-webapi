@@ -4,8 +4,7 @@
   "sources": [
     {
       "dir": "src",
-      "subdirs": true,
-      "public": ["Webapi"]
+      "subdirs": true
     },
     {
       "dir": "tests",
