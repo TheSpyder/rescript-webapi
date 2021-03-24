@@ -89,6 +89,5 @@ type t = Dom.document;
 include Webapi__Dom__Node.Impl({ type nonrec t = t; });
 include Webapi__Dom__EventTarget.Impl({ type nonrec t = t; });
 include Webapi__Dom__NonElementParentNode.Impl({ type nonrec t = t; });
-include Webapi__Dom__DocumentOrShadowRoot.Impl({ type nonrec t = t; });
 include Webapi__Dom__ParentNode.Impl({ type nonrec t = t; });
 include Impl({ type nonrec t = t; });
