@@ -1,7 +1,7 @@
 {
   "name": "rescript-webapi",
-  "version": "0.19.2",
-  "description": "Reason + BuckleScript bindings to DOM",
+  "version": "0.0.1",
+  "description": "Reason / ReScript bindings to DOM",
   "repository": {
     "type": "git",
     "url": "https://github.com/tinymce/rescript-webapi.git"
@@ -22,7 +22,7 @@
     "test": "bsb -make-world && bsdoc build api && bsdoc support-files"
   },
   "files": [
-    "src/",
+    "src",
     "bsconfig.json"
   ],
   "author": "Tiny Technologies Inc",
