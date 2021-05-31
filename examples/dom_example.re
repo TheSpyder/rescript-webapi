@@ -11,9 +11,10 @@ let unwrapUnsafely =
 /*
  * These SHOULD type check
  */
-document->Document.createElement("div")->Element.className;
+let _ = document->Document.createElement("div")->Element.className;
 
-document->Document.createElement("div")->Element.nextElementSibling->map(Element.innerText); /* innerText is a function that accepts a Node */
+let _ =
+  document->Document.createElement("div")->Element.nextElementSibling->map(Element.innerText); /* innerText is a function that accepts a Node */
 
 /* Before subtyping:
    document -> Document.createElement("div")
@@ -23,10 +24,11 @@ document->Document.createElement("div")->Element.nextElementSibling->map(Element
    */
 
 /* After subtyping: */
-document
-->Document.createElement("div")
-->Element.parentElement /* inherited from Node, returns DomRe.element */
-->map(Element.innerText); /* inherited from Node */
+let _ =
+  document
+  ->Document.createElement("div")
+  ->Element.parentElement /* inherited from Node, returns DomRe.element */
+  ->map(Element.innerText); /* inherited from Node */
 
 let el = document->Document.createElement("div")->Element.asHtmlElement->unwrapUnsafely;
 
@@ -43,10 +45,11 @@ let el = document->Document.createElement("div")->Element.asHtmlElement->unwrapU
    */
 
 /* After subtyping: */
-document
-->Document.asHtmlDocument
-->flatMap(HtmlDocument.body)
-->map(body => body->Element.appendChild(el));
+let _ =
+  document
+  ->Document.asHtmlDocument
+  ->flatMap(HtmlDocument.body)
+  ->map(body => body->Element.appendChild(el));
 
 /*
  /*

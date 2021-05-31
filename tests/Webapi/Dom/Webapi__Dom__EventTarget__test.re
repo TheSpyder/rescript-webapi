@@ -27,4 +27,4 @@ let customEvent = CustomEvent.makeWithOptions("custom-event", {
                                                                   "test": "test",
                                                                 },
                                                               });
-target->dispatchEvent(customEvent);
+let _ = target->dispatchEvent(customEvent);

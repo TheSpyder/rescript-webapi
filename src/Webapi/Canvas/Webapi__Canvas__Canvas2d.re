@@ -191,8 +191,10 @@ external arc:
 [@set] external font: (t, string) => unit;
 [@set] external textAlign: (t, string) => unit;
 [@set] external textBaseline: (t, string) => unit;
-[@send] external fillText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, [@ignore] unit) => unit;
-[@send] external strokeText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, [@ignore] unit) => unit;
+[@send]
+external fillText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, [@ignore] unit) => unit;
+[@send]
+external strokeText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, [@ignore] unit) => unit;
 [@send] external measureText: (t, string) => measureText;
 [@get] external width: measureText => float;
 

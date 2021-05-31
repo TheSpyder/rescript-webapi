@@ -58,7 +58,8 @@ let _ = Window.getSelection(window);
 let _ = window->Window.matchMedia("max-height: 400");
 let _ = window->Window.moveBy(10, -10);
 let _ = window->Window.moveTo(120, 300);
-let _: option(Dom.window) = window->Window.open_(~url="http://...", ~name="my window", ~features="menubar=yes" ,());
+let _: option(Dom.window) =
+  window->Window.open_(~url="http://...", ~name="my window", ~features="menubar=yes", ());
 let _: option(Dom.window) = window->Window.open_(~url="http://...", ~name="my window", ());
 window->Window.postMessage("my message", "*");
 Window.print(window);
