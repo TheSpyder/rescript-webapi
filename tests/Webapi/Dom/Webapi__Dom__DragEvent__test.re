@@ -4,47 +4,47 @@ open DragEvent;
 let event = make("my-event");
 
 /* Event */
-let _ = bubbles(event);
-let _ = cancelable(event);
-let _ = composed(event);
-let _ = currentTarget(event);
-let _ = defaultPrevented(event);
-let _ = eventPhase(event);
-let _ = target(event);
-let _ = timeStamp(event);
-let _ = type_(event);
-let _ = isTrusted(event);
+let _ = event->bubbles;
+let _ = event->cancelable;
+let _ = event->composed;
+let _ = event->currentTarget;
+let _ = event->defaultPrevented;
+let _ = event->eventPhase;
+let _ = event->target;
+let _ = event->timeStamp;
+let _ = event->type_;
+let _ = event->isTrusted;
 
-preventDefault(event);
-stopImmediatePropagation(event);
-stopPropagation(event);
+event->preventDefault;
+event->stopImmediatePropagation;
+event->stopPropagation;
 
 /* UIEvent */
-let _ = detail(event);
-let _ = view(event);
+let _ = event->detail;
+let _ = event->view;
 
 /* MouseEvent */
-let _ = altKey(event);
-let _ = button(event);
-let _ = buttons(event);
-let _ = clientX(event);
-let _ = clientY(event);
-let _ = ctrlKey(event);
-let _ = metaKey(event);
-let _ = movementX(event);
-let _ = movementY(event);
-let _ = offsetX(event);
-let _ = offsetY(event);
-let _ = pageX(event);
-let _ = pageY(event);
-let _ = region(event);
-let _ = relatedTarget(event);
-let _ = screenX(event);
-let _ = screenY(event);
-let _ = shiftKey(event);
-let _ = x(event);
-let _ = y(event);
-let _ = getModifierState(Alt, event);
+let _ = event->altKey;
+let _ = event->button;
+let _ = event->buttons;
+let _ = event->clientX;
+let _ = event->clientY;
+let _ = event->ctrlKey;
+let _ = event->metaKey;
+let _ = event->movementX;
+let _ = event->movementY;
+let _ = event->offsetX;
+let _ = event->offsetY;
+let _ = event->pageX;
+let _ = event->pageY;
+let _ = event->region;
+let _ = event->relatedTarget;
+let _ = event->screenX;
+let _ = event->screenY;
+let _ = event->shiftKey;
+let _ = event->x;
+let _ = event->y;
+let _ = event->getModifierState(Alt);
 
 /* DragEvent */
-let _ = dataTransfer(event);
+let _ = event->dataTransfer;

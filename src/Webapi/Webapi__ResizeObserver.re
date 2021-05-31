@@ -2,12 +2,12 @@ module ResizeObserverEntry = Webapi__ResizeObserver__ResizeObserverEntry;
 
 type t;
 
-[@bs.new]
+[@new]
 external make: (array(ResizeObserverEntry.t) => unit) => t = "ResizeObserver";
-[@bs.new]
+[@new]
 external makeWithObserver: ((array(ResizeObserverEntry.t), t) => unit) => t =
   "ResizeObserver";
 
-[@bs.send] external disconnect: t => unit = "";
-[@bs.send] external observe: (t, Dom.element) => unit = "";
-[@bs.send] external unobserve: (t, Dom.element) => unit = "";
+[@send] external disconnect: t => unit = "";
+[@send] external observe: (t, Dom.element) => unit = "";
+[@send] external unobserve: (t, Dom.element) => unit = "";

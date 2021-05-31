@@ -78,29 +78,29 @@ type style(_) =
   | Pattern: style(pattern);
 
 /* 2d Canvas API, following https://simon.html5.org/dump/html5-canvas-cheat-sheet.html */
-[@bs.send.pipe : t] external save : unit = "";
-[@bs.send.pipe : t] external restore : unit = "";
+[@send] external save: t => unit = "";
+[@send] external restore: t => unit = "";
 
 /* Transformation */
-[@bs.send.pipe : t] external scale : (~x: float, ~y: float) => unit = "";
-[@bs.send.pipe : t] external rotate : float => unit = "";
-[@bs.send.pipe : t] external translate : (~x: float, ~y: float) => unit = "";
-[@bs.send.pipe : t] external transform : (~m11: float, ~m12: float, ~m21: float, ~m22: float, ~dx: float, ~dy: float) => unit = "";
-[@bs.send.pipe : t] external setTransform : (~m11: float, ~m12: float, ~m21: float, ~m22: float, ~dx: float, ~dy: float) => unit = "";
+[@send]  external scale: (t, ~x: float, ~y: float) => unit = "";
+[@send] external rotate: t => float => unit = "";
+[@send]  external translate: (t, ~x: float, ~y: float) => unit = "";
+[@send]  external transform: (t, ~m11: float, ~m12: float, ~m21: float, ~m22: float, ~dx: float, ~dy: float) => unit = "";
+[@send]  external setTransform: (t, ~m11: float, ~m12: float, ~m21: float, ~m22: float, ~dx: float, ~dy: float) => unit = "";
 
 /* Compositing */
-[@bs.set] external globalAlpha : (t, float) => unit = "";
-[@bs.set] external globalCompositeOperation : (t, Composite.t) => unit = "";
+[@set] external globalAlpha : (t, float) => unit = "";
+[@set] external globalCompositeOperation : (t, Composite.t) => unit = "";
 
 /* Line Styles */
-[@bs.set] external lineWidth : (t, float) => unit = "";
-[@bs.set] external lineCap : (t, LineCap.t) => unit = "";
-[@bs.set] external lineJoin : (t, LineJoin.t) => unit = "";
-[@bs.set] external miterLimit : (t, float) => unit = "";
+[@set] external lineWidth : (t, float) => unit = "";
+[@set] external lineCap : (t, LineCap.t) => unit = "";
+[@set] external lineJoin : (t, LineJoin.t) => unit = "";
+[@set] external miterLimit : (t, float) => unit = "";
 
 /* Colors, Styles, and Shadows */
-[@bs.set] external setFillStyle : (t, 'a) => unit = "fillStyle";
-[@bs.set] external setStrokeStyle : (t, 'a) => unit = "strokeStyle";
+[@set] external setFillStyle : (t, 'a) => unit = "fillStyle";
+[@set] external setStrokeStyle : (t, 'a) => unit = "strokeStyle";
 
 /* in re unused warnings
    awaiting release of https://github.com/bloomberg/bucklescript/issues/1656
@@ -130,8 +130,8 @@ let reifyStyle = (type a, x: 'a) : (style(a), a) => {
   );
 };
 
-[@bs.get] external fillStyle : t => 'a = "";
-[@bs.get] external strokeStyle : t => 'a = "";
+[@get] external fillStyle : t => 'a = "";
+[@get] external strokeStyle : t => 'a = "";
 
 let fillStyle = (ctx: t) =>
   ctx |> fillStyle |> reifyStyle;
@@ -139,62 +139,62 @@ let fillStyle = (ctx: t) =>
 let strokeStyle = (ctx: t) =>
   ctx |> strokeStyle |> reifyStyle;
 
-[@bs.set] external shadowOffsetX : (t, float) => unit = "";
-[@bs.set] external shadowOffsetY : (t, float) => unit = "";
-[@bs.set] external shadowBlur : (t, float) => unit = "";
-[@bs.set] external shadowColor : (t, string) => unit = "";
+[@set] external shadowOffsetX : (t, float) => unit = "";
+[@set] external shadowOffsetY : (t, float) => unit = "";
+[@set] external shadowBlur : (t, float) => unit = "";
+[@set] external shadowColor : (t, string) => unit = "";
 
 /* Gradients */
-[@bs.send.pipe : t] external createLinearGradient : (~x0: float, ~y0: float, ~x1: float, ~y1: float) => gradient = "";
-[@bs.send.pipe : t] external createRadialGradient : (~x0: float, ~y0: float, ~x1: float, ~y1: float, ~r0: float, ~r1: float) => gradient = "";
-[@bs.send.pipe : gradient] external addColorStop : (float, string) => unit = "";
-[@bs.val] external createPattern : (
+[@send]  external createLinearGradient: (t, ~x0: float, ~y0: float, ~x1: float, ~y1: float) => gradient = "";
+[@send]  external createRadialGradient: (t, ~x0: float, ~y0: float, ~x1: float, ~y1: float, ~r0: float, ~r1: float) => gradient = "";
+[@send]  external addColorStop: (gradient, float, string) => unit = "";
+[@val] external createPattern : (
     t,
     Dom.element,
-    [@bs.string] [
+    [@string] [
       | `repeat
-      [@bs.as "repeat-x"] | `repeatX
-      [@bs.as "repeat-y"] | `repeatY
-      [@bs.as "no-repeat"] | `noRepeat
+      [@as "repeat-x"] | `repeatX
+      [@as "repeat-y"] | `repeatY
+      [@as "no-repeat"] | `noRepeat
     ]
   )
   => pattern = "";
 
 /* Paths */
-[@bs.send.pipe : t] external beginPath : unit = "";
-[@bs.send.pipe : t] external closePath : unit = "";
-[@bs.send.pipe : t] external fill : unit = "";
-[@bs.send.pipe : t] external stroke : unit = "";
-[@bs.send.pipe : t] external clip : unit = "";
-[@bs.send.pipe : t] external moveTo : (~x: float, ~y: float) => unit = "";
-[@bs.send.pipe : t] external lineTo : (~x: float, ~y: float) => unit = "";
-[@bs.send.pipe : t] external quadraticCurveTo : (~cp1x: float, ~cp1y: float, ~x: float, ~y: float) => unit = "";
-[@bs.send.pipe : t] external bezierCurveTo : (~cp1x: float, ~cp1y: float, ~cp2x: float, ~cp2y: float, ~x: float, ~y: float) => unit = "";
-[@bs.send.pipe : t] external arcTo : (~x1: float, ~y1: float, ~x2: float, ~y2: float, ~r: float) => unit = "";
-[@bs.send.pipe : t] external arc : (~x: float, ~y: float, ~r: float, ~startAngle: float, ~endAngle: float, ~anticw: bool) => unit = "";
-[@bs.send.pipe : t] external rect : (~x: float, ~y: float, ~w: float, ~h: float) => unit = "";
-[@bs.send.pipe : t] external isPointInPath : (~x: float, ~y: float) => bool = "";
+[@send] external beginPath: t => unit = "";
+[@send] external closePath: t => unit = "";
+[@send] external fill: t => unit = "";
+[@send] external stroke: t => unit = "";
+[@send] external clip: t => unit = "";
+[@send]  external moveTo: (t, ~x: float, ~y: float) => unit = "";
+[@send]  external lineTo: (t, ~x: float, ~y: float) => unit = "";
+[@send]  external quadraticCurveTo: (t, ~cp1x: float, ~cp1y: float, ~x: float, ~y: float) => unit = "";
+[@send]  external bezierCurveTo: (t, ~cp1x: float, ~cp1y: float, ~cp2x: float, ~cp2y: float, ~x: float, ~y: float) => unit = "";
+[@send]  external arcTo: (t, ~x1: float, ~y1: float, ~x2: float, ~y2: float, ~r: float) => unit = "";
+[@send]  external arc: (t, ~x: float, ~y: float, ~r: float, ~startAngle: float, ~endAngle: float, ~anticw: bool) => unit = "";
+[@send]  external rect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "";
+[@send]  external isPointInPath: (t, ~x: float, ~y: float) => bool = "";
 
 /* Text */
-[@bs.set] external font : (t, string) => unit = "";
-[@bs.set] external textAlign : (t, string) => unit = "";
-[@bs.set] external textBaseline : (t, string) => unit = "";
-[@bs.send.pipe : t] external fillText : (string, ~x: float, ~y: float, ~maxWidth: float=?) => unit = "";
-[@bs.send.pipe : t] external strokeText : (string, ~x: float, ~y: float, ~maxWidth: float=?) => unit = "";
-[@bs.send.pipe : t] external measureText : string => measureText = "";
-[@bs.get] external width : measureText => float = "";
+[@set] external font : (t, string) => unit = "";
+[@set] external textAlign : (t, string) => unit = "";
+[@set] external textBaseline : (t, string) => unit = "";
+[@send]  external fillText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?) => unit = "";
+[@send]  external strokeText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?) => unit = "";
+[@send] external measureText: t => string => measureText = "";
+[@get] external width : measureText => float = "";
 
 /* Rectangles */
-[@bs.send.pipe : t] external fillRect : (~x: float, ~y: float, ~w: float, ~h: float) => unit = "";
-[@bs.send.pipe : t] external strokeRect : (~x: float, ~y: float, ~w: float, ~h: float) => unit = "";
-[@bs.send.pipe : t] external clearRect : (~x: float, ~y: float, ~w: float, ~h: float) => unit = "";
+[@send]  external fillRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "";
+[@send]  external strokeRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "";
+[@send]  external clearRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "";
 
-[@bs.send] external createImageDataCoords : (t, ~width: float, ~height: float) => Webapi__Dom__Image.t = "createImageData";
-[@bs.send] external createImageDataFromImage : (t, Webapi__Dom__Image.t) => Webapi__Dom__Image.t = "createImageData";
+[@send] external createImageDataCoords : (t, ~width: float, ~height: float) => Webapi__Dom__Image.t = "createImageData";
+[@send] external createImageDataFromImage : (t, Webapi__Dom__Image.t) => Webapi__Dom__Image.t = "createImageData";
 
-[@bs.send] external getImageData : (t, ~sx: float, ~sy: float, ~sw: float, ~sh: float) => Webapi__Dom__Image.t = "";
+[@send] external getImageData : (t, ~sx: float, ~sy: float, ~sw: float, ~sh: float) => Webapi__Dom__Image.t = "";
 
-[@bs.send] external putImageData : (
+[@send] external putImageData : (
     t,
     ~imageData: Webapi__Dom__Image.t,
     ~dx: float,
@@ -202,7 +202,7 @@ let strokeStyle = (ctx: t) =>
   )
   => unit = "";
 
-[@bs.send] external putImageDataWithDirtyRect : (
+[@send] external putImageDataWithDirtyRect : (
     t,
     ~imageData: Webapi__Dom__Image.t,
     ~dx: float,

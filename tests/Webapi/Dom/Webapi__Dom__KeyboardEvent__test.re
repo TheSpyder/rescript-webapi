@@ -4,34 +4,34 @@ open! KeyboardEvent;
 let event = make("my-event");
 
 /* Event */
-let _ = bubbles(event);
-let _ = cancelable(event);
-let _ = composed(event);
-let _ = currentTarget(event);
-let _ = defaultPrevented(event);
-let _ = eventPhase(event);
-let _ = target(event);
-let _ = timeStamp(event);
-let _ = type_(event);
-let _ = isTrusted(event);
+let _ = event->bubbles;
+let _ = event->cancelable;
+let _ = event->composed;
+let _ = event->currentTarget;
+let _ = event->defaultPrevented;
+let _ = event->eventPhase;
+let _ = event->target;
+let _ = event->timeStamp;
+let _ = event->type_;
+let _ = event->isTrusted;
 
-preventDefault(event);
-stopImmediatePropagation(event);
-stopPropagation(event);
+event->preventDefault;
+event->stopImmediatePropagation;
+event->stopPropagation;
 
 /* UIEvent */
-let _ = detail(event);
-let _ = view(event);
+let _ = event->detail;
+let _ = event->view;
 
 /* KeyboardEvent */
-let _ = altKey(event);
-let _ = code(event);
-let _ = ctrlKey(event);
-let _ = isComposing(event);
-let _ = key(event);
-let _ = locale(event);
-let _ = location(event);
-let _ = metaKey(event);
-let _ = repeat(event);
-let _ = shiftKey(event);
-let _ = getModifierState(Alt, event);
+let _ = event->altKey;
+let _ = event->code;
+let _ = event->ctrlKey;
+let _ = event->isComposing;
+let _ = event->key;
+let _ = event->locale;
+let _ = event->location;
+let _ = event->metaKey;
+let _ = event->repeat;
+let _ = event->shiftKey;
+let _ = event->getModifierState(Alt);

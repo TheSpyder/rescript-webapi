@@ -1,46 +1,46 @@
 open Webapi.Dom;
 open Node;
 
-let node = document |> Document.createElement("strong") |> Element.rootNode;
-let node2 = document |> Document.createElement("small") |> Element.rootNode;
-let node3 = document |> Document.createElement("small") |> Element.rootNode;
+let node = document->Document.createElement("strong")->Element.rootNode;
+let node2 = document->Document.createElement("small")->Element.rootNode;
+let node3 = document->Document.createElement("small")->Element.rootNode;
 
-let _ = childNodes(node);
-let _ = firstChild(node);
-let _ = lastChild(node);
-let _ = nextSibling(node);
-let _ = nodeName(node);
-let _ = nodeType(node);
-let _ = nodeValue(node);
-let _ = setNodeValue(node, Js.Null.return("foo"));
+let _ = node->childNodes;
+let _ = node->firstChild;
+let _ = node->lastChild;
+let _ = node->nextSibling;
+let _ = node->nodeName;
+let _ = node->nodeType;
+let _ = node->nodeValue;
+let _ = node->setNodeValue(Js.Null.return("foo"));
 /* Not supported yet
-let _ = setNodeValue(node, "foo");
-let _ = clearNodeValue(node);
-*/
-let _ = ownerDocument(node);
-let _ = parentNode(node);
-let _ = parentElement(node);
-let _ = previousSibling(node);
-let _ = rootNode(node);
-let _ = textContent(node);
-let _ = setTextContent(node, "foo");
+   let _ = node->setNodeValue("foo");
+   let _ = node->clearNodeValue;
+   */
+let _ = node->ownerDocument;
+let _ = node->parentNode;
+let _ = node->parentElement;
+let _ = node->previousSibling;
+let _ = node->rootNode;
+let _ = node->textContent;
+let _ = node->setTextContent("foo");
 
-let _ = appendChild(node2, node);
-let _ = cloneNode(node);
-let _ = cloneNodeDeep(node);
-let _ = compareDocumentPosition(node2, node);
-let _ = contains(node2, node);
-let _ = getRootNode(node);
-let _ = getRootNodeComposed(node);
-let _ = hasChildNodes(node);
-let _ = insertBefore(node2, node3, node);
-/***let _ = insertBefore(node2, None, node);*/
-let _ = isDefaultNamespace("http://...", node);
-let _ = isEqualNode(node2, node);
-let _ = isSameNode(node2, node);
-let _ = lookupPrefix(node);
-let _ = lookupNamespaceURI("https://...", node);
-let _ = lookupDefaultNamespaceURI(node);
-let _ = normalize(node);
-let _ = removeChild(node2, node);
-let _ = replaceChild(node3, node2, node);
+let _ = node->appendChild(node2);
+let _ = node->cloneNode;
+let _ = node->cloneNodeDeep;
+let _ = node->compareDocumentPosition(node2);
+let _ = node->contains(node2);
+let _ = node->getRootNode;
+let _ = node->getRootNodeComposed;
+let _ = node->hasChildNodes;
+let _ = node->insertBefore(node2, node3);
+/***let _ node->= insertBefore(node2, None);*/
+let _ = node->isDefaultNamespace("http://...");
+let _ = node->isEqualNode(node2);
+let _ = node->isSameNode(node2);
+let _ = node->lookupPrefix;
+let _ = node->lookupNamespaceURI("https://...");
+let _ = node->lookupDefaultNamespaceURI;
+let _ = node->normalize;
+let _ = node->removeChild(node2);
+let _ = node->replaceChild(node3, node2);

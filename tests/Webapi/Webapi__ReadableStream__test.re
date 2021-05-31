@@ -15,7 +15,7 @@ module DefaultReader__test = {
 
   let test_cancelWith = reader =>
     reader
-    |> cancelWith("reason")
+    -> cancelWith("reason")
     |> Js.Promise.then_(reason =>
       reason
       |> Js.log
@@ -37,7 +37,7 @@ let test_locked = stream => locked(stream);
 
 let test_cancel = stream => cancel(stream);
 
-let test_cancelWith = stream => cancelWith("reason", stream);
+let test_cancelWith = stream => stream->cancelWith("reason");
 
 let test_getReader = stream => getReader(stream);
 
