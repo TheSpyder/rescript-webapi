@@ -81,7 +81,8 @@ module Impl = (T: {type t;}) => {
   [@send] external moveTo: (t_window, int, int) => unit; /* experimental, CSSOM View module */
   [@send] [@return nullable]
   external open_:
-    (t_window, ~url: string, ~name: string, ~features: string=?) => option(Dom.window) =
+    (t_window, ~url: string, ~name: string, ~features: string=?, [@ignore] unit) =>
+    option(Dom.window) =
     "open"; /* yes, features is a stringly typed list of key value pairs, sigh */
   [@send] external postMessage: (t_window, 'a, string) => unit; /* experimental-ish?, Web Messaging */
   [@send]

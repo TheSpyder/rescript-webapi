@@ -67,8 +67,8 @@ let _ =
 
 let measureText = ctx->measureText("foo");
 let width = width(measureText);
-ctx->fillText("foo!", ~x=0.0, ~y=0.0, ~maxWidth=width);
-ctx->strokeText("foo!", ~x=0.0, ~y=0.0, ~maxWidth=width);
+ctx->fillText("foo!", ~x=0.0, ~y=0.0, ~maxWidth=width, ());
+ctx->strokeText("foo!", ~x=0.0, ~y=0.0, ~maxWidth=width, ());
 let imageData = createImageDataCoords(ctx, ~width=0.0, ~height=0.0);
 createImageDataFromImage(ctx, imageData);
 Image.width(imageData);
@@ -91,8 +91,8 @@ let _: unit =
 font(ctx, "10px Courier");
 textAlign(ctx, "left");
 textBaseline(ctx, "top");
-ctx->fillText("hi", ~x=1., ~y=0.);
-ctx->strokeText("hi", ~x=1., ~y=0.);
+ctx->fillText("hi", ~x=1., ~y=0., ());
+ctx->strokeText("hi", ~x=1., ~y=0., ());
 
 ctx->fillRect(~x=1., ~y=0., ~w=10., ~h=10.);
 ctx->strokeRect(~x=1., ~y=0., ~w=10., ~h=10.);
