@@ -99,8 +99,7 @@ module Impl = (T: {type t;}) => {
   [@send] external requestPointerLock: T.t => unit; /* experimental */
   [@send] external scrollIntoView: T.t => unit; /* experimental, but widely supported */
   [@send]
-  external scrollIntoViewNoAlignToTop: (T.t, [@as {json|true|json}] _) => unit =
-    "scrollIntoView"; /* experimental, but widely supported */
+  external scrollIntoViewNoAlignToTop: (T.t, [@as {json|true|json}] _) => unit = "scrollIntoView"; /* experimental, but widely supported */
   [@send]
   external scrollIntoViewWithOptions:
     (

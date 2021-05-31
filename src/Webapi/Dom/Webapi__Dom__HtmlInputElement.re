@@ -6,8 +6,7 @@
 module Impl = (T: {type t;}) => {
   type t_htmlInputElement = T.t;
 
-  [@get] [@return nullable]
-  external form: t_htmlInputElement => option(Dom.htmlFormElement);
+  [@get] [@return nullable] external form: t_htmlInputElement => option(Dom.htmlFormElement);
   [@get] external formAction: t_htmlInputElement => string;
   [@set] external setFormAction: (t_htmlInputElement, string) => unit = "formAction";
   [@get] external formEncType: t_htmlInputElement => string;

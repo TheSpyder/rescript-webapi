@@ -44,16 +44,16 @@ module Impl = (T: {type t;}) => {
   [@send] external execCommand: (t_htmlDocument, string, bool, Js.null(string)) => bool;
   let execCommand: (t_htmlDocument, string, bool, option(string)) => bool =
     (self, command, show, value) => self->execCommand(command, show, Js.Null.fromOption(value));
-  [@send] external getElementsByName: t_htmlDocument => string => Dom.nodeList;
+  [@send] external getElementsByName: (t_htmlDocument, string) => Dom.nodeList;
   [@send] external getSelection: t_htmlDocument => Dom.selection;
   [@send] external hasFocus: t_htmlDocument => bool;
   [@send] external open_: t_htmlDocument => unit = "open";
-  [@send] external queryCommandEnabled: t_htmlDocument => string => bool;
-  [@send] external queryCommandIndeterm: t_htmlDocument => string => bool;
-  [@send] external queryCommandSupported: t_htmlDocument => string => bool;
-  [@send] external queryCommandValue: t_htmlDocument => string => string;
-  [@send] external write: t_htmlDocument => string => unit;
-  [@send] external writeln: t_htmlDocument => string => unit;
+  [@send] external queryCommandEnabled: (t_htmlDocument, string) => bool;
+  [@send] external queryCommandIndeterm: (t_htmlDocument, string) => bool;
+  [@send] external queryCommandSupported: (t_htmlDocument, string) => bool;
+  [@send] external queryCommandValue: (t_htmlDocument, string) => string;
+  [@send] external write: (t_htmlDocument, string) => unit;
+  [@send] external writeln: (t_htmlDocument, string) => unit;
 };
 
 type t = Dom.htmlDocument;

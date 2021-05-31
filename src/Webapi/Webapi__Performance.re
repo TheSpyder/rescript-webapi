@@ -1,3 +1,3 @@
 type t;
 
-[@send] external now : t => float = "";
+[@send] external now: t => float;

@@ -67,11 +67,10 @@ module Window = Webapi__Dom__Window;
 
 include Webapi__Dom__Types;
 
-[@val] external window : Dom.window = "window";
-[@val] external document : Dom.document = "document";
-[@val] [@scope "window"] external history : Dom.history = "history";
-[@val] [@scope "window"] external location : Dom.location = "location";
-
+[@val] external window: Dom.window = "window";
+[@val] external document: Dom.document = "document";
+[@val] [@scope "window"] external history: Dom.history = "history";
+[@val] [@scope "window"] external location: Dom.location = "location";
 
 /* Unimplemented interfaces (aka. "The TODO list")
 

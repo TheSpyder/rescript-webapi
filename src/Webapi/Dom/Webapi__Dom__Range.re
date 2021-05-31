@@ -11,19 +11,19 @@ type t = Dom.range;
 
 [@send] external setStart: (t, Dom.node_like('a), int) => unit;
 [@send] external setEnd: (t, Dom.node_like('a), int) => unit;
-[@send] external setStartBefore: t => Dom.node_like('a) => unit;
-[@send] external setStartAfter: t => Dom.node_like('a) => unit;
-[@send] external setEndBefore: t => Dom.node_like('a) => unit;
-[@send] external setEndAfter: t => Dom.node_like('a) => unit;
-[@send] external selectNode: t => Dom.node_like('a) => unit;
-[@send] external selectNodeContents: t => Dom.node_like('a) => unit;
+[@send] external setStartBefore: (t, Dom.node_like('a)) => unit;
+[@send] external setStartAfter: (t, Dom.node_like('a)) => unit;
+[@send] external setEndBefore: (t, Dom.node_like('a)) => unit;
+[@send] external setEndAfter: (t, Dom.node_like('a)) => unit;
+[@send] external selectNode: (t, Dom.node_like('a)) => unit;
+[@send] external selectNodeContents: (t, Dom.node_like('a)) => unit;
 [@send] external collapse: t => unit;
 [@send] external collapseToStart: (t, [@as {json|true|json}] _) => unit = "collapse";
 [@send] external cloneContents: t => Dom.documentFragment;
 [@send] external deleteContents: t => unit;
 [@send] external extractContents: t => Dom.documentFragment;
-[@send] external insertNode: t => Dom.node_like('a) => unit;
-[@send] external surroundContents: t => Dom.node_like('a) => unit;
+[@send] external insertNode: (t, Dom.node_like('a)) => unit;
+[@send] external surroundContents: (t, Dom.node_like('a)) => unit;
 [@send]
 external compareBoundaryPoints: (t, int /* compareHow enum */, t) => int /* compareResult enum */;
 let compareBoundaryPoint: (t, Webapi__Dom__Types.compareHow, t) => Webapi__Dom__Types.compareResult =
@@ -38,8 +38,8 @@ let compareBoundaryPoint: (t, Webapi__Dom__Types.compareHow, t) => Webapi__Dom__
 let comparePoint: (t, Dom.node_like('a), int) => Webapi__Dom__Types.compareResult =
   (self, node, offset) =>
     Webapi__Dom__Types.decodeCompareResult(self->comparePoint(node, offset));
-[@send] external createContextualFragment: t => string => Dom.documentFragment; /* experimental, but widely supported */
+[@send] external createContextualFragment: (t, string) => Dom.documentFragment; /* experimental, but widely supported */
 [@send] external getBoundingClientRect: t => Dom.domRect; /* experimental, but widely supported */
 [@send] external getClientRects: t => array(Dom.domRect); /* experimental, but widely supported */
-[@send] external intersectsNode: t => Dom.node_like('a) => bool;
+[@send] external intersectsNode: (t, Dom.node_like('a)) => bool;
 [@send] external isPointInRange: (t, Dom.node_like('a), int) => bool;

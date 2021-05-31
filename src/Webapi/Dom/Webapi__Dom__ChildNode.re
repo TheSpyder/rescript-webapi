@@ -1,4 +1,4 @@
 /* Mixin */
 module Impl = (T: {type t;}) => {
-  [@send] external remove: T.t => unit = "";
+  [@send] external remove: T.t => unit;
 };
