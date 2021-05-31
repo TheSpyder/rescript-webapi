@@ -14,10 +14,6 @@
     {
       "dir": "examples",
       "type": "dev"
-    },
-    {
-      "dir": "scripts",
-      "type": "dev"
     }
   ],
   "warnings": {
