@@ -103,15 +103,8 @@ external setTransform:
 [@set] external miterLimit: (t, float) => unit;
 
 /* Colors, Styles, and Shadows */
-[@set] external setFillStyle: (t, 'a) => unit = "fillStyle";
-[@set] external setStrokeStyle: (t, 'a) => unit = "strokeStyle";
-
-/* in re unused warnings
-   awaiting release of https://github.com/bloomberg/bucklescript/issues/1656
-   to just use [@@bs.set] directly with an ignored (style a) */
-let setStrokeStyle = (type a, ctx: t, _: style(a), v: a) => setStrokeStyle(ctx, v);
-
-let setFillStyle = (type a, ctx: t, _: style(a), v: a) => setFillStyle(ctx, v);
+[@set] external setFillStyle: (t, [@ignore] style('a), 'a) => unit = "fillStyle";
+[@set] external setStrokeStyle: (t, [@ignore] style('a), 'a) => unit = "strokeStyle";
 
 let reifyStyle = (type a, x: 'a): (style(a), a) => {
   let isCanvasGradient: 'a => bool = [%raw
