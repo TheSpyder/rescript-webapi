@@ -2,6 +2,10 @@
 
 Bindings to the DOM and other browser-specific web APIs.
 
+## Stability
+
+Until the library reaches 1.0, expect major breaking changes to the API. See the [1.0 project](https://github.com/tinymce/rescript-webapi/projects/1) for the current progress towards that goal.
+
 ## TODO
 
 everything.
