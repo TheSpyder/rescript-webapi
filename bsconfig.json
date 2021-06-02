@@ -1,6 +1,7 @@
 {
   "name": "rescript-webapi",
   "bsc-flags": ["-bs-no-version-header"],
+  "namespace": "RsWebapi",
   "sources": [
     {
       "dir": "src",
