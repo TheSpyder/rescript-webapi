@@ -1,4 +1,4 @@
-open Webapi.Dom;
+open Dom2;
 open NodeList;
 
 let items = document->Document.querySelectorAll(".item");

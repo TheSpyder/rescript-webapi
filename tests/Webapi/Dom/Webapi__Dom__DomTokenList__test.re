@@ -1,4 +1,4 @@
-open Webapi.Dom;
+open Dom2;
 open DomTokenList;
 
 let tlist = document->Document.createElement("div")->Element.classList;

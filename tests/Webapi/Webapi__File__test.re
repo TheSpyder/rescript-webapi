@@ -1,4 +1,4 @@
-open Webapi.File;
+open File;
 
 let test_lastModified = file => file->lastModified->Js.log;
 let test_name = file => file->name->Js.log;

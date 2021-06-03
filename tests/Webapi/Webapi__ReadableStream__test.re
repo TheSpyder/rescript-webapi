@@ -1,4 +1,4 @@
-open Webapi.ReadableStream;
+open ReadableStream;
 
 module DefaultReader__test = {
   open! DefaultReader;

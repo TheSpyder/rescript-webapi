@@ -1,4 +1,4 @@
-open Webapi.Dom.Image;
+open Dom2.Image;
 
 let imageData = make(~width=0.0, ~height=0.0);
 

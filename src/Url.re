@@ -52,5 +52,5 @@ external makeWithBase: (string, string) => t = "URL";
 [@set] external setUsername: (t, string) => unit = "username";
 [@get] external toJson: t => string;
 
-[@val] [@scope "URL"] external createObjectURL: Webapi__File.t => string;
+[@val] [@scope "URL"] external createObjectURL: File.t => string;
 [@val] [@scope "URL"] external revokeObjectURL: string => unit;

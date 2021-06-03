@@ -1,4 +1,4 @@
-open Webapi.Blob;
+open Blob;
 
 let test_arrayBuffer = blob =>
   blob->arrayBuffer

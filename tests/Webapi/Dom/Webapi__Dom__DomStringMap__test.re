@@ -1,5 +1,5 @@
-open Webapi.Dom;
-open Webapi.Dom.DomStringMap;
+open Dom2;
+open DomStringMap;
 
 let dataset =
   document

@@ -46,7 +46,7 @@ module Impl = (T: {type t;}) => {
   [@get] external pageXOffset: t_window => float; /* alias for scrollX */
   [@get] external pageYOffset: t_window => float; /* alias for scrollY */
   [@get] external parent: t_window => Dom.window;
-  [@get] external performance: t_window => Webapi__Performance.t;
+  [@get] external performance: t_window => Performance.t;
   [@get] external personalbar: t_window => personalbar;
   [@get] external screen: t_window => screen;
   [@get] external screenX: t_window => int;
@@ -117,6 +117,13 @@ module Impl = (T: {type t;}) => {
 };
 
 type t = Dom.window;
+
+type rafId;
+
+[@val] external requestAnimationFrame: (float => unit) => unit;
+[@val]
+external requestCancellableAnimationFrame: (float => unit) => rafId = "requestAnimationFrame";
+[@val] external cancelAnimationFrame: rafId => unit;
 
 /* include WindowOrWorkerGlobalScope? not really "dom" though */
 include Webapi__Dom__EventTarget.Impl({

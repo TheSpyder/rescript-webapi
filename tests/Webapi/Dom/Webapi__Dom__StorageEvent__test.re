@@ -1,4 +1,4 @@
-open Webapi.Dom;
+open Dom2;
 open StorageEvent;
 
 let event = make("my-event");
@@ -23,5 +23,5 @@ stopPropagation(event);
 let _ = key(event);
 let _ = newValue(event);
 let _ = oldValue(event);
-let _ = storageArea(event);
+// let _ = storageArea(event);
 let _ = url(event);

@@ -1,4 +1,4 @@
-open Webapi.Dom;
+open Dom2;
 open SvgZoomEvent;
 
 let event = make("my-event");

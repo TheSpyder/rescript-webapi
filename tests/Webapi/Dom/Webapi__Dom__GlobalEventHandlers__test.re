@@ -1,4 +1,4 @@
-open Webapi.Dom;
+open Dom2;
 
 let handleSelection = _ => print_endline("change");
 

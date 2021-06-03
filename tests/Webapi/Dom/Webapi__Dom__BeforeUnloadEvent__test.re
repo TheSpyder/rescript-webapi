@@ -1,4 +1,4 @@
-open Webapi.Dom;
+open Dom2;
 open BeforeUnloadEvent;
 
 let event = make("my-event");

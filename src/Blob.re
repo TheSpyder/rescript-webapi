@@ -5,7 +5,7 @@ module Impl = (T: {type t;}) => {
 
   [@send] external slice: (T.t, ~start: int=?, ~end_: int=?, ~contentType: string=?, unit) => T.t;
 
-  /** @since 0.19.0 */ [@send] external stream: T.t => Webapi__ReadableStream.t;
+  /** @since 0.19.0 */ [@send] external stream: T.t => ReadableStream.t;
 
   [@send] external text: T.t => Js.Promise.t(string);
 

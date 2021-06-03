@@ -1,1 +1,2 @@
-let _ = Webapi.Dom.window->Webapi.Dom.Window.performance->Webapi.Performance.now;
+open Dom2;
+let _ = window->Window.performance->Performance.now;

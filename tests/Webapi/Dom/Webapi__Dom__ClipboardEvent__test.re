@@ -1,4 +1,4 @@
-open Webapi.Dom;
+open Dom2;
 open ClipboardEvent;
 
 let event = make("my-event");

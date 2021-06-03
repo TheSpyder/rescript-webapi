@@ -1,4 +1,4 @@
-open Webapi.FormData;
-open Webapi.Dom.HtmlFormElement;
+open Fetch.FormData;
+open Dom2.HtmlFormElement;
 
 let test_data = formElement => formElement->data |> get("foo");

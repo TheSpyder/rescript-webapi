@@ -2,7 +2,7 @@ type t = Fetch.file;
 
 [@text "{1 Blob superclass}"];
 
-include Webapi__Blob.Impl({
+include Blob.Impl({
   type nonrec t = t;
 });
 

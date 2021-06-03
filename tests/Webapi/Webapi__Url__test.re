@@ -1,4 +1,4 @@
-open Webapi.Url;
+open Url;
 
 let params = URLSearchParams.make("key1=value1&key2=value2");
 params->URLSearchParams.forEach(Js.log2);

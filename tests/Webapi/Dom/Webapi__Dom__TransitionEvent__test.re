@@ -1,4 +1,4 @@
-open Webapi.Dom;
+open Dom2;
 open TransitionEvent;
 
 let event = make("my-event");

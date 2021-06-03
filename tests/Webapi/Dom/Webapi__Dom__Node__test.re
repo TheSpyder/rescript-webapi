@@ -1,4 +1,4 @@
-open Webapi.Dom;
+open Dom2;
 open Node;
 
 let node = document->Document.createElement("strong")->Element.rootNode;

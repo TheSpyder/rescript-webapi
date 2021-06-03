@@ -1,4 +1,4 @@
-open Webapi.Dom;
+open Dom2;
 
 let el = document->Document.createElement("strong");
 let event = document->Document.createEvent("my-event");
