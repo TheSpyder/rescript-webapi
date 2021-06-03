@@ -1,13 +1,13 @@
 type t = Dom.history;
 type state; /* TODO: should be "anything that can be serializable" apparently */
 
-[@bs.get] external length : t => int = "";
-[@bs.get] external scrollRestoration : t => bool = ""; /* experimental */
-[@bs.set] external setScrollRestoration : (t, bool) => unit = "scrollRestoration"; /* experimental */
-[@bs.get] external state : t => state = "";
+[@get] external length: t => int;
+[@get] external scrollRestoration: t => bool; /* experimental */
+[@set] external setScrollRestoration: (t, bool) => unit = "scrollRestoration"; /* experimental */
+[@get] external state: t => state;
 
-[@bs.send.pipe : t] external back : unit = "";
-[@bs.send.pipe : t] external forward : unit = "";
-[@bs.send.pipe : t] external go : int => unit = "";
-[@bs.send.pipe : t] external pushState : (state, string, string) => unit = "";
-[@bs.send.pipe : t] external replaceState : (state, string, string) => unit = "";
+[@send] external back: t => unit;
+[@send] external forward: t => unit;
+[@send] external go: (t, int) => unit;
+[@send] external pushState: (t, state, string, string) => unit;
+[@send] external replaceState: (t, state, string, string) => unit;

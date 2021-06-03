@@ -1,57 +1,67 @@
 open Webapi.Dom;
 open Document;
 
-let el = document |> createElement("strong");
+let el = document->createElement("strong");
 
-let _ = characterSet(document);
-let _ = compatMode(document);
-let _ = doctype(document);
-let _ = documentElement(document);
-let _ = documentURI(document);
-let _ = hidden(document);
-let _ = implementation(document);
-let _ = lastStyleSheetSet(document);
-let _ = pointerLockElement(document);
-let _ = preferredStyleSheetSet(document);
-let _ = scrollingElement(document);
-let _ = selectedStyleSheetSet(document);
+let _ = document->characterSet;
+let _ = document->compatMode;
+let _ = document->doctype;
+let _ = document->documentElement;
+let _ = document->documentURI;
+let _ = document->hidden;
+let _ = document->implementation;
+let _ = document->lastStyleSheetSet;
+let _ = document->pointerLockElement;
+let _ = document->preferredStyleSheetSet;
+let _ = document->scrollingElement;
+let _ = document->selectedStyleSheetSet;
 let _ = setSelectedStyleSheetSet(document, "muh-stylesheet");
-let _ = styleSheets(document);
-let _ = styleSheetSets(document);
-let _ = visibilityState(document);
+let _ = document->styleSheets;
+let _ = document->styleSheetSets;
+let _ = document->visibilityState;
 
-let _ = adoptNode(el, document);
-let _ = createAttribute("data-foo", document);
-let _ = createAttributeNS("http://...", "foo", document);
-let _ = createComment("witty comment", document);
-let _ = createDocumentFragment(document);
-let _ = createElement("div", document);
-let _ = createElementWithOptions("div", [%bs.raw "{}"], document); /* I've no idea what this options object is supposed to be, even the spec doesn't seem to bother explaining it */
-let _ = createElementNS("http://...", "foo", document);
-let _ = createElementNSWithOptions("http://...", "div", [%bs.raw "{}"], document); /* I've no idea what this options object is supposed to be, even the spec doesn't seem to bother explaining it */
-let _ = createEvent("MyCustomEvent", document);
-let _ = createNodeIterator(el, document);
-let _ = createNodeIteratorWithWhatToShow(el, WhatToShow._All, document);
-let _ = createNodeIteratorWithWhatToShowFilter(el, WhatToShow.(many([_Element, _Attribute])), NodeFilter.make((_) => 0), document);
-let _ = createRange(document);
-let _ = createTextNode("Very reasonable!", document);
-let _ = createTreeWalker(el, document);
-let _ = createTreeWalkerWithWhatToShow(el, WhatToShow._All, document);
-let _ = createTreeWalkerWithWhatToShowFilter(el, WhatToShow.(many([_Element, _Attribute])), NodeFilter.make((_) => 0), document);
-let _ = elementFromPoint(0, 0, document);
-let _ = elementsFromPoint(0, 0, document);
-let _ = enableStyleSheetsForSet("my-stylesheet-set", document);
-let _ = exitPointerLock(document);
-let _ = getAnimations(document);
-let _ = getElementsByClassName("lstlisting", document);
-let _ = getElementsByTagName("code", document);
-let _ = getElementsByTagNameNS("http://...", "foo", document);
-let _ = importNode(el, document);
-let _ = importNodeDeep(el, document);
+let _ = document->adoptNode(el);
+let _ = document->createAttribute("data-foo");
+let _ = document->createAttributeNS("http://...", "foo");
+let _ = document->createComment("witty comment");
+let _ = document->createDocumentFragment;
+let _ = document->createElement("div");
+let _ = document->createElementWithOptions("div", [%bs.raw "{}"]); /* I've no idea what this options object is supposed to be, even the spec doesn't seem to bother explaining it */
+let _ = document->createElementNS("http://...", "foo");
+let _ = document->createElementNSWithOptions("http://...", "div", [%bs.raw "{}"]); /* I've no idea what this options object is supposed to be, even the spec doesn't seem to bother explaining it */
+let _ = document->createEvent("MyCustomEvent");
+let _ = document->createNodeIterator(el);
+let _ = document->createNodeIteratorWithWhatToShow(el, WhatToShow._All);
+let _ =
+  document->createNodeIteratorWithWhatToShowFilter(
+    el,
+    WhatToShow.(many([_Element, _Attribute])),
+    NodeFilter.make(_ => 0),
+  );
+let _ = document->createRange;
+let _ = document->createTextNode("Very reasonable!");
+let _ = document->createTreeWalker(el);
+let _ = document->createTreeWalkerWithWhatToShow(el, WhatToShow._All);
+let _ =
+  document->createTreeWalkerWithWhatToShowFilter(
+    el,
+    WhatToShow.(many([_Element, _Attribute])),
+    NodeFilter.make(_ => 0),
+  );
+let _ = document->elementFromPoint(0, 0);
+let _ = document->elementsFromPoint(0, 0);
+let _ = document->enableStyleSheetsForSet("my-stylesheet-set");
+let _ = document->exitPointerLock;
+let _ = document->getAnimations;
+let _ = document->getElementsByClassName("lstlisting");
+let _ = document->getElementsByTagName("code");
+let _ = document->getElementsByTagNameNS("http://...", "foo");
+let _ = document->importNode(el);
+let _ = document->importNodeDeep(el);
 /* TODO: These get dead code eliminated
-let _ = registerElement(document, "my-component");
-let _ = registerElementWithOptions(document, "my-component", [%bs.raw "{}"]);
-*/
-let _ = getElementById("root", document);
-let _ = querySelector(".lstlisting", document);
-let _ = querySelectorAll(".lstlisting", document);
+   let _ = registerElement(document, "my-component");
+   let _ = registerElementWithOptions(document, "my-component", [%bs.raw "{}"]);
+   */
+let _ = document->getElementById("root");
+let _ = document->querySelector(".lstlisting");
+let _ = document->querySelectorAll(".lstlisting");

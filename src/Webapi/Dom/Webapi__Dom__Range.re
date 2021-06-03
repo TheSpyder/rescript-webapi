@@ -1,43 +1,45 @@
 type t = Dom.range;
 
-[@bs.new] external make : unit => t = "Range"; /* experimental */
+[@new] external make: unit => t = "Range"; /* experimental */
 
-[@bs.get] external collapsed : t => bool = "";
-[@bs.get] external commonAncestorContainer : t => Dom.node = "";
-[@bs.get] external endContainer : t => Dom.node = "";
-[@bs.get] external endOffset : t => int = "";
-[@bs.get] external startContainer : t => Dom.node = "";
-[@bs.get] external startOffset : t => int = "";
+[@get] external collapsed: t => bool;
+[@get] external commonAncestorContainer: t => Dom.node;
+[@get] external endContainer: t => Dom.node;
+[@get] external endOffset: t => int;
+[@get] external startContainer: t => Dom.node;
+[@get] external startOffset: t => int;
 
-[@bs.send.pipe : t] external setStart : (Dom.node_like('a), int) => unit = "";
-[@bs.send.pipe : t] external setEnd : (Dom.node_like('a), int) => unit = "";
-[@bs.send.pipe : t] external setStartBefore : Dom.node_like('a) => unit = "";
-[@bs.send.pipe : t] external setStartAfter : Dom.node_like('a) => unit = "";
-[@bs.send.pipe : t] external setEndBefore : Dom.node_like('a) => unit = "";
-[@bs.send.pipe : t] external setEndAfter : Dom.node_like('a) => unit = "";
-[@bs.send.pipe : t] external selectNode : Dom.node_like('a) => unit = "";
-[@bs.send.pipe : t] external selectNodeContents : Dom.node_like('a) => unit = "";
-[@bs.send.pipe : t] external collapse : unit = "";
-[@bs.send.pipe : t] external collapseToStart : ([@bs.as {json|true|json}] _) => unit = "collapse";
-[@bs.send.pipe : t] external cloneContents : Dom.documentFragment = "";
-[@bs.send.pipe : t] external deleteContents : unit = "";
-[@bs.send.pipe : t] external extractContents : Dom.documentFragment = "";
-[@bs.send.pipe : t] external insertNode : Dom.node_like('a) => unit = "";
-[@bs.send.pipe : t] external surroundContents : Dom.node_like('a) => unit = "";
-[@bs.send.pipe : t] external compareBoundaryPoints : (int /* compareHow enum */, t) => int /* compareResult enum */ = "";
-let compareBoundaryPoint: (Webapi__Dom__Types.compareHow, t, t) => Webapi__Dom__Types.compareResult =
-  (how, range, self) =>
+[@send] external setStart: (t, Dom.node_like('a), int) => unit;
+[@send] external setEnd: (t, Dom.node_like('a), int) => unit;
+[@send] external setStartBefore: (t, Dom.node_like('a)) => unit;
+[@send] external setStartAfter: (t, Dom.node_like('a)) => unit;
+[@send] external setEndBefore: (t, Dom.node_like('a)) => unit;
+[@send] external setEndAfter: (t, Dom.node_like('a)) => unit;
+[@send] external selectNode: (t, Dom.node_like('a)) => unit;
+[@send] external selectNodeContents: (t, Dom.node_like('a)) => unit;
+[@send] external collapse: t => unit;
+[@send] external collapseToStart: (t, [@as {json|true|json}] _) => unit = "collapse";
+[@send] external cloneContents: t => Dom.documentFragment;
+[@send] external deleteContents: t => unit;
+[@send] external extractContents: t => Dom.documentFragment;
+[@send] external insertNode: (t, Dom.node_like('a)) => unit;
+[@send] external surroundContents: (t, Dom.node_like('a)) => unit;
+[@send]
+external compareBoundaryPoints: (t, int /* compareHow enum */, t) => int /* compareResult enum */;
+let compareBoundaryPoint: (t, Webapi__Dom__Types.compareHow, t) => Webapi__Dom__Types.compareResult =
+  (self, how, range) =>
     Webapi__Dom__Types.decodeCompareResult(
-      compareBoundaryPoints(Webapi__Dom__Types.encodeCompareHow(how), range, self)
+      self->compareBoundaryPoints(Webapi__Dom__Types.encodeCompareHow(how), range),
     );
-[@bs.send.pipe : t] external cloneRange : t = "";
-[@bs.send.pipe : t] external detach : unit = "";
-[@bs.send.pipe : t] external toString : string = "";
-[@bs.send.pipe : t] external comparePoint : (Dom.node_like('a), int) => int /* compareRsult enum */ = "";
-let comparePoint: (Dom.node_like('a), int, t) => Webapi__Dom__Types.compareResult =
-  (node, offset, self) => Webapi__Dom__Types.decodeCompareResult(comparePoint(node, offset, self));
-[@bs.send.pipe : t] external createContextualFragment : string => Dom.documentFragment = ""; /* experimental, but widely supported */
-[@bs.send.pipe : t] external getBoundingClientRect : Dom.domRect = ""; /* experimental, but widely supported */
-[@bs.send.pipe : t] external getClientRects : array(Dom.domRect) = ""; /* experimental, but widely supported */
-[@bs.send.pipe : t] external intersectsNode : Dom.node_like('a) => bool = "";
-[@bs.send.pipe : t] external isPointInRange : (Dom.node_like('a), int) => bool = "";
+[@send] external cloneRange: t => t;
+[@send] external detach: t => unit;
+[@send] external toString: t => string;
+[@send] external comparePoint: (t, Dom.node_like('a), int) => int /* compareRsult enum */;
+let comparePoint: (t, Dom.node_like('a), int) => Webapi__Dom__Types.compareResult =
+  (self, node, offset) =>
+    Webapi__Dom__Types.decodeCompareResult(self->comparePoint(node, offset));
+[@send] external createContextualFragment: (t, string) => Dom.documentFragment; /* experimental, but widely supported */
+[@send] external getBoundingClientRect: t => Dom.domRect; /* experimental, but widely supported */
+[@send] external getClientRects: t => array(Dom.domRect); /* experimental, but widely supported */
+[@send] external intersectsNode: (t, Dom.node_like('a)) => bool;
+[@send] external isPointInRange: (t, Dom.node_like('a), int) => bool;

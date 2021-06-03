@@ -2,27 +2,28 @@ module type Reader = {
   type t;
   type closed;
 
-  [@bs.send] external closed: t => Js.Promise.t(closed) = "";
-  [@bs.send] external cancel: t => Js.Promise.t(unit) = "";
-  [@bs.send.pipe: t] external cancelWith: string => Js.Promise.t(string) = "cancel";
-  [@bs.send] external releaseLock: t => unit = "";
+  [@send] external closed: t => Js.Promise.t(closed);
+  [@send] external cancel: t => Js.Promise.t(unit);
+  [@send] external cancelWith: (t, string) => Js.Promise.t(string) = "cancel";
+  [@send] external releaseLock: t => unit;
 };
 
 module rec DefaultReader: {
   include Reader;
-  [@bs.send] external read: t => Js.Promise.t(Fetch__Iterator.Next.t(string)) = "";
+  [@send] external read: t => Js.Promise.t(Fetch__Iterator.Next.t(string));
 } = DefaultReader;
 
 module rec BYOBReader: {
   include Reader;
-  // [@bs.send.pipe: t] external read: view => Js.Promise.t(Fetch__Iterator.Next.t(string)) = "read";
+  // [@send]  external read: t => view => Js.Promise.t(Fetch__Iterator.Next.t(string)) = "read";
 } = BYOBReader;
 
 type t = Fetch.readableStream;
 
-[@bs.get] external locked: t => bool = "";
-[@bs.send] external cancel: t => Js.Promise.t(unit) = "";
-[@bs.send.pipe: t] external cancelWith: string => Js.Promise.t(string) = "cancel";
-[@bs.send] external getReader: t => DefaultReader.t = "";
-[@bs.send] external getReaderBYOB: (t, [@bs.as {json|{"mode": "byob"}|json}] _) => BYOBReader.t = "getReader";
-[@bs.send] external tee: t => (t, t) = "";
+[@get] external locked: t => bool;
+[@send] external cancel: t => Js.Promise.t(unit);
+[@send] external cancelWith: (t, string) => Js.Promise.t(string) = "cancel";
+[@send] external getReader: t => DefaultReader.t;
+[@send]
+external getReaderBYOB: (t, [@as {json|{"mode": "byob"}|json}] _) => BYOBReader.t = "getReader";
+[@send] external tee: t => (t, t);

@@ -66,40 +66,42 @@ let _STATIC_DRAW: int = 35044;
 let _DYNAMIC_DRAW: int = 35048;
 
 /* void clear(GLbitfield mask); */
-[@bs.send] external clear : (glT, int) => unit = "clear";
+[@send] external clear: (glT, int) => unit = "clear";
 /* void clearColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha); */
-[@bs.send] external clearColor : (glT, float, float, float, float) => unit = "clearColor";
+[@send] external clearColor: (glT, float, float, float, float) => unit = "clearColor";
 /* void enable(GLenum cap); */
-[@bs.send] external enable : (glT, int) => unit = "enable";
+[@send] external enable: (glT, int) => unit = "enable";
 /* void disable(GLenum cap); */
-[@bs.send] external disable : (glT, int) => unit = "disable";
+[@send] external disable: (glT, int) => unit = "disable";
 /* void blendFunc(GLenum sfactor, GLenum dfactor); */
-[@bs.send] external blendFunc : (glT, int, int) => unit = "blendFunc";
+[@send] external blendFunc: (glT, int, int) => unit = "blendFunc";
 /* void cullFace(GLenum mode); */
-[@bs.send] external cullFace : (glT, int) => unit = "cullFace";
-[@bs.send] external createBuffer : glT => bufferT = "createBuffer";
-[@bs.send] external deleteBuffer : (glT, bufferT) => unit = "deleteBuffer";
-[@bs.send] external bindBuffer : (glT, int, bufferT) => unit = "bindBuffer";
-[@bs.send] external bufferData : (glT, int, Js.Typed_array.Uint16Array.t, int) => unit = "bufferData";
-[@bs.send] external bufferFloatData : (glT, int, Js.Typed_array.Float32Array.t, int) => unit = "bufferData";
-[@bs.send] external createProgram : glT => programT = "createProgram";
-[@bs.send] external linkProgram : (glT, programT) => unit = "linkProgram";
-[@bs.send] external useProgram : (glT, programT) => unit = "useProgram";
-[@bs.send] external getProgramInfoLog : (glT, programT) => string = "getProgramInfoLog";
-[@bs.send] external bindAttribLocation : (glT, programT, int, string) => unit = "bindAttribLocation";
-[@bs.send] external createShader : (glT, int) => shaderT = "createShader";
-[@bs.send] external shaderSource : (glT, shaderT, string) => unit = "shaderSource";
-[@bs.send] external compileShader : (glT, shaderT) => unit = "compileShader";
-[@bs.send] external attachShader : (glT, programT, shaderT) => unit = "attachShader";
-[@bs.send] external getShaderInfoLog : (glT, shaderT) => string = "getShaderInfoLog";
+[@send] external cullFace: (glT, int) => unit = "cullFace";
+[@send] external createBuffer: glT => bufferT = "createBuffer";
+[@send] external deleteBuffer: (glT, bufferT) => unit = "deleteBuffer";
+[@send] external bindBuffer: (glT, int, bufferT) => unit = "bindBuffer";
+[@send] external bufferData: (glT, int, Js.Typed_array.Uint16Array.t, int) => unit = "bufferData";
+[@send]
+external bufferFloatData: (glT, int, Js.Typed_array.Float32Array.t, int) => unit = "bufferData";
+[@send] external createProgram: glT => programT = "createProgram";
+[@send] external linkProgram: (glT, programT) => unit = "linkProgram";
+[@send] external useProgram: (glT, programT) => unit = "useProgram";
+[@send] external getProgramInfoLog: (glT, programT) => string = "getProgramInfoLog";
+[@send] external bindAttribLocation: (glT, programT, int, string) => unit = "bindAttribLocation";
+[@send] external createShader: (glT, int) => shaderT = "createShader";
+[@send] external shaderSource: (glT, shaderT, string) => unit = "shaderSource";
+[@send] external compileShader: (glT, shaderT) => unit = "compileShader";
+[@send] external attachShader: (glT, programT, shaderT) => unit = "attachShader";
+[@send] external getShaderInfoLog: (glT, shaderT) => string = "getShaderInfoLog";
 /* void drawElements(GLenum mode, GLsizei count, GLenum type, GLintptr offset); */
-[@bs.send] external drawElements : (glT, int, int, int, int) => unit = "drawElements";
+[@send] external drawElements: (glT, int, int, int, int) => unit = "drawElements";
 /* void enableVertexAttribArray(GLuint index); */
-[@bs.send] external enableVertexAttribArray : (glT, int) => unit = "enableVertexAttribArray";
+[@send] external enableVertexAttribArray: (glT, int) => unit = "enableVertexAttribArray";
 /* void vertexAttribPointer(GLuint indx, GLint size, GLenum type,
    GLboolean normalized, GLsizei stride, GLintptr offset); */
-[@bs.send] external vertexAttribPointer : (glT, int, int, int, bool, int, int) => unit = "vertexAttribPointer";
+[@send]
+external vertexAttribPointer: (glT, int, int, int, bool, int, int) => unit = "vertexAttribPointer";
 /* GLint gl.getAttribLocation(program, name); */
-[@bs.send] external getAttribLocation : (glT, programT, string) => int = "getAttribLocation";
+[@send] external getAttribLocation: (glT, programT, string) => int = "getAttribLocation";
 /* void gl.drawArrays(mode, first, count); */
-[@bs.send] external drawArrays : (glT, int, int, int) => unit = "drawArrays";
+[@send] external drawArrays: (glT, int, int, int) => unit = "drawArrays";

@@ -1,6 +1,6 @@
 {
   "name": "rescript-webapi",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Reason / ReScript bindings to DOM",
   "repository": {
     "type": "git",
@@ -19,7 +19,8 @@
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "doc-install": "npm install --no-save bsdoc",
-    "test": "bsb -make-world && bsdoc build api && bsdoc support-files"
+    "test": "bsb -make-world && bsdoc build api && bsdoc support-files",
+    "refmt-all": "find src tests \\( -name '*.re' -o -name '*.rei' \\) | xargs bsrefmt -w 100 --in-place"
   },
   "files": [
     "src",

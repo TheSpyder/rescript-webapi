@@ -1,13 +1,14 @@
-let el = Webapi.Dom.document |> Webapi.Dom.Document.createElement("strong");
+let el = Webapi.Dom.document->Webapi.Dom.Document.createElement("strong");
 
-let handler = (entries) => {
+let handler = entries => {
   let entry = entries[0];
-  let _: Dom.domRect = Webapi.ResizeObserver.ResizeObserverEntry.contentRect(entry);
-  let _: Dom.element = Webapi.ResizeObserver.ResizeObserverEntry.target(entry);
-}
+  let _: Dom.domRect = entry->Webapi.ResizeObserver.ResizeObserverEntry.contentRect;
+  let _: Dom.element = entry->Webapi.ResizeObserver.ResizeObserverEntry.target;
+  ();
+};
 
 let observer = Webapi.ResizeObserver.make(handler);
 
-Webapi.ResizeObserver.observe(observer, el);
-Webapi.ResizeObserver.unobserve(observer, el);
-Webapi.ResizeObserver.disconnect(observer);
+observer->Webapi.ResizeObserver.observe(el);
+observer->Webapi.ResizeObserver.unobserve(el);
+observer->Webapi.ResizeObserver.disconnect;

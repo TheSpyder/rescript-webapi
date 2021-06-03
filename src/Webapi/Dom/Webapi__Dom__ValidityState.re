@@ -1,13 +1,13 @@
 type t;
 
-[@bs.get] external valueMissing : t => bool = "";
-[@bs.get] external typeMismatch : t => bool = "";
-[@bs.get] external patternMismatch : t => bool = "";
-[@bs.get] external tooLong : t => bool = "";
-[@bs.get] external tooShort : t => bool = "";
-[@bs.get] external rangeUnderflow : t => bool = "";
-[@bs.get] external rangeOverflow : t => bool = "";
-[@bs.get] external stepMismatch : t => bool = "";
-[@bs.get] external badInput : t => bool = "";
-[@bs.get] external customError : t => bool = "";
-[@bs.get] external valid : t => bool = "";
+[@get] external valueMissing: t => bool;
+[@get] external typeMismatch: t => bool;
+[@get] external patternMismatch: t => bool;
+[@get] external tooLong: t => bool;
+[@get] external tooShort: t => bool;
+[@get] external rangeUnderflow: t => bool;
+[@get] external rangeOverflow: t => bool;
+[@get] external stepMismatch: t => bool;
+[@get] external badInput: t => bool;
+[@get] external customError: t => bool;
+[@get] external valid: t => bool;

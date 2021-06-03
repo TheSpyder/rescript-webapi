@@ -121,12 +121,7 @@ module EventPhase = {
 };
 
 [@deprecated "Use EventPhase.t"]
-type eventPhase = EventPhase.t =
-  | None
-  | CapturingPhase
-  | AtTarget
-  | BubblingPhase
-  | Unknown;
+type eventPhase = EventPhase.t = | None | CapturingPhase | AtTarget | BubblingPhase | Unknown;
 
 type filterAction =
   | Accept

@@ -2,59 +2,61 @@ open Webapi.Dom;
 open HtmlElement;
 
 let el =
-  document |> Document.createElement("strong")
-           |> Element.asHtmlElement
-           |> TestHelpers.unsafelyUnwrapOption;
+  document
+  ->Document.createElement("strong")
+  ->Element.asHtmlElement
+  ->TestHelpers.unsafelyUnwrapOption;
 let el2 =
-  document |> Document.createElement("small")
-           |> Element.asHtmlElement
-           |> TestHelpers.unsafelyUnwrapOption;
-let event = document |> Document.createEvent("my-event");
+  document
+  ->Document.createElement("small")
+  ->Element.asHtmlElement
+  ->TestHelpers.unsafelyUnwrapOption;
+let event = document->Document.createEvent("my-event");
 
-let _ = accessKey(el);
-let _ = setAccessKey(el, "");
-let _ = accessKeyLabel(el);
-let _ = contentEditable(el);
-let _ = setContentEditable(el, Inherit);
-let _ = isContentEditable(el);
-let _ = contextMenu(el);
-let _ = setContextMenu(el, el2);
-let _ = dataset(el);
-let _ = dir(el);
-let _ = setDir(el, Rtl);
-let _ = draggable(el);
-let _ = setDraggable(el, true);
-let _ = dropzone(el);
-let _ = hidden(el);
-let _ = setHidden(el, true);
-let _ = itemScope(el);
-let _ = setItemScope(el, true);
-let _ = itemType(el);
-let _ = itemId(el);
-let _ = setItemId(el, "my-id");
-let _ = itemRef(el);
-let _ = itemProp(el);
-let _ = itemValue(el);
-let _ = setItemValue(el, [%bs.raw "{}"]);
-let _ = lang(el);
-let _ = setLang(el, "en");
-let _ = offsetHeight(el);
-let _ = offsetLeft(el);
-let _ = offsetParent(el);
-let _ = offsetTop(el);
-let _ = offsetWidth(el);
-let _ = spellcheck(el);
-let _ = setSpellcheck(el, true);
-let _ = style(el);
+let _ = el->accessKey;
+let _ = el->setAccessKey("");
+let _ = el->accessKeyLabel;
+let _ = el->contentEditable;
+let _ = el->setContentEditable(Inherit);
+let _ = el->isContentEditable;
+let _ = el->contextMenu;
+let _ = el->setContextMenu(el2);
+let _ = el->dataset;
+let _ = el->dir;
+let _ = el->setDir(Rtl);
+let _ = el->draggable;
+let _ = el->setDraggable(true);
+let _ = el->dropzone;
+let _ = el->hidden;
+let _ = el->setHidden(true);
+let _ = el->itemScope;
+let _ = el->setItemScope(true);
+let _ = el->itemType;
+let _ = el->itemId;
+let _ = el->setItemId("my-id");
+let _ = el->itemRef;
+let _ = el->itemProp;
+let _ = el->itemValue;
+let _ = el->setItemValue([%bs.raw "{}"]);
+let _ = el->lang;
+let _ = el->setLang("en");
+let _ = el->offsetHeight;
+let _ = el->offsetLeft;
+let _ = el->offsetParent;
+let _ = el->offsetTop;
+let _ = el->offsetWidth;
+let _ = el->spellcheck;
+let _ = el->setSpellcheck(true);
+let _ = el->style;
 /* let _ = setStyle el CSSStyleDeclaration.t; /* TODO: No way to make a CSSStyleDeclaration at the moment */*/
-let _ = tabIndex(el);
-let _ = setTabIndex(el, 42);
-let _ = title(el);
-let _ = setTitle(el, "hovertext!");
-let _ = translate(el);
-let _ = setTranslate(el, true);
+let _ = el->tabIndex;
+let _ = el->setTabIndex(42);
+let _ = el->title;
+let _ = el->setTitle("hovertext!");
+let _ = el->translate;
+let _ = el->setTranslate(true);
 
-blur(el);
-click(el);
-focus(el);
-forceSpellCheck(el);
+el->blur;
+el->click;
+el->focus;
+el->forceSpellCheck;
