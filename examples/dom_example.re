@@ -17,10 +17,10 @@ let _ =
   document->Document.createElement("div")->Element.nextElementSibling->map(Element.innerText); /* innerText is a function that accepts a Node */
 
 /* Before subtyping:
-   document -> Document.createElement("div")
-            -> Element.asNode
-            -> Node.parentElement /* inherited from Node, returns DomRe.element */
-            -> map(Element.innerText); /* inherited from Node */
+   document->Document.createElement("div")
+           ->Element.asNode
+           ->Node.parentElement /* inherited from Node, returns DomRe.element */
+           ->map(Element.innerText); /* inherited from Node */
    */
 
 /* After subtyping: */
@@ -32,16 +32,16 @@ let _ =
 
 let el = document->Document.createElement("div")->Element.asHtmlElement->unwrapUnsafely;
 
-/*
- document -> Document.asHtmlDocument
-          -> andThen(HtmlDocument.body)
-          -> map(Element.appendChild(el));
+/* 
+ document->Document.asHtmlDocument
+         ->flatMap(HtmlDocument.body)
+         ->map(Element.appendChild(el));
  */
 
 /* Before subtyping:
-   document -> Document.asHtmlDocument
-            -> andThen(HtmlDocument.body)
-            -> map(Element.appendChild (el -> HtmlElement.asNode));
+   document->Document.asHtmlDocument
+           ->flatMap(HtmlDocument.body)
+           ->map(Element.appendChild (el->HtmlElement.asNode));
    */
 
 /* After subtyping: */
@@ -55,27 +55,27 @@ let _ =
  /*
  * These MAY fail type check
  */
- document -> Document.createElement("div")
-          -> Element.nextElementSibling
-          -> map(Node.innerText);
+ document->Document.createElement("div")
+         ->Element.nextElementSibling
+         ->map(Node.innerText);
 
  /*
  * These SHOULD NOT type check
  */
- document -> Document.createElement("div")
-          -> Element.asNode
-          -> Element.parentElement; /* inherited from Node, returns DomRe.element */
+ document->Document.createElement("div")
+         ->Element.asNode
+         ->Element.parentElement; /* inherited from Node, returns DomRe.element */
  */
 
 /*
  /* ideal, but requires piped setters */
- switch (document -> body) {
+ switch (document->body) {
  | Some body =>
-   document -> createElement("div")
-            -> setInnerText("</>")
-            -> setClassName("reason_tools_button")
-            -> setOnClick(swap)
-            -> (body -> appendChild);
+   document->createElement("div")
+           ->setInnerText("</>")
+           ->setClassName("reason_tools_button")
+           ->setOnClick(swap)
+           ->(body->appendChild);
  | None =>
    ...
  }
