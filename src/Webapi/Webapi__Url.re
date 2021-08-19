@@ -22,10 +22,6 @@ type t;
 
 [@new] external make: string => t = "URL";
 
-/** Deprecated, use [makeWith] instead. */
-[@deprecated "Use [makeWith] instead."] [@new]
-external makeWithBase: (string, string) => t = "URL";
-
 /** @since 0.19.0 */ [@new] external makeWith: (string, ~base: string) => t = "URL";
 
 [@get] external hash: t => string;
