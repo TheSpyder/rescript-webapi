@@ -75,7 +75,7 @@ module Impl = (T: {type t;}) => {
   external getComputedStyleWithPseudoElement:
     (t_window, Dom.element, string) => Dom.cssStyleDeclaration =
     "getComputedStyle";
-  [@send] external getSelection: t_window => Dom.selection;
+  [@send] [@return nullable] external getSelection: t_window => option(Dom.selection);
   [@send] external matchMedia: (t_window, string) => mediaQueryList; /* experimental, CSSOM View module */
   [@send] external moveBy: (t_window, int, int) => unit; /* experimental, CSSOM View module */
   [@send] external moveTo: (t_window, int, int) => unit; /* experimental, CSSOM View module */
