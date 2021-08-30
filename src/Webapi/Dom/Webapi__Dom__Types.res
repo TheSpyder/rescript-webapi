@@ -122,7 +122,7 @@ let decodeDir = x =>
   | _ => Unknown
   }
 
-@ocaml.doc(" @since 0.17.1 ")
+/** @since 0.17.1 */
 module EventPhase = {
   type t =
     | None

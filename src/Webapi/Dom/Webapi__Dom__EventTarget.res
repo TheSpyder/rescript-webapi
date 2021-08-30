@@ -33,9 +33,9 @@ module Impl = (
   ) => unit = "removeEventListener"
   @send external dispatchEvent: (T.t, Dom.event_like<'a>) => bool = ""
 
-  @ocaml.doc("
-   *  non-standard event-specific functions
-   ")
+  /**
+   * non-standard event-specific functions
+   */
   @send
   external /* UI */
   addLoadEventListener: (T.t, @as("load") _, Dom.event => unit) => unit = "addEventListener"

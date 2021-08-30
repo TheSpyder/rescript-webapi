@@ -8,7 +8,7 @@ include Webapi__Blob.Impl({
 
 @@text("{1 File class}")
 
-@ocaml.doc(" @since 0.18.0 ") @get external lastModified: t => float = ""
+/** @since 0.18.0 */ @get external lastModified: t => float = ""
 
 // [@new] external make: ... = "File";
 

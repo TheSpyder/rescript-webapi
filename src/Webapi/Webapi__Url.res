@@ -22,7 +22,7 @@ type t
 
 @new external make: string => t = "URL"
 
-@ocaml.doc(" @since 0.19.0 ") @new external makeWith: (string, ~base: string) => t = "URL"
+/** @since 0.19.0 */ @new external makeWith: (string, ~base: string) => t = "URL"
 
 @get external hash: t => string = ""
 @set external setHash: (t, string) => unit = "hash"

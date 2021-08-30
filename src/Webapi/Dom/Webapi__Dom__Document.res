@@ -19,7 +19,7 @@ module Impl = (
     }
   `)
 
-  @ocaml.doc(" Unsafe cast, use [ashtmlDocument] instead ")
+  /** Unsafe cast, use [ashtmlDocument] instead */
   external unsafeAsHtmlDocument: T.t => Dom.htmlDocument = "%identity"
 
   let ofNode = (node: Dom.node): option<T.t> =>
@@ -116,13 +116,11 @@ module Impl = (
   external registerElementWithOptions: (T.t, string, {..}, unit) => Dom.element =
     "registerElement" /* experimental and deprecated in favor of customElements.define() */
 
-  @@ocaml.doc(
-    " XPath stuff "
-    /* createExpression */
-    /* createNSResolver */
-    /* evaluate */
-    /* GlobalEventHandlers interface */
-  )
+  /** XPath stuff */
+  /* createExpression */
+  /* createNSResolver */
+  /* evaluate */
+  /* GlobalEventHandlers interface */
 }
 
 type t = Dom.document

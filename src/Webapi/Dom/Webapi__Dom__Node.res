@@ -57,7 +57,7 @@ module Impl = (
   @send external normalize: T.t => unit = ""
   @send external removeChild: (T.t, Dom.node_like<'a>) => Dom.node_like<'a> = ""
 
-  @ocaml.doc(" @since 0.19.0 ") @send
+  /** @since 0.19.0 */ @send
   external replaceChild: (T.t, Dom.node_like<'a>, Dom.node_like<'b>) => Dom.node_like<'b> = ""
 }
 

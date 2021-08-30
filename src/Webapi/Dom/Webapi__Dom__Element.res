@@ -25,7 +25,7 @@ module Impl = (
     }
   `)
 
-  @ocaml.doc(" Unsafe cast, use [asHtmlElement] instead ")
+  /** Unsafe cast, use [asHtmlElement] instead */
   external unsafeAsHtmlElement: T.t => Dom.htmlElement = "%identity"
 
   let ofNode: Dom.node => option<T.t> = ofNode
