@@ -4,6 +4,7 @@ Done:
 * Change all `send.pipe` externals to `send`, making them "t-first" (#16)
 * Remove deprecated APIs
 * `Window.getSelection` now returns an option, to better match the definition
+* Add scrollToWithOptions to window
 
 Todo:
 * Convert to rescript syntax
