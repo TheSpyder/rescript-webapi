@@ -130,6 +130,8 @@ module Impl = (
   @send
   external scrollTo: (t_window, float, float) => unit = "" /* experimental, CSSOM View module */
   @send external stop: t_window => unit = ""
+  
+  @send external scrollToWithOptions: (T.t, {"top": float, "left": float, "behavior": string}) => unit = "scrollTo"
 
   @send
   external addPopStateEventListener: (
