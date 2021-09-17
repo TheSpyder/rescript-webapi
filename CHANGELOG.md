@@ -5,6 +5,7 @@ Done:
 * Remove deprecated APIs
 * `Window.getSelection` now returns an option, to better match the definition
 * Add scrollToWithOptions to window
+* Added IntersectionObserver and IntersectionObserverEntry bindings
 
 Todo:
 * Convert to rescript syntax
