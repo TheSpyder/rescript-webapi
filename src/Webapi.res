@@ -26,6 +26,7 @@ module Performance = Webapi__Performance
 /** @since 0.19.0 */
 module ReadableStream = Webapi__ReadableStream
 
+module IntersectionObserver = Webapi__IntersectionObserver
 module ResizeObserver = Webapi__ResizeObserver
 module Url = Webapi__Url
 
