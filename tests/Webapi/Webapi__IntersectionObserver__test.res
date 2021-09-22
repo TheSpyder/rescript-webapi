@@ -7,7 +7,7 @@ let body =
 
 Webapi.Dom.Element.setInnerText(el, "Hello There")
 Webapi.Dom.Element.setAttribute(el, "style", "margin-top: 800px; margin-bottom: 800px")
-Webapi.Dom.Element.appendChild(el, body)
+Webapi.Dom.Element.appendChild(body, el)
 
 let handler = (entries, observer) => {
   Js.Array.forEach(entry => {
