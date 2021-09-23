@@ -1,11 +1,11 @@
 module AbortController = Webapi__Fetch__AbortController
+module Headers = Webapi__Fetch__Headers
 
 /** Alias for anyone upgrading */
 module FormData = Webapi__FormData
 type body
 type bodyInit
-type headers
-type headersInit
+type headers = Webapi__Fetch__Headers.t
 type response
 type request
 type requestInit
@@ -98,32 +98,6 @@ type requestRedirect =
   | Error
   | Manual
 
-module HeadersInit: {
-  type t = headersInit
-
-  external make: {..} => t = "%identity"
-  external makeWithDict: Js.Dict.t<string> => t = "%identity"
-  external makeWithArray: array<(string, string)> => t = "%identity"
-}
-
-module Headers: {
-  type t = headers
-
-  @new external make: t = "Headers"
-  @new external makeWithInit: headersInit => t = "Headers"
-
-  @send external append: t => (string, string) => unit = "append"
-  @send external delete: t => string => unit = "delete"
-  /* entries */ /* very experimental */
-  @send @return(null_to_opt)
-  external get: t => string => option<string> = "get"
-  @send external has: t => string => bool = "has"
-  /* keys */ /* very experimental */
-  @send external set: t => (string, string) => unit = "set"
-  /* values */
-  /* very experimental */
-}
-
 module BodyInit: {
   type t = bodyInit
 
@@ -152,7 +126,7 @@ module RequestInit: {
 
   let make: (
     ~method_: requestMethod=?,
-    ~headers: headersInit=?,
+    ~headers: headers=?,
     ~body: bodyInit=?,
     ~referrer: string=?,
     ~referrerPolicy: referrerPolicy=?,

@@ -1,11 +1,11 @@
 module AbortController = Webapi__Fetch__AbortController
+module Headers = Webapi__Fetch__Headers
 
 /* * Alias for anyone upgrading */
 module FormData = Webapi__FormData
 type body
 type bodyInit
-type headers
-type headersInit
+type headers = Webapi__Fetch__Headers.t
 type response
 type request
 type requestInit
@@ -266,28 +266,6 @@ let decodeRequestRedirect = x =>
   | e => raise(Failure("Unknown requestRedirect: " ++ e))
   }
 
-module HeadersInit = {
-  type t = headersInit
-
-  external make: {..} => t = "%identity"
-  external makeWithDict: Js.Dict.t<string> => t = "%identity"
-  external makeWithArray: array<(string, string)> => t = "%identity"
-}
-
-module Headers = {
-  type t = headers
-
-  @new external make: t = "Headers"
-  @new external makeWithInit: headersInit => t = "Headers"
-
-  @send external append: (t, string, string) => unit = "append"
-  @send external delete: (t, string) => unit = "delete"
-  @send @return(null_to_opt)
-  external get: (t, string) => option<string> = "get"
-  @send external has: (t, string) => bool = "has"
-  @send external set: (t, string, string) => unit = "set"
-}
-
 module BodyInit = {
   type t = bodyInit
 
@@ -333,7 +311,7 @@ module RequestInit = {
   @obj
   external make: (
     ~_method: string=?,
-    ~headers: headersInit=?,
+    ~headers: headers=?,
     ~body: bodyInit=?,
     ~referrer: string=?,
     ~referrerPolicy: string=?,
@@ -348,7 +326,7 @@ module RequestInit = {
   ) => requestInit = ""
   let make = (
     ~method_: option<requestMethod>=?,
-    ~headers: option<headersInit>=?,
+    ~headers: option<headers>=?,
     ~body: option<bodyInit>=?,
     ~referrer: option<string>=?,
     ~referrerPolicy: referrerPolicy=None,
