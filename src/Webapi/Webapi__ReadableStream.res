@@ -19,7 +19,7 @@ module rec BYOBReader: {
 
 // [@send]  external read: t => view => Js.Promise.t(Fetch__Iterator.Next.t(string)) = "read";
 
-type t = Fetch.readableStream
+type t
 
 @get external locked: t => bool = ""
 @send external cancel: t => Js.Promise.t<unit> = ""

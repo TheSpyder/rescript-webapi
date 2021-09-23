@@ -12,17 +12,17 @@ type signal
 type arrayBuffer /* TypedArray */
 type bufferSource /* Web IDL, either an arrayBuffer or arrayBufferView */
 type formData /* XMLHttpRequest */
-type readableStream /* Streams */
+type readableStream = Webapi__ReadableStream.t /* Streams */
 type urlSearchParams /* URL */
 
-type blob
-type file
+type blob = Webapi__Blob.t
+type file = Webapi__File.t
 
 module AbortController = {
   type t = abortController
 
   @get external signal: t => signal = "signal"
-  @bs.send.pipe(: t) external abort: unit = "abort"
+  @send external abort: t => unit = "abort"
   @new external make: unit => t = "AbortController"
 }
 
@@ -284,16 +284,12 @@ module Headers = {
   @new external make: t = "Headers"
   @new external makeWithInit: headersInit => t = "Headers"
 
-  @bs.send.pipe(: t) external append: (string, string) => unit = "append"
-  @bs.send.pipe(: t) external delete: string => unit = "delete"
-  /* entries */ /* very experimental */
-  @bs.send.pipe(: t) @return({null_to_opt: null_to_opt})
-  external get: string => option<string> = "get"
-  @bs.send.pipe(: t) external has: string => bool = "has"
-  /* keys */ /* very experimental */
-  @bs.send.pipe(: t) external set: (string, string) => unit = "set"
-  /* values */
-  /* very experimental */
+  @send external append: (t, string, string) => unit = "append"
+  @send external delete: (t, string) => unit = "delete"
+  @send @return(null_to_opt)
+  external get: (t, string) => option<string> = "get"
+  @send external has: (t, string) => bool = "has"
+  @send external set: (t, string, string) => unit = "set"
 }
 
 module BodyInit = {
@@ -315,11 +311,11 @@ module Body = {
     @get external body: T.t => readableStream = "body"
     @get external bodyUsed: T.t => bool = "bodyUsed"
 
-    @bs.send.pipe(: T.t) external arrayBuffer: Js.Promise.t<arrayBuffer> = "arrayBuffer"
-    @bs.send.pipe(: T.t) external blob: Js.Promise.t<blob> = "blob"
-    @bs.send.pipe(: T.t) external formData: Js.Promise.t<formData> = "formData"
-    @bs.send.pipe(: T.t) external json: Js.Promise.t<Js.Json.t> = "json"
-    @bs.send.pipe(: T.t) external text: Js.Promise.t<string> = "text"
+    @send external arrayBuffer: T.t => Js.Promise.t<arrayBuffer> = "arrayBuffer"
+    @send external blob: T.t => Js.Promise.t<blob> = "blob"
+    @send external formData: T.t => Js.Promise.t<formData> = "formData"
+    @send external json: T.t => Js.Promise.t<Js.Json.t> = "json"
+    @send external text: T.t => Js.Promise.t<string> = "text"
   }
 
   type t = body
@@ -438,7 +434,7 @@ module Response = {
   @get external type_: t => string = "type"
   @get external url: t => string = "url"
 
-  @bs.send.pipe(: t) external clone: t = "clone"
+  @send external clone: t => t = "clone"
 }
 
 module FormData = {
@@ -457,26 +453,26 @@ module FormData = {
   type t = formData
 
   @new external make: unit => t = "FormData"
-  @bs.send.pipe(: t) external append: (string, string) => unit = "append"
-  @bs.send.pipe(: t) external delete: string => unit = "delete"
-  @bs.send.pipe(: t) external get: string => option<EntryValue.t> = "get"
-  @bs.send.pipe(: t) external getAll: string => array<EntryValue.t> = "getAll"
-  @bs.send.pipe(: t) external set: (string, string) => unit = "set"
-  @bs.send.pipe(: t) external has: string => bool = "has"
+  @send external append: (t, string, string) => unit = "append"
+  @send external delete: (t, string) => unit = "delete"
+  @send external get: (t, string) => option<EntryValue.t> = "get"
+  @send external getAll: (t, string) => array<EntryValue.t> = "getAll"
+  @send external set: (t, string, string) => unit = "set"
+  @send external has: (t, string) => bool = "has"
   @send external keys: t => Iterator.t<string> = "keys"
   @send external values: t => Iterator.t<EntryValue.t> = "values"
 
-  @bs.send.pipe(: t) external appendObject: (string, {..}, ~filename: string=?) => unit = "append"
+  @send external appendObject: (t, string, {..}, ~filename: string=?, unit) => unit = "append"
 
-  @bs.send.pipe(: t) external appendBlob: (string, blob, ~filename: string=?) => unit = "append"
+  @send external appendBlob: (t, string, blob, ~filename: string=?, unit) => unit = "append"
 
-  @bs.send.pipe(: t) external appendFile: (string, file, ~filename: string=?) => unit = "append"
+  @send external appendFile: (t, string, file, ~filename: string=?, unit) => unit = "append"
 
-  @bs.send.pipe(: t) external setObject: (string, {..}, ~filename: string=?) => unit = "set"
+  @send external setObject: (t, string, {..}, ~filename: string=?, unit) => unit = "set"
 
-  @bs.send.pipe(: t) external setBlob: (string, blob, ~filename: string=?) => unit = "set"
+  @send external setBlob: (t, string, blob, ~filename: string=?, unit) => unit = "set"
 
-  @bs.send.pipe(: t) external setFile: (string, file, ~filename: string=?) => unit = "set"
+  @send external setFile: (t, string, file, ~filename: string=?, unit) => unit = "set"
 
   @send external entries: t => Iterator.t<(string, EntryValue.t)> = "entries"
 }
