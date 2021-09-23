@@ -1,3 +1,7 @@
+module AbortController = Webapi__Fetch__AbortController
+
+/* * Alias for anyone upgrading */
+module FormData = Webapi__FormData
 type body
 type bodyInit
 type headers
@@ -5,26 +9,18 @@ type headersInit
 type response
 type request
 type requestInit
-type abortController
-type signal
+type abortController = AbortController.t
+type signal = AbortController.signal
 
 /* external */
 type arrayBuffer /* TypedArray */
 type bufferSource /* Web IDL, either an arrayBuffer or arrayBufferView */
-type formData = Webapi__FormData.t/* XMLHttpRequest */
+type formData = FormData.t /* XMLHttpRequest */
 type readableStream = Webapi__ReadableStream.t /* Streams */
 type urlSearchParams /* URL */
 
 type blob = Webapi__Blob.t
 type file = Webapi__File.t
-
-module AbortController = {
-  type t = abortController
-
-  @get external signal: t => signal = "signal"
-  @send external abort: t => unit = "abort"
-  @new external make: unit => t = "AbortController"
-}
 
 type requestMethod =
   | Get
@@ -436,9 +432,6 @@ module Response = {
 
   @send external clone: t => t = "clone"
 }
-
-/** Alias for anyone upgrading */
-module FormData = Webapi__FormData
 
 @val external fetch: string => Js.Promise.t<response> = "fetch"
 @val external fetchWithInit: (string, requestInit) => Js.Promise.t<response> = "fetch"

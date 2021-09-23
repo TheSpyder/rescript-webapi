@@ -1,3 +1,7 @@
+module AbortController = Webapi__Fetch__AbortController
+
+/** Alias for anyone upgrading */
+module FormData = Webapi__FormData
 type body
 type bodyInit
 type headers
@@ -9,11 +13,11 @@ type requestInit
 /* external */
 type arrayBuffer /* TypedArray */
 type bufferSource /* Web IDL, either an arrayBuffer or arrayBufferView */
-type formData = Webapi__FormData.t /* XMLHttpRequest */
+type formData = FormData.t /* XMLHttpRequest */
 type readableStream /* Streams */
 type urlSearchParams /* URL */
-type abortController
-type signal
+type abortController = AbortController.t
+type signal = AbortController.signal
 
 @@ocaml.text(" File API ")
 
@@ -31,18 +35,6 @@ type requestMethod =
   | Trace
   | Patch
   | Other(string)
-
-module AbortController: {
-  /* Experimental API */
-  type t = abortController
-
-  /* Experimental API */
-  @get external signal: t => signal = "signal"
-  /* Experimental API */
-  @send external abort: t => unit = "abort"
-  /* Experimental API */
-  @new external make: unit => t = "AbortController"
-}
 
 type referrerPolicy =
   | None
@@ -235,9 +227,6 @@ module Response: {
   @send external json: t => Js.Promise.t<Js.Json.t> = "json"
   @send external text: t => Js.Promise.t<string> = "text"
 }
-
-/** Alias for anyone upgrading */
-module FormData = Webapi__FormData
 
 @val external fetch: string => Js.Promise.t<response> = "fetch"
 @val external fetchWithInit: (string, requestInit) => Js.Promise.t<response> = "fetch"
