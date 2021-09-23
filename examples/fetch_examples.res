@@ -61,3 +61,14 @@ let _ = {
     ),
   ) |> then_(Fetch.Response.json)
 }
+
+let _ = {
+  let controller = Fetch.AbortController.make()
+
+  let _ = Fetch.fetchWithInit(
+    "/api/fruit",
+    Fetch.RequestInit.make(~signal=controller.signal, ())
+  )
+  
+  controller->Fetch.AbortController.abort
+}
