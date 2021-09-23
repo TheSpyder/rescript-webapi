@@ -9,7 +9,11 @@ module EntryValue = {
     }
 }
 
-type t
+type t = private {
+  keys: Webapi__Iterator.t<string>,
+  values: Webapi__Iterator.t<EntryValue.t>,
+  entries: Webapi__Iterator.t<(string, EntryValue.t)>,
+}
 
 @new external make: unit => t = "FormData"
 @send external append: (t, string, string) => unit = "append"
@@ -18,8 +22,6 @@ type t
 @send external getAll: (t, string) => array<EntryValue.t> = "getAll"
 @send external set: (t, string, string) => unit = "set"
 @send external has: (t, string) => bool = "has"
-@send external keys: t => Webapi__Iterator.t<string> = "keys"
-@send external values: t => Webapi__Iterator.t<EntryValue.t> = "values"
 
 @send external appendObject: (t, string, {..}, ~filename: string=?, unit) => unit = "append"
 
@@ -33,4 +35,9 @@ type t
 
 @send external setFile: (t, string, Webapi__File.t, ~filename: string=?, unit) => unit = "set"
 
+@ocaml.doc("For compatibility. Prefer the record field.")
+@send external keys: t => Webapi__Iterator.t<string> = "keys"
+@ocaml.doc("For compatibility. Prefer the record field.")
+@send external values: t => Webapi__Iterator.t<EntryValue.t> = "values"
+@ocaml.doc("For compatibility. Prefer the record field.")
 @send external entries: t => Webapi__Iterator.t<(string, EntryValue.t)> = "entries"
