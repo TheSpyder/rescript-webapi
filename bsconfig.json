@@ -19,8 +19,5 @@
   "warnings": {
     "number": "+A-105",
     "error": "+A"
-  },
-  "bs-dependencies": [
-    "bs-fetch"
-  ]
+  }
 }

@@ -30,8 +30,5 @@
   "license": "MIT",
   "devDependencies": {
     "rescript": "^9.1.4"
-  },
-  "dependencies": {
-    "bs-fetch": "^0.6.2"
   }
 }

@@ -1,4 +1,4 @@
-type t = Fetch.file
+type t
 
 @@text("{1 Blob superclass}")
 

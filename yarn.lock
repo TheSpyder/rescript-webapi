@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-bs-fetch@^0.6.2:
-  version "0.6.2"
-  resolved "https://registry.npmjs.org/bs-fetch/-/bs-fetch-0.6.2.tgz"
-  integrity sha512-VXEjp8kY3vHPckaoy3d96Bx0KYjJAPLNISBwfpwMN26K6DtuZYwI2HKhx7zeHBajz1bRArfx7O8OOLcdtujMvg==
-
 rescript@^9.1.4:
   version "9.1.4"
   resolved "https://registry.yarnpkg.com/rescript/-/rescript-9.1.4.tgz#1eb126f98d6c16942c0bf0df67c050198e580515"
