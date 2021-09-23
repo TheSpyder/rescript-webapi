@@ -16,7 +16,7 @@ module DefaultReader__test = {
   let test_read = reader =>
     reader->read
       |> Js.Promise.then_(next =>
-        next->Fetch__Iterator.Next.value->Belt.Option.forEach(_, Js.log)->Js.Promise.resolve
+        next->Webapi__Iterator.value->Belt.Option.forEach(_, Js.log)->Js.Promise.resolve
       )
 }
 

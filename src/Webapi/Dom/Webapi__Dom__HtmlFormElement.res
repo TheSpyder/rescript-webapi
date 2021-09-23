@@ -36,7 +36,7 @@ module Impl = (
   @send external checkValidity: t_htmlFormElement => bool = ""
   @send external reportValidity: t_htmlFormElement => bool = ""
 
-  /** @since 0.18.0 */ @new external data: T.t => Fetch.FormData.t = "FormData"
+  /** @since 0.18.0 */ @new external data: T.t => Webapi__FormData.t = "FormData"
 }
 
 type t = Dom.htmlFormElement

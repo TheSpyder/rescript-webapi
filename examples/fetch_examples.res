@@ -1,3 +1,4 @@
+open Webapi;
 let _ = {
   open Js.Promise
   Fetch.fetch("/api/hellos/1")
@@ -41,8 +42,8 @@ let _ = {
 }
 
 let _ = {
-  let formData = Fetch.FormData.make()
-  Fetch.FormData.appendObject(
+  let formData = Webapi.FormData.make()
+  Webapi.FormData.appendObject(
     formData,
     "image0",
     {"type": "image/jpg", "uri": "path/to/it", "name": "image0.jpg"},

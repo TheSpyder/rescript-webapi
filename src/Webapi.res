@@ -1,25 +1,12 @@
 module Base64 = Webapi__Base64
-
-/** @since 0.18.0 */
 module Blob = Webapi__Blob
 module Canvas = Webapi__Canvas
 module Dom = Webapi__Dom
 module File = Webapi__File
+module Fetch = Webapi__Fetch
+module FormData = Webapi__FormData
 
-/** Re-export from [bs-fetch] for convenience. To use, you will also
-    need to add the [bs-fetch] package as a dependency.
-
-    To get the [FormData] of an HTML form, use
-    [Webapi.Dom.HtmlFormElement.data].
-
-    @since 0.18.0 */
-module FormData = Fetch.FormData
-
-/** Re-export from [bs-fetch] for convenience. See also
-    {!module:FormData}.
-
-    @since 0.18.0 */
-module Iterator = FormData.Iterator
+module Iterator = Webapi__Iterator
 
 module Performance = Webapi__Performance
 

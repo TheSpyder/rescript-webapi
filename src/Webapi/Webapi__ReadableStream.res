@@ -10,14 +10,14 @@ module type Reader = {
 
 module rec DefaultReader: {
   include Reader
-  @send external read: t => Js.Promise.t<Fetch__Iterator.Next.t<string>> = ""
+  @send external read: t => Js.Promise.t<Webapi__Iterator.next<string>> = ""
 } = DefaultReader
 
 module rec BYOBReader: {
   include Reader
 } = BYOBReader
 
-// [@send]  external read: t => view => Js.Promise.t(Fetch__Iterator.Next.t(string)) = "read";
+// [@send]  external read: t => view => Js.Promise.t(Webapi__Iterator.Next.t(string)) = "read";
 
 type t
 

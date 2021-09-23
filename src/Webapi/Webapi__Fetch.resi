@@ -9,7 +9,7 @@ type requestInit
 /* external */
 type arrayBuffer /* TypedArray */
 type bufferSource /* Web IDL, either an arrayBuffer or arrayBufferView */
-type formData /* XMLHttpRequest */
+type formData = Webapi__FormData.t /* XMLHttpRequest */
 type readableStream /* Streams */
 type urlSearchParams /* URL */
 type abortController
@@ -236,46 +236,8 @@ module Response: {
   @send external text: t => Js.Promise.t<string> = "text"
 }
 
-module FormData: {
-  module EntryValue: {
-    @ocaml.doc(" This represents a
-        {{: https://developer.mozilla.org/en-US/docs/Web/API/FormDataEntryValue} FormDataEntryValue}. ")
-    type t
-
-    @ocaml.doc(" [classify entryValue] safely casts the [entryValue] to its
-        correct runtime type. ")
-    let classify: t => [> #String(string) | #File(file)]
-  }
-
-  module Iterator = Fetch__Iterator
-  type t = formData
-
-  @new external make: unit => t = "FormData"
-  @send external append: t => (string, string) => unit = "append"
-  @send external delete: t => string => unit = "delete"
-  @send external get: t => string => option<EntryValue.t> = "get"
-  @send external getAll: t => string => array<EntryValue.t> = "getAll"
-  @send external set: t => (string, string) => unit = "set"
-  @send external has: t => string => bool = "has"
-  @send external keys: t => Iterator.t<string> = "keys"
-  @send external values: t => Iterator.t<EntryValue.t> = "values"
-
-  @send @ocaml.doc(" This is for React Native compatibility purposes ")
-  external appendObject: t => (string, {..}, ~filename: string=?, unit) => unit = "append"
-
-  @send external appendBlob: t => (string, blob, ~filename: string=?, unit) => unit = "append"
-
-  @send external appendFile: t => (string, file, ~filename: string=?, unit) => unit = "append"
-
-  @send @ocaml.doc(" This is for React Native compatibility purposes ")
-  external setObject: t => (string, {..}, ~filename: string=?, unit) => unit = "set"
-
-  @send external setBlob: t => (string, blob, ~filename: string=?, unit) => unit = "set"
-
-  @send external setFile: t => (string, file, ~filename: string=?, unit) => unit = "set"
-
-  @send external entries: t => Iterator.t<(string, EntryValue.t)> = "entries"
-}
+/** Alias for anyone upgrading */
+module FormData = Webapi__FormData
 
 @val external fetch: string => Js.Promise.t<response> = "fetch"
 @val external fetchWithInit: (string, requestInit) => Js.Promise.t<response> = "fetch"
