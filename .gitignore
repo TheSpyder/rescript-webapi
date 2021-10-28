@@ -4,7 +4,6 @@
 docs/
 node_modules/
 /lib/bs
-/lib/js/examples
 /lib/js/src
 /lib/js/tests/testHelpers.js
 npm-debug.log

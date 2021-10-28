@@ -16,7 +16,7 @@ module Impl = (
   @get external type_: T.t => string = "type"
 }
 
-type t = Fetch.blob
+type t
 
 include Impl({
   type t = t

@@ -29,9 +29,7 @@
   "author": "Tiny Technologies Inc",
   "license": "MIT",
   "devDependencies": {
+    "@ryyppy/rescript-promise": "^2.1.0",
     "rescript": "^9.1.4"
-  },
-  "dependencies": {
-    "bs-fetch": "^0.6.2"
   }
 }
