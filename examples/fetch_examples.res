@@ -1,27 +1,26 @@
-open Webapi;
+open Webapi
+open Promise
+
 let _ = {
-  open Js.Promise
   Fetch.fetch("/api/hellos/1")
-  |> then_(Fetch.Response.text)
-  |> then_(text => print_endline(text) |> resolve)
+  ->then(Fetch.Response.text)
+  ->then(text => print_endline(text)->resolve)
 }
 
 let _ = {
-  open Js.Promise
   Fetch.fetchWithInit("/api/hello", Fetch.RequestInit.make(~method_=Post, ()))
-  |> then_(Fetch.Response.text)
-  |> then_(text => print_endline(text) |> resolve)
+  ->then(Fetch.Response.text)
+  ->then(text => print_endline(text)->resolve)
 }
 
 let _ = {
-  open Js.Promise
   Fetch.fetch("/api/fruit")
   /* assume server returns `["apple", "banana", "pear", ...]` */
-  |> then_(Fetch.Response.json)
-  |> then_(json => Js.Json.decodeArray(json) |> resolve)
-  |> then_(opt => Belt.Option.getExn(opt) |> resolve)
-  |> then_(items =>
-    items |> Js.Array.map(item => item |> Js.Json.decodeString |> Belt.Option.getExn) |> resolve
+  ->then(Fetch.Response.json)
+  ->then(json => Js.Json.decodeArray(json)->resolve)
+  ->then(opt => Belt.Option.getExn(opt)->resolve)
+  ->then(items =>
+    items->Js.Array2.map(item => item->Js.Json.decodeString->Belt.Option.getExn)->resolve
   )
 }
 
@@ -29,7 +28,6 @@ let _ = {
 let _ = {
   let payload = Js.Dict.empty()
   Js.Dict.set(payload, "hello", Js.Json.string("world"))
-  open Js.Promise
   Fetch.fetchWithInit(
     "/api/hello",
     Fetch.RequestInit.make(
@@ -38,7 +36,7 @@ let _ = {
       ~headers=Fetch.HeadersInit.make({"Content-Type": "application/json"}),
       (),
     ),
-  ) |> then_(Fetch.Response.json)
+  )->then(Fetch.Response.json)
 }
 
 let _ = {
@@ -47,10 +45,9 @@ let _ = {
     formData,
     "image0",
     {"type": "image/jpg", "uri": "path/to/it", "name": "image0.jpg"},
-    ()
+    (),
   )
 
-  open Js.Promise
   Fetch.fetchWithInit(
     "/api/upload",
     Fetch.RequestInit.make(
@@ -59,16 +56,13 @@ let _ = {
       ~headers=Fetch.HeadersInit.make({"Accept": "*"}),
       (),
     ),
-  ) |> then_(Fetch.Response.json)
+  )->then(Fetch.Response.json)
 }
 
 let _ = {
   let controller = Fetch.AbortController.make()
 
-  let _ = Fetch.fetchWithInit(
-    "/api/fruit",
-    Fetch.RequestInit.make(~signal=controller.signal, ())
-  )
-  
+  let _ = Fetch.fetchWithInit("/api/fruit", Fetch.RequestInit.make(~signal=controller.signal, ()))
+
   controller->Fetch.AbortController.abort
 }
