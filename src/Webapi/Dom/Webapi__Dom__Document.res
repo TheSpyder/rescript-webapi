@@ -78,7 +78,7 @@ module Impl = (
     Dom.node_like<'a>,
     Webapi__Dom__Types.WhatToShow.t,
     Dom.nodeFilter,
-  ) => Dom.nodeIterator = "createNodeIterator" /* createProcessingInstruction */
+  ) => Dom.nodeIterator = "createNodeIterator"
   @send external createRange: T.t => Dom.range = ""
   @send external createTextNode: (T.t, string) => Dom.text = ""
   @send external createTreeWalker: (T.t, Dom.element_like<'a>) => Dom.treeWalker = ""
@@ -109,18 +109,6 @@ module Impl = (
   @send
   external importNodeDeep: (T.t, Dom.element_like<'a>, @as(json`true`) _) => Dom.element_like<'a> =
     "importNode"
-  @send
-  external registerElement: (T.t, string, unit) => Dom.element =
-    "" /* experimental and deprecated in favor of customElements.define() */
-  @send
-  external registerElementWithOptions: (T.t, string, {..}, unit) => Dom.element =
-    "registerElement" /* experimental and deprecated in favor of customElements.define() */
-
-  /** XPath stuff */
-  /* createExpression */
-  /* createNSResolver */
-  /* evaluate */
-  /* GlobalEventHandlers interface */
 }
 
 type t = Dom.document

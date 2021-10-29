@@ -71,7 +71,6 @@ module Impl = (
   @send external animate: (T.t, {..}, {..}) => Dom.animation = "" /* experimental */
   @send @return(nullable)
   external closest: (T.t, string) => option<Dom.element> = "" /* experimental */
-  @send external createShadowRoot: T.t => Dom.shadowRoot = "" /* experimental AND deprecated (?!) */
   @send @return(nullable) external getAttribute: (T.t, string) => option<string> = ""
   @send @return(nullable) external getAttributeNS: (T.t, string, string) => option<string> = ""
   @send external getBoundingClientRect: T.t => Dom.domRect = ""

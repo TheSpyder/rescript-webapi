@@ -41,7 +41,6 @@ let _ = el->attachShadowOpen
 let _ = el->attachShadowClosed
 let _ = el->animate({"transform": "translateT(0px)"}, {"duration": 1000})
 let _ = el->closest("input")
-let _ = el->createShadowRoot
 let _ = el->getAttribute("href")
 let _ = el->getAttributeNS("http://...", "foo")
 let _ = el->getBoundingClientRect

@@ -84,7 +84,6 @@ include Webapi__Dom__Types
    DOMException
    DOMImplementation
    DOMTimeStamp
-   DOMSettableTokenList /* deprecated, merged with DOMTokenList */
    DOMStringList
    MutationObserver
    MutationRecord
