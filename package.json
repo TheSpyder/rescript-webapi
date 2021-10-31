@@ -1,6 +1,6 @@
 {
   "name": "rescript-webapi",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Reason / ReScript bindings to DOM",
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "clean": "rescript clean",
     "doc-install": "npm install --no-save bsdoc",
     "test": "rescript && bsdoc build api && bsdoc support-files",
-    "refmt-all": "rescript format -all"
+    "format-all": "rescript format -all"
   },
   "files": [
     "src",

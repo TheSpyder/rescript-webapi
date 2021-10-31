@@ -16,6 +16,7 @@ module ReadableStream = Webapi__ReadableStream
 module IntersectionObserver = Webapi__IntersectionObserver
 module ResizeObserver = Webapi__ResizeObserver
 module Url = Webapi__Url
+module WebSocket = Webapi__WebSocket
 
 type rafId
 
