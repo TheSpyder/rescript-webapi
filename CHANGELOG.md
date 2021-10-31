@@ -14,4 +14,4 @@
 
 ### Miscellaneous
 * Converted project to rescript syntax (#18)
-* Added explicit values to all externals instead of using `= ""`
+* Added explicit values to all externals instead of using `= ""` (#40)
