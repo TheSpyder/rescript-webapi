@@ -1,6 +1,6 @@
 type t = Dom.range
 
-@new external make: unit => t = "Range" /* experimental */
+@new external make: unit => t = "Range"
 
 @get external collapsed: t => bool = "collapsed"
 @get external commonAncestorContainer: t => Dom.node = "commonAncestorContainer"
@@ -46,6 +46,6 @@ let comparePoint: (t, Dom.node_like<'a>, int) => Webapi__Dom__Types.compareResul
 @send
 external createContextualFragment: (t, string) => Dom.documentFragment = "createContextualFragment" /* experimental, but widely supported */
 @send external getBoundingClientRect: t => Dom.domRect = "getBoundingClientRect" /* experimental, but widely supported */
-@send external getClientRects: t => array<Dom.domRect> = "getClientRects" /* experimental, but widely supported */
+@send external getClientRects: t => Webapi__Dom__RectList.t = "getClientRects" /* experimental, but widely supported */
 @send external intersectsNode: (t, Dom.node_like<'a>) => bool = "intersectsNode"
 @send external isPointInRange: (t, Dom.node_like<'a>, int) => bool = "isPointInRange"
