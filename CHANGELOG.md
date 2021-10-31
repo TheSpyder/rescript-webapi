@@ -1,17 +1,17 @@
-### 1.0 in progress
+## 1.0 Changes
 
-Done:
-* Change all `send.pipe` externals to `send`, making them "t-first" (#8)
-* Remove deprecated APIs (#16)
-* `Window.getSelection` now returns an option, to better match the definition (#15)
-* Added `scrollToWithOptions` to `window` (#26)
-* Converted to rescript syntax (#18)
-* Added `IntersectionObserver` and `IntersectionObserverEntry` bindings (#27)
+### Breaking Changes
+* Change all `send.pipe` externals to `send`, making the whole project "t-first" (#8)
 * Imported `bs-fetch` and converted it to "t-first" (#31)
-* Added `WebSocket` bindings (#34)
-* Updated `Document.elementFromPoint` api to account for null return values (#35)
+* Removed deprecated APIs (#16)
+* Updated `Window.getSelection` api to return an option (#15)
+* Updated `Document.elementFromPoint` api to return an option and be @nullable (#35)
 
-Todo:
-* Convert more input types to `node_like` and `element_like` to improve usability
-* Correct bugs, reduce how much code is generated, add missing APIs
-* Switch to atlassian changesets (including github actions)
+### Added
+* `scrollToWithOptions` method to `window` (#26)
+* `IntersectionObserver` and `IntersectionObserverEntry` bindings (#27)
+* `WebSocket` bindings (#34)
+
+### Miscellaneous
+* Converted project to rescript syntax (#18)
+* Added explicit values to all externals instead of using `= ""`
