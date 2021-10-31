@@ -8,6 +8,7 @@ Done:
 * Converted to rescript syntax (#18)
 * Added `IntersectionObserver` and `IntersectionObserverEntry` bindings (#27)
 * Imported `bs-fetch` and converted it to "t-first" (#31)
+* Added `WebSocket` bindings (#34)
 
 Todo:
 * Convert more input types to `node_like` and `element_like` to improve usability
