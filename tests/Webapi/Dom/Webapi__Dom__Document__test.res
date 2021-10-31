@@ -61,7 +61,10 @@ let _ = document->createTreeWalkerWithWhatToShowFilter(
   },
   NodeFilter.make(_ => 0),
 )
-let _ = document->elementFromPoint(0, 0)
+switch (document->elementFromPoint(0, 0)) {
+  | Some(el) => Js.log(el)
+  | None => ()
+}
 let _ = document->elementsFromPoint(0, 0)
 let _ = document->enableStyleSheetsForSet("my-stylesheet-set")
 let _ = document->exitPointerLock

@@ -95,9 +95,8 @@ module Impl = (
     Webapi__Dom__Types.WhatToShow.t,
     Dom.nodeFilter,
   ) => Dom.treeWalker = "createTreeWalker"
-  @send
-  external elementFromPoint: (T.t, int, int) => Dom.element =
-    "" /* experimental, but widely supported */
+  @send @return(nullable)
+  external elementFromPoint: (T.t, int, int) => option<Dom.element> = "elementFromPoint"
   @send external elementsFromPoint: (T.t, int, int) => array<Dom.element> = "" /* experimental */
   @send external enableStyleSheetsForSet: (T.t, string) => unit = ""
   @send external exitPointerLock: T.t => unit = "" /* experimental */
