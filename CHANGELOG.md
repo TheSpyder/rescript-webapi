@@ -7,11 +7,13 @@
 * Updated `Window.getSelection` api to return an option (#15)
 * Updated `Document.elementFromPoint` api to return an option and be @nullable (#35)
 
-### Added
-* `scrollToWithOptions` method to `window` (#26)
-* `IntersectionObserver` and `IntersectionObserverEntry` bindings (#27)
+### Added and Updated (non-breaking)
 * `WebSocket` bindings (#34)
-* Added `Canvas2d.newPath2D()` to bind `Path2D` objects (#45)
+* `Canvas2d.newPath2D()` to bind `Path2D` objects (#45)
+* `IntersectionObserver` and `IntersectionObserverEntry` bindings (#27)
+* `scrollToWithOptions` method to `window` (#26)
+* `HtmlDocument` methods `hasFocus` and `activeElement` moved to `Document` (#41)
+  * They're still available on `HtmlDocument` thanks to the `include` structure
 
 ### Miscellaneous
 * Converted project to rescript syntax (#18)

@@ -4,7 +4,11 @@ open! HtmlDocument
 let el = document->Document.createElement("strong")
 let htmlDocument = document->Document.asHtmlDocument->TestHelpers.unsafelyUnwrapOption
 
-let _ = htmlDocument->activeElement
+let _ = switch (htmlDocument->activeElement) {
+  | Some(e) => Js.log(e)
+  | None => ()
+}
+
 let _ = htmlDocument->body
 let _ = htmlDocument->setBody(el)
 let _ = htmlDocument->cookie

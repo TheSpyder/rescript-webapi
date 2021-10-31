@@ -5,7 +5,6 @@ module Impl = (
 ) => {
   type t_htmlDocument = T.t
 
-  @get @return(nullable) external activeElement: t_htmlDocument => option<Dom.element> = "activeElement"
   @get @return(nullable)
   external body: t_htmlDocument => option<Dom.element> = "body" /* returns option HTMLBodyElement */
   @set
@@ -56,7 +55,6 @@ module Impl = (
   ) => self->execCommand(command, show, Js.Null.fromOption(value))
   @send external getElementsByName: (t_htmlDocument, string) => Dom.nodeList = "getElementsByName"
   @send external getSelection: t_htmlDocument => Dom.selection = "getSelection"
-  @send external hasFocus: t_htmlDocument => bool = "hasFocus"
   @send external open_: t_htmlDocument => unit = "open"
   @send external queryCommandEnabled: (t_htmlDocument, string) => bool = "queryCommandEnabled"
   @send external queryCommandIndeterm: (t_htmlDocument, string) => bool = "queryCommandIndeterm"
