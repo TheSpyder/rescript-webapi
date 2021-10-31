@@ -4,5 +4,5 @@ module Impl = (
     type t
   },
 ) => {
-  @get @return(nullable) external assignedSlot: T.t => option<Dom.htmlSlotElement> = ""
+  @get @return(nullable) external assignedSlot: T.t => option<Dom.htmlSlotElement> = "assignedSlot"
 }

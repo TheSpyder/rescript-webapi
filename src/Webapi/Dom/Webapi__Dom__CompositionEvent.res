@@ -10,4 +10,4 @@ include Webapi__Dom__UiEvent.Impl({
 @new external make: string => t = "CompositionEvent"
 @new external makeWithOptions: (string, {..}) => t = "CompositionEvent"
 
-@get external data: t => string = ""
+@get external data: t => string = "data"

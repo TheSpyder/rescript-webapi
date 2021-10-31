@@ -10,5 +10,5 @@ include Webapi__Dom__UiEvent.Impl({
 @new external make: string => t = "InputEvent"
 @new external makeWithOptions: (string, {..}) => t = "InputEvent"
 
-@get external data: t => string = ""
-@get external isComposing: t => bool = ""
+@get external data: t => string = "data"
+@get external isComposing: t => bool = "isComposing"

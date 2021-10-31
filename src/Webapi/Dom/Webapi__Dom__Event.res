@@ -3,24 +3,24 @@ module Impl = (
     type t
   },
 ) => {
-  @get external bubbles: T.t => bool = ""
-  @get external cancelable: T.t => bool = ""
-  @get external composed: T.t => bool = ""
-  @get external currentTarget: T.t => Dom.eventTarget = ""
-  @get external defaultPrevented: T.t => bool = ""
-  @get external eventPhase: T.t => int /* eventPhase enum */ = ""
+  @get external bubbles: T.t => bool = "bubbles"
+  @get external cancelable: T.t => bool = "cancelable"
+  @get external composed: T.t => bool = "composed"
+  @get external currentTarget: T.t => Dom.eventTarget = "currentTarget"
+  @get external defaultPrevented: T.t => bool = "defaultPrevented"
+  @get external eventPhase: T.t => int = "eventPhase"
 
   let eventPhase: T.t => Webapi__Dom__Types.EventPhase.t = self =>
     Webapi__Dom__Types.EventPhase.decode(eventPhase(self))
 
-  @get external target: T.t => Dom.eventTarget = ""
-  @get external timeStamp: T.t => float = ""
+  @get external target: T.t => Dom.eventTarget = "target"
+  @get external timeStamp: T.t => float = "timeStamp"
   @get external type_: T.t => string = "type"
-  @get external isTrusted: T.t => bool = ""
+  @get external isTrusted: T.t => bool = "isTrusted"
 
-  @send external preventDefault: T.t => unit = ""
-  @send external stopImmediatePropagation: T.t => unit = ""
-  @send external stopPropagation: T.t => unit = ""
+  @send external preventDefault: T.t => unit = "preventDefault"
+  @send external stopImmediatePropagation: T.t => unit = "stopImmediatePropagation"
+  @send external stopPropagation: T.t => unit = "stopPropagation"
 }
 
 type t = Dom.event

@@ -8,8 +8,8 @@ module Impl = (
 ) => {
   let ofNode: Dom.node => option<T.t> = ofNode
 
-  @send external splitText: (T.t, ~offset: int, unit) => Dom.text = ""
-  @get external wholeText: T.t => string = ""
+  @send external splitText: (T.t, ~offset: int, unit) => Dom.text = "splitText"
+  @get external wholeText: T.t => string = "wholeText"
 }
 
 type t = Dom.text

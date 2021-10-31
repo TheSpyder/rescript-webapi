@@ -5,7 +5,7 @@ module Impl = (
 ) => {
   external asEventTarget: T.t => Dom.eventTarget = "%identity"
 
-  @send external addEventListener: (T.t, string, Dom.event => unit) => unit = ""
+  @send external addEventListener: (T.t, string, Dom.event => unit) => unit = "addEventListener"
   @send
   external addEventListenerWithOptions: (
     T.t,
@@ -16,7 +16,7 @@ module Impl = (
   @send
   external addEventListenerUseCapture: (T.t, string, Dom.event => unit, @as(json`true`) _) => unit =
     "addEventListener"
-  @send external removeEventListener: (T.t, string, Dom.event => unit) => unit = ""
+  @send external removeEventListener: (T.t, string, Dom.event => unit) => unit = "removeEventListener"
   @send
   external removeEventListenerWithOptions: (
     T.t,
@@ -31,7 +31,7 @@ module Impl = (
     Dom.event => unit,
     @as(json`true`) _,
   ) => unit = "removeEventListener"
-  @send external dispatchEvent: (T.t, Dom.event_like<'a>) => bool = ""
+  @send external dispatchEvent: (T.t, Dom.event_like<'a>) => bool = "dispatchEvent"
 
   /**
    * non-standard event-specific functions

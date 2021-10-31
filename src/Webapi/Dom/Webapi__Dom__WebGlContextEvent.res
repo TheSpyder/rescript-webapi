@@ -7,4 +7,4 @@ include Webapi__Dom__Event.Impl({
 @new external make: string => t = "WebGLContextEvent"
 @new external makeWithOptions: (string, {..}) => t = "WebGLContextEvent"
 
-@get external statusMessage: t => string = ""
+@get external statusMessage: t => string = "statusMessage"

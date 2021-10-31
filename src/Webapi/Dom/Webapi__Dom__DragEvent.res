@@ -13,4 +13,4 @@ include Webapi__Dom__MouseEvent.Impl({
 @new external make: string => t = "DragEvent"
 @new external makeWithOptions: (string, {..}) => t = "DragEvent"
 
-@get external dataTransfer: t => Dom.dataTransfer = ""
+@get external dataTransfer: t => Dom.dataTransfer = "dataTransfer"

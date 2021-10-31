@@ -30,63 +30,63 @@ module Impl = (
 
   let ofNode: Dom.node => option<T.t> = ofNode
 
-  @get external attributes: T.t => Dom.namedNodeMap = ""
-  @get external classList: T.t => Dom.domTokenList = ""
-  @get external className: T.t => string = ""
+  @get external attributes: T.t => Dom.namedNodeMap = "attributes"
+  @get external classList: T.t => Dom.domTokenList = "classList"
+  @get external className: T.t => string = "className"
   @set external setClassName: (T.t, string) => unit = "className"
-  @get external clientHeight: T.t => int = "" /* experimental */
-  @get external clientLeft: T.t => int = "" /* experimental */
-  @get external clientTop: T.t => int = "" /* experimental */
-  @get external clientWidth: T.t => int = "" /* experimental */
-  @get external id: T.t => string = ""
+  @get external clientHeight: T.t => int = "clientHeight" /* experimental */
+  @get external clientLeft: T.t => int = "clientLeft" /* experimental */
+  @get external clientTop: T.t => int = "clientTop" /* experimental */
+  @get external clientWidth: T.t => int = "clientWidth" /* experimental */
+  @get external id: T.t => string = "id"
   @set external setId: (T.t, string) => unit = "id"
-  @get external innerHTML: T.t => string = ""
+  @get external innerHTML: T.t => string = "innerHTML"
   @set external setInnerHTML: (T.t, string) => unit = "innerHTML"
-  @get external localName: T.t => string = ""
-  @get @return(nullable) external namespaceURI: T.t => option<string> = ""
-  @get external outerHTML: T.t => string = "" /* experimental, but widely supported */
+  @get external localName: T.t => string = "localName"
+  @get @return(nullable) external namespaceURI: T.t => option<string> = "namespaceURI"
+  @get external outerHTML: T.t => string = "outerHTML" /* experimental, but widely supported */
   @set
   external setOuterHTML: (T.t, string) => unit =
     "outerHTML" /* experimental, but widely supported */
-  @get @return(nullable) external prefix: T.t => option<string> = ""
-  @get external scrollHeight: T.t => int = "" /* experimental, but widely supported */
-  @get external scrollLeft: T.t => float = "" /* experimental */
+  @get @return(nullable) external prefix: T.t => option<string> = "prefix"
+  @get external scrollHeight: T.t => int = "scrollHeight" /* experimental, but widely supported */
+  @get external scrollLeft: T.t => float = "scrollLeft" /* experimental */
   @set external setScrollLeft: (T.t, float) => unit = "scrollLeft" /* experimental */
-  @get external scrollTop: T.t => float = "" /* experimental, but widely supported */
+  @get external scrollTop: T.t => float = "scrollTop" /* experimental, but widely supported */
   @set
   external setScrollTop: (T.t, float) => unit = "scrollTop" /* experimental, but widely supported */
-  @get external scrollWidth: T.t => int = "" /* experimental */
-  @get external shadowRoot: T.t => Dom.element = "" /* experimental */
-  @get external slot: T.t => string = "" /* experimental */
+  @get external scrollWidth: T.t => int = "scrollWidth" /* experimental */
+  @get external shadowRoot: T.t => Dom.element = "shadowRoot" /* experimental */
+  @get external slot: T.t => string = "slot" /* experimental */
   @set external setSlot: (T.t, string) => unit = "slot" /* experimental */
-  @get external tagName: T.t => string = ""
+  @get external tagName: T.t => string = "tagName"
 
-  @send external attachShadow: (T.t, {"mode": string}) => Dom.shadowRoot = "" /* experimental */
+  @send external attachShadow: (T.t, {"mode": string}) => Dom.shadowRoot = "attachShadow" /* experimental */
   @send
   external attachShadowOpen: (T.t, @as(json`{ "mode": "open" }`) _) => Dom.shadowRoot =
     "attachShadow" /* experimental */
   @send
   external attachShadowClosed: (T.t, @as(json`{ "mode": "closed" }`) _) => Dom.shadowRoot =
     "attachShadow" /* experimental */
-  @send external animate: (T.t, {..}, {..}) => Dom.animation = "" /* experimental */
+  @send external animate: (T.t, {..}, {..}) => Dom.animation = "animate" /* experimental */
   @send @return(nullable)
-  external closest: (T.t, string) => option<Dom.element> = "" /* experimental */
-  @send @return(nullable) external getAttribute: (T.t, string) => option<string> = ""
-  @send @return(nullable) external getAttributeNS: (T.t, string, string) => option<string> = ""
-  @send external getBoundingClientRect: T.t => Dom.domRect = ""
-  @send external getClientRects: T.t => array<Dom.domRect> = ""
-  @send external getElementsByClassName: (T.t, string) => Dom.htmlCollection = ""
-  @send external getElementsByTagName: (T.t, string) => Dom.htmlCollection = ""
-  @send external getElementsByTagNameNS: (T.t, string, string) => Dom.htmlCollection = ""
-  @send external hasAttribute: (T.t, string) => bool = ""
-  @send external hasAttributeNS: (T.t, string, string) => bool = ""
-  @send external hasAttributes: T.t => bool = ""
+  external closest: (T.t, string) => option<Dom.element> = "closest" /* experimental */
+  @send @return(nullable) external getAttribute: (T.t, string) => option<string> = "getAttribute"
+  @send @return(nullable) external getAttributeNS: (T.t, string, string) => option<string> = "getAttributeNS"
+  @send external getBoundingClientRect: T.t => Dom.domRect = "getBoundingClientRect"
+  @send external getClientRects: T.t => array<Dom.domRect> = "getClientRects"
+  @send external getElementsByClassName: (T.t, string) => Dom.htmlCollection = "getElementsByClassName"
+  @send external getElementsByTagName: (T.t, string) => Dom.htmlCollection = "getElementsByTagName"
+  @send external getElementsByTagNameNS: (T.t, string, string) => Dom.htmlCollection = "getElementsByTagNameNS"
+  @send external hasAttribute: (T.t, string) => bool = "hasAttribute"
+  @send external hasAttributeNS: (T.t, string, string) => bool = "hasAttributeNS"
+  @send external hasAttributes: T.t => bool = "hasAttributes"
   @send
   external insertAdjacentElement: (
     T.t,
-    string /* insertPosition enum */,
+    string,
     Dom.element_like<'a>,
-  ) => unit = "" /* experimental, but widely supported */
+  ) => unit = "insertAdjacentElement" /* experimental, but widely supported */
   let insertAdjacentElement: (
     T.t,
     Webapi__Dom__Types.insertPosition,
@@ -94,45 +94,43 @@ module Impl = (
   ) => unit = (self, position, element) =>
     self->insertAdjacentElement(Webapi__Dom__Types.encodeInsertPosition(position), element)
   @send
-  external insertAdjacentHTML: (T.t, string /* insertPosition enum */, string) => unit =
-    "" /* experimental, but widely supported */
+  external insertAdjacentHTML: (T.t, string, string) => unit = "insertAdjacentHTML" /* experimental, but widely supported */
   let insertAdjacentHTML: (T.t, Webapi__Dom__Types.insertPosition, string) => unit = (
     self,
     position,
     text,
   ) => self->insertAdjacentHTML(Webapi__Dom__Types.encodeInsertPosition(position), text)
   @send
-  external insertAdjacentText: (T.t, string /* insertPosition enum */, string) => unit =
-    "" /* experimental, but widely supported */
+  external insertAdjacentText: (T.t, string, string) => unit = "insertAdjacentText" /* experimental, but widely supported */
   let insertAdjacentText: (T.t, Webapi__Dom__Types.insertPosition, string) => unit = (
     self,
     position,
     text,
   ) => self->insertAdjacentText(Webapi__Dom__Types.encodeInsertPosition(position), text)
-  @send external matches: (T.t, string) => bool = "" /* experimental, but widely supported */
-  @send external releasePointerCapture: (T.t, Dom.eventPointerId) => unit = ""
-  @send external removeAttribute: (T.t, string) => unit = ""
-  @send external removeAttributeNS: (T.t, string, string) => unit = ""
-  @send external requestFullscreen: T.t => unit = "" /* experimental */
-  @send external requestPointerLock: T.t => unit = "" /* experimental */
-  @send external scrollIntoView: T.t => unit = "" /* experimental, but widely supported */
+  @send external matches: (T.t, string) => bool = "matches" /* experimental, but widely supported */
+  @send external releasePointerCapture: (T.t, Dom.eventPointerId) => unit = "releasePointerCapture"
+  @send external removeAttribute: (T.t, string) => unit = "removeAttribute"
+  @send external removeAttributeNS: (T.t, string, string) => unit = "removeAttributeNS"
+  @send external requestFullscreen: T.t => unit = "requestFullscreen" /* experimental */
+  @send external requestPointerLock: T.t => unit = "requestPointerLock" /* experimental */
+  @send external scrollIntoView: T.t => unit = "scrollIntoView" /* experimental, but widely supported */
   @send
   external scrollIntoViewNoAlignToTop: (T.t, @as(json`true`) _) => unit =
     "scrollIntoView" /* experimental, but widely supported */
   @send
   external scrollIntoViewWithOptions: (T.t, {"behavior": string, "block": string}) => unit =
     "scrollIntoView" /* experimental */
-  @send external scrollBy: (T.t, float, float) => unit = ""
+  @send external scrollBy: (T.t, float, float) => unit = "scrollBy"
   @send
   external scrollByWithOptions: (T.t, {"top": float, "left": float, "behavior": string}) => unit =
     "scrollBy"
-  @send external scrollTo: (T.t, float, float) => unit = ""
+  @send external scrollTo: (T.t, float, float) => unit = "scrollTo"
   @send
   external scrollToWithOptions: (T.t, {"top": float, "left": float, "behavior": string}) => unit =
     "scrollTo"
-  @send external setAttribute: (T.t, string, string) => unit = ""
-  @send external setAttributeNS: (T.t, string, string, string) => unit = ""
-  @send external setPointerCapture: (T.t, Dom.eventPointerId) => unit = ""
+  @send external setAttribute: (T.t, string, string) => unit = "setAttribute"
+  @send external setAttributeNS: (T.t, string, string, string) => unit = "setAttributeNS"
+  @send external setPointerCapture: (T.t, Dom.eventPointerId) => unit = "setPointerCapture"
 
   /* GlobalEventHandlers interface */
   /* Not sure this should be exposed, since EventTarget seems like a better API */

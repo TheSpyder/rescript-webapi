@@ -3,27 +3,27 @@ module Impl = (
     type t
   },
 ) => {
-  @get external altKey: T.t => bool = ""
-  @get external button: T.t => int = ""
-  @get external buttons: T.t => int /* bitmask */ = ""
-  @get external clientX: T.t => int = ""
-  @get external clientY: T.t => int = ""
-  @get external ctrlKey: T.t => bool = ""
-  @get external metaKey: T.t => bool = ""
-  @get external movementX: T.t => int = ""
-  @get external movementY: T.t => int = ""
-  @get external offsetX: T.t => int = "" /* experimental, but widely supported */
-  @get external offsetY: T.t => int = "" /* experimental, but widely supported */
-  @get external pageX: T.t => int = "" /* experimental, but widely supported */
-  @get external pageY: T.t => int = "" /* experimental, but widely supported */
-  @get @return(nullable) external region: T.t => option<string> = ""
-  @get @return(nullable) external relatedTarget: T.t => option<Dom.eventTarget> = ""
-  @get external screenX: T.t => int = ""
-  @get external screenY: T.t => int = ""
-  @get external shiftKey: T.t => bool = ""
-  @get external x: T.t => int = "" /* experimental */
-  @get external y: T.t => int = "" /* experimental */
-  @send external getModifierState: (T.t, string /* modifierKey enum */) => bool = ""
+  @get external altKey: T.t => bool = "altKey"
+  @get external button: T.t => int = "button"
+  @get external buttons: T.t => int = "buttons" /* bitmask */
+  @get external clientX: T.t => int = "clientX"
+  @get external clientY: T.t => int = "clientY"
+  @get external ctrlKey: T.t => bool = "ctrlKey"
+  @get external metaKey: T.t => bool = "metaKey"
+  @get external movementX: T.t => int = "movementX"
+  @get external movementY: T.t => int = "movementY"
+  @get external offsetX: T.t => int = "offsetX" /* experimental, but widely supported */
+  @get external offsetY: T.t => int = "offsetY" /* experimental, but widely supported */
+  @get external pageX: T.t => int = "pageX" /* experimental, but widely supported */
+  @get external pageY: T.t => int = "pageY" /* experimental, but widely supported */
+  @get @return(nullable) external region: T.t => option<string> = "region"
+  @get @return(nullable) external relatedTarget: T.t => option<Dom.eventTarget> = "relatedTarget"
+  @get external screenX: T.t => int = "screenX"
+  @get external screenY: T.t => int = "screenY"
+  @get external shiftKey: T.t => bool = "shiftKey"
+  @get external x: T.t => int = "x" /* experimental */
+  @get external y: T.t => int = "y" /* experimental */
+  @send external getModifierState: (T.t, string) => bool = "getModifierState"
   let getModifierState: (T.t, Webapi__Dom__Types.modifierKey) => bool = (self, key) =>
     self->getModifierState(Webapi__Dom__Types.encodeModifierKey(key))
 }

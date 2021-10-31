@@ -14,13 +14,13 @@ include Webapi__Dom__MouseEvent.Impl({
 @new external make: string => t = "PointerEvent"
 @new external makeWithOptions: (string, {..}) => t = "PointerEvent"
 
-@get external pointerId: t => pointerId = ""
-@get external width: t => int = ""
-@get external height: t => int = ""
-@get external pressure: t => float = ""
-@get external tiltX: t => int = ""
-@get external tiltY: t => int = ""
-@get external pointerType: t => string /* pointerType enum */ = ""
+@get external pointerId: t => pointerId = "pointerId"
+@get external width: t => int = "width"
+@get external height: t => int = "height"
+@get external pressure: t => float = "pressure"
+@get external tiltX: t => int = "tiltX"
+@get external tiltY: t => int = "tiltY"
+@get external pointerType: t => string = "pointerType"
 let pointerType: t => Webapi__Dom__Types.pointerType = self =>
   Webapi__Dom__Types.decodePointerType(pointerType(self))
-@get external isPrimary: t => bool = ""
+@get external isPrimary: t => bool = "isPrimary"

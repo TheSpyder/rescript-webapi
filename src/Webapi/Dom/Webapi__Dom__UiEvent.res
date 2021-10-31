@@ -3,8 +3,8 @@ module Impl = (
     type t
   },
 ) => {
-  @get external detail: T.t => int = ""
-  @get external view: T.t => Dom.window = "" /* technically returns a `WindowProxy` */
+  @get external detail: T.t => int = "detail"
+  @get external view: T.t => Dom.window = "view" /* technically returns a `WindowProxy` */
 }
 
 type t = Dom.uiEvent

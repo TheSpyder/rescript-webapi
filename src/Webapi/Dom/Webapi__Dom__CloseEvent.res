@@ -7,6 +7,6 @@ include Webapi__Dom__Event.Impl({
 @new external make: string => t = "CloseEvent"
 @new external makeWithOptions: (string, {..}) => t = "CloseEvent"
 
-@get external wasClean: t => bool = ""
-@get external code: t => int = ""
-@get external reason: t => string = ""
+@get external wasClean: t => bool = "wasClean"
+@get external code: t => int = "code"
+@get external reason: t => string = "reason"

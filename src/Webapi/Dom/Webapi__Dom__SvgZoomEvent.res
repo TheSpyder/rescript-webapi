@@ -10,8 +10,8 @@ include Webapi__Dom__UiEvent.Impl({
 @new external make: string => t = "SVGZoomEvent"
 @new external makeWithOptions: (string, {..}) => t = "SVGZoomEvent"
 
-@get external zoomRectScreen: t => Dom.svgRect = ""
-@get external previousScale: t => float = ""
-@get external previousTranslate: t => Dom.svgPoint = ""
-@get external newScale: t => float = ""
-@get external newTranslate: t => Dom.svgPoint = ""
+@get external zoomRectScreen: t => Dom.svgRect = "zoomRectScreen"
+@get external previousScale: t => float = "previousScale"
+@get external previousTranslate: t => Dom.svgPoint = "previousTranslate"
+@get external newScale: t => float = "newScale"
+@get external newTranslate: t => Dom.svgPoint = "newTranslate"

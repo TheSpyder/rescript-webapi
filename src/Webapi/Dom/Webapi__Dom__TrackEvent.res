@@ -8,4 +8,4 @@ include Webapi__Dom__Event.Impl({
 @new external make: string => t = "TrackEvent"
 @new external makeWithOptions: (string, {..}) => t = "TrackEvent"
 
-@get external track: t => track = ""
+@get external track: t => track = "track"

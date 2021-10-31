@@ -7,8 +7,8 @@ include Webapi__Dom__Event.Impl({
 @new external make: string => t = "ErrorEvent"
 @new external makeWithOptions: (string, {..}) => t = "ErrorEvent"
 
-@get external message: t => string = ""
-@get external filename: t => string = ""
-@get external lineno: t => int = ""
-@get external colno: t => int = ""
-@get external error: t => {..} = ""
+@get external message: t => string = "message"
+@get external filename: t => string = "filename"
+@get external lineno: t => int = "lineno"
+@get external colno: t => int = "colno"
+@get external error: t => {..} = "error"
