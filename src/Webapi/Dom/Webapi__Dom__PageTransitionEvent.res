@@ -7,4 +7,4 @@ include Webapi__Dom__Event.Impl({
 @new external make: string => t = "PageTransitionEvent"
 @new external makeWithOptions: (string, {..}) => t = "PageTransitionEvent"
 
-@get external persisted: t => bool = ""
+@get external persisted: t => bool = "persisted"

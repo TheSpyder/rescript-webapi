@@ -421,7 +421,7 @@ module Response = {
 
   @val external error: unit => t = "error"
   @val external redirect: string => t = "redirect"
-  @val external redirectWithStatus: (string, int /* enum-ish */) => t = "redirect"
+  @val external redirectWithStatus: (string, int) => t = "redirect"
   @get external headers: t => headers = "headers"
   @get external ok: t => bool = "ok"
   @get external redirected: t => bool = "redirected"

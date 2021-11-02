@@ -7,4 +7,4 @@ include Webapi__Dom__Event.Impl({
 @new external make: string => t = "ClipboardEvent"
 @new external makeWithOptions: (string, {..}) => t = "ClipboardEvent"
 
-@get external clipboardData: t => Dom.dataTransfer = ""
+@get external clipboardData: t => Dom.dataTransfer = "clipboardData"

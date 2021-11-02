@@ -7,10 +7,10 @@ include Webapi__Dom__EventTarget.Impl({
   type t = t
 })
 
-@get external namespaceURI: t => string = ""
-@get external prefix: t => string = ""
-@get external localName: t => string = ""
-@get external name: t => string = ""
-@get external value: t => string = ""
-@get @return(nullable) external ownerElement: t => option<Dom.element> = ""
-@get external specified: t => bool = "" /* useless; always returns true (exact wording from spec) */
+@get external namespaceURI: t => string = "namespaceURI"
+@get external prefix: t => string = "prefix"
+@get external localName: t => string = "localName"
+@get external name: t => string = "name"
+@get external value: t => string = "value"
+@get @return(nullable) external ownerElement: t => option<Dom.element> = "ownerElement"
+@get external specified: t => bool = "specified" /* useless; always returns true (exact wording from spec) */

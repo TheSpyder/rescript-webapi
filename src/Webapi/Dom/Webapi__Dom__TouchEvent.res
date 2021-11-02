@@ -5,13 +5,13 @@ module Impl = (
     type t
   },
 ) => {
-  @get external altKey: T.t => bool = ""
-  @get external changedTouches: T.t => touchList = ""
-  @get external ctrlKey: T.t => bool = ""
-  @get external metaKey: T.t => bool = ""
-  @get external shiftKey: T.t => bool = ""
-  @get external targetTouches: T.t => touchList = ""
-  @get external touches: T.t => touchList = ""
+  @get external altKey: T.t => bool = "altKey"
+  @get external changedTouches: T.t => touchList = "changedTouches"
+  @get external ctrlKey: T.t => bool = "ctrlKey"
+  @get external metaKey: T.t => bool = "metaKey"
+  @get external shiftKey: T.t => bool = "shiftKey"
+  @get external targetTouches: T.t => touchList = "targetTouches"
+  @get external touches: T.t => touchList = "touches"
 }
 
 type t = Dom.touchEvent

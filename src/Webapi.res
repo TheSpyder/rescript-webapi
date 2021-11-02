@@ -10,7 +10,6 @@ module Iterator = Webapi__Iterator
 
 module Performance = Webapi__Performance
 
-/** @since 0.19.0 */
 module ReadableStream = Webapi__ReadableStream
 
 module IntersectionObserver = Webapi__IntersectionObserver
@@ -20,7 +19,7 @@ module WebSocket = Webapi__WebSocket
 
 type rafId
 
-@val external requestAnimationFrame: (float => unit) => unit = ""
+@val external requestAnimationFrame: (float => unit) => unit = "requestAnimationFrame"
 @val
 external requestCancellableAnimationFrame: (float => unit) => rafId = "requestAnimationFrame"
-@val external cancelAnimationFrame: rafId => unit = ""
+@val external cancelAnimationFrame: rafId => unit = "cancelAnimationFrame"

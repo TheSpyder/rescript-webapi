@@ -8,10 +8,10 @@ include Webapi__Blob.Impl({
 
 @@text("{1 File class}")
 
-/** @since 0.18.0 */ @get external lastModified: t => float = ""
+@get external lastModified: t => float = "lastModified"
 
 // [@new] external make: ... = "File";
 
-@get external name: t => string = ""
+@get external name: t => string = "name"
 
-@get external preview: t => string = ""
+@get external preview: t => string = "preview"

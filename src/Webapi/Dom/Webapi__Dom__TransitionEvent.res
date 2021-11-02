@@ -7,6 +7,6 @@ include Webapi__Dom__Event.Impl({
 @new external make: string => t = "TransitionEvent"
 @new external makeWithOptions: (string, {..}) => t = "TransitionEvent"
 
-@get external propertyName: t => string = ""
-@get external elapsedTime: t => float = ""
-@get external pseudoElement: t => string /* enum-ish */ = ""
+@get external propertyName: t => string = "propertyName"
+@get external elapsedTime: t => float = "elapsedTime"
+@get external pseudoElement: t => string = "pseudoElement"

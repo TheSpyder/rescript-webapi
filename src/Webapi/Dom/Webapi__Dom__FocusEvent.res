@@ -10,4 +10,4 @@ include Webapi__Dom__UiEvent.Impl({
 @new external make: string => t = "FocusEvent"
 @new external makeWithOptions: (string, {..}) => t = "FocusEvent"
 
-@get @return(nullable) external relatedTarget: t => option<Dom.eventTarget> = ""
+@get @return(nullable) external relatedTarget: t => option<Dom.eventTarget> = "relatedTarget"

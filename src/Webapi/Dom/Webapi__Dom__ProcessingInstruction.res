@@ -13,4 +13,4 @@ include Webapi__Dom__ChildNode.Impl({
   type t = t
 })
 
-@get external target: t => string = ""
+@get external target: t => string = "target"

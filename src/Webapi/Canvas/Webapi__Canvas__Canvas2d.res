@@ -78,13 +78,13 @@ type rec style<_> =
   | Pattern: style<pattern>
 
 /* 2d Canvas API, following https://simon.html5.org/dump/html5-canvas-cheat-sheet.html */
-@send external save: t => unit = ""
-@send external restore: t => unit = ""
+@send external save: t => unit = "save"
+@send external restore: t => unit = "restore"
 
 /* Transformation */
-@send external scale: (t, ~x: float, ~y: float) => unit = ""
-@send external rotate: (t, float) => unit = ""
-@send external translate: (t, ~x: float, ~y: float) => unit = ""
+@send external scale: (t, ~x: float, ~y: float) => unit = "scale"
+@send external rotate: (t, float) => unit = "rotate"
+@send external translate: (t, ~x: float, ~y: float) => unit = "translate"
 @send
 external transform: (
   t,
@@ -94,7 +94,7 @@ external transform: (
   ~m22: float,
   ~dx: float,
   ~dy: float,
-) => unit = ""
+) => unit = "transform"
 @send
 external setTransform: (
   t,
@@ -104,17 +104,17 @@ external setTransform: (
   ~m22: float,
   ~dx: float,
   ~dy: float,
-) => unit = ""
+) => unit = "setTransform"
 
 /* Compositing */
-@set external globalAlpha: (t, float) => unit = ""
-@set external globalCompositeOperation: (t, Composite.t) => unit = ""
+@set external globalAlpha: (t, float) => unit = "globalAlpha"
+@set external globalCompositeOperation: (t, Composite.t) => unit = "globalCompositeOperation"
 
 /* Line Styles */
-@set external lineWidth: (t, float) => unit = ""
-@set external lineCap: (t, LineCap.t) => unit = ""
-@set external lineJoin: (t, LineJoin.t) => unit = ""
-@set external miterLimit: (t, float) => unit = ""
+@set external lineWidth: (t, float) => unit = "lineWidth"
+@set external lineCap: (t, LineCap.t) => unit = "lineCap"
+@set external lineJoin: (t, LineJoin.t) => unit = "lineJoin"
+@set external miterLimit: (t, float) => unit = "miterLimit"
 
 /* Colors, Styles, and Shadows */
 @set external setFillStyle: (t, @ignore style<'a>, 'a) => unit = "fillStyle"
@@ -145,21 +145,21 @@ let reifyStyle = (type a, x: 'a): (style<a>, a) => {
   )
 }
 
-@get external fillStyle: t => 'a = ""
-@get external strokeStyle: t => 'a = ""
+@get external fillStyle: t => 'a = "fillStyle"
+@get external strokeStyle: t => 'a = "strokeStyle"
 
 let fillStyle = (ctx: t) => ctx->fillStyle->reifyStyle
 
 let strokeStyle = (ctx: t) => ctx->strokeStyle->reifyStyle
 
-@set external shadowOffsetX: (t, float) => unit = ""
-@set external shadowOffsetY: (t, float) => unit = ""
-@set external shadowBlur: (t, float) => unit = ""
-@set external shadowColor: (t, string) => unit = ""
+@set external shadowOffsetX: (t, float) => unit = "shadowOffsetX"
+@set external shadowOffsetY: (t, float) => unit = "shadowOffsetY"
+@set external shadowBlur: (t, float) => unit = "shadowBlur"
+@set external shadowColor: (t, string) => unit = "shadowColor"
 
 /* Gradients */
 @send
-external createLinearGradient: (t, ~x0: float, ~y0: float, ~x1: float, ~y1: float) => gradient = ""
+external createLinearGradient: (t, ~x0: float, ~y0: float, ~x1: float, ~y1: float) => gradient = "createLinearGradient"
 @send
 external createRadialGradient: (
   t,
@@ -169,8 +169,8 @@ external createRadialGradient: (
   ~y1: float,
   ~r0: float,
   ~r1: float,
-) => gradient = ""
-@send external addColorStop: (gradient, float, string) => unit = ""
+) => gradient = "createRadialGradient"
+@send external addColorStop: (gradient, float, string) => unit = "addColorStop"
 @val
 external createPattern: (
   t,
@@ -182,17 +182,17 @@ external createPattern: (
     | @as("repeat-y") #repeatY
     | @as("no-repeat") #noRepeat
   ],
-) => pattern = ""
+) => pattern = "createPattern"
 
 /* Paths */
-@send external beginPath: t => unit = ""
-@send external closePath: t => unit = ""
-@send external fill: t => unit = ""
-@send external stroke: t => unit = ""
-@send external clip: t => unit = ""
-@send external moveTo: (t, ~x: float, ~y: float) => unit = ""
-@send external lineTo: (t, ~x: float, ~y: float) => unit = ""
-@send external quadraticCurveTo: (t, ~cp1x: float, ~cp1y: float, ~x: float, ~y: float) => unit = ""
+@send external beginPath: t => unit = "beginPath"
+@send external closePath: t => unit = "closePath"
+@send external fill: t => unit = "fill"
+@send external stroke: t => unit = "stroke"
+@send external clip: t => unit = "clip"
+@send external moveTo: (t, ~x: float, ~y: float) => unit = "moveTo"
+@send external lineTo: (t, ~x: float, ~y: float) => unit = "lineTo"
+@send external quadraticCurveTo: (t, ~cp1x: float, ~cp1y: float, ~x: float, ~y: float) => unit = "quadraticCurveTo"
 @send
 external bezierCurveTo: (
   t,
@@ -202,8 +202,8 @@ external bezierCurveTo: (
   ~cp2y: float,
   ~x: float,
   ~y: float,
-) => unit = ""
-@send external arcTo: (t, ~x1: float, ~y1: float, ~x2: float, ~y2: float, ~r: float) => unit = ""
+) => unit = "bezierCurveTo"
+@send external arcTo: (t, ~x1: float, ~y1: float, ~x2: float, ~y2: float, ~r: float) => unit = "arcTo"
 @send
 external arc: (
   t,
@@ -213,26 +213,25 @@ external arc: (
   ~startAngle: float,
   ~endAngle: float,
   ~anticw: bool,
-) => unit = ""
-@send external rect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = ""
-@send external isPointInPath: (t, ~x: float, ~y: float) => bool = ""
+) => unit = "arc"
+@send external rect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "rect"
+@send external isPointInPath: (t, ~x: float, ~y: float) => bool = "isPointInPath"
 
 /* Text */
-@set external font: (t, string) => unit = ""
-@set external textAlign: (t, string) => unit = ""
-@set external textBaseline: (t, string) => unit = ""
+@set external font: (t, string) => unit = "font"
+@set external textAlign: (t, string) => unit = "textAlign"
+@set external textBaseline: (t, string) => unit = "textBaseline"
 @send
-external fillText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, @ignore unit) => unit = ""
+external fillText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, @ignore unit) => unit = "fillText"
 @send
-external strokeText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, @ignore unit) => unit =
-  ""
-@send external measureText: (t, string) => measureText = ""
-@get external width: measureText => float = ""
+external strokeText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, @ignore unit) => unit = "strokeText"
+@send external measureText: (t, string) => measureText = "measureText"
+@get external width: measureText => float = "width"
 
 /* Rectangles */
-@send external fillRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = ""
-@send external strokeRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = ""
-@send external clearRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = ""
+@send external fillRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "fillRect"
+@send external strokeRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "strokeRect"
+@send external clearRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "clearRect"
 
 @send
 external createImageDataCoords: (t, ~width: float, ~height: float) => Webapi__Dom__Image.t =
@@ -242,11 +241,10 @@ external createImageDataFromImage: (t, Webapi__Dom__Image.t) => Webapi__Dom__Ima
   "createImageData"
 
 @send
-external getImageData: (t, ~sx: float, ~sy: float, ~sw: float, ~sh: float) => Webapi__Dom__Image.t =
-  ""
+external getImageData: (t, ~sx: float, ~sy: float, ~sw: float, ~sh: float) => Webapi__Dom__Image.t = "getImageData"
 
 @send
-external putImageData: (t, ~imageData: Webapi__Dom__Image.t, ~dx: float, ~dy: float) => unit = ""
+external putImageData: (t, ~imageData: Webapi__Dom__Image.t, ~dx: float, ~dy: float) => unit = "putImageData"
 
 @send
 external putImageDataWithDirtyRect: (

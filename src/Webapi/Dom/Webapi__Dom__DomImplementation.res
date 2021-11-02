@@ -6,14 +6,14 @@ external createDocumentType: (
   ~qualifiedName: string,
   ~publicId: string,
   ~systemId: string,
-) => Dom.documentType = ""
+) => Dom.documentType = "createDocumentType"
 @send
 external createDocument: (
   t,
   Js.null<string>,
   string,
   Js.null<Dom.documentType>,
-) => Dom.xmlDocument = ""
+) => Dom.xmlDocument = "createDocument"
 let createDocument = (
   impl,
   ~namespace: option<string>=?,
@@ -21,9 +21,8 @@ let createDocument = (
   ~docType: option<Dom.documentType>=?,
   (),
 ) => impl->createDocument(Js.Null.fromOption(namespace), qualifiedName, Js.Null.fromOption(docType))
-@send external createHTMLDocument: t => Dom.htmlDocument = ""
+@send external createHTMLDocument: t => Dom.htmlDocument = "createHTMLDocument"
 @send
 external createHTMLDocumentWithTitle: (t, string) => Dom.htmlDocument = "createHTMLDocument"
 @send
-external hasFeature: t => bool =
-  "" /* useless; always returns true (this is exact wording from the actual spec) */
+external hasFeature: t => bool = "hasFeature" /* useless; always returns true (this is exact wording from the actual spec) */

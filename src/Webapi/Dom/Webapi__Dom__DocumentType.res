@@ -10,6 +10,6 @@ include Webapi__Dom__ChildNode.Impl({
   type t = t
 })
 
-@get external name: t => string = ""
-@get external publicId: t => string = ""
-@get external systemId: t => string = ""
+@get external name: t => string = "name"
+@get external publicId: t => string = "publicId"
+@get external systemId: t => string = "systemId"

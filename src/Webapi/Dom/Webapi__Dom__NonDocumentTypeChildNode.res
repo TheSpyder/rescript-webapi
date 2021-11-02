@@ -4,6 +4,6 @@ module Impl = (
     type t
   },
 ) => {
-  @get @return(nullable) external previousElementSibling: T.t => option<Dom.element> = ""
-  @get @return(nullable) external nextElementSibling: T.t => option<Dom.element> = ""
+  @get @return(nullable) external previousElementSibling: T.t => option<Dom.element> = "previousElementSibling"
+  @get @return(nullable) external nextElementSibling: T.t => option<Dom.element> = "nextElementSibling"
 }
