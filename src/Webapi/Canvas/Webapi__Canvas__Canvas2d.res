@@ -217,6 +217,12 @@ external arc: (
 @send external rect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "rect"
 @send external isPointInPath: (t, ~x: float, ~y: float) => bool = "isPointInPath"
 
+/* Path2D */
+type path2d
+@new external newPath2D: string => path2d = "Path2D"
+@send external fillPath2D: (t, path2d) => unit = "fill"
+@send external strokePath2D: (t, path2d) => unit = "stroke"
+
 /* Text */
 @set external font: (t, string) => unit = "font"
 @set external textAlign: (t, string) => unit = "textAlign"
