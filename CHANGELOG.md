@@ -11,6 +11,7 @@
 * `scrollToWithOptions` method to `window` (#26)
 * `IntersectionObserver` and `IntersectionObserverEntry` bindings (#27)
 * `WebSocket` bindings (#34)
+* Added `Canvas2d.newPath2D()` to bind `Path2D` objects (#45)
 
 ### Miscellaneous
 * Converted project to rescript syntax (#18)
