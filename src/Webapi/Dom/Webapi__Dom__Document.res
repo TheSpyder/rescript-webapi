@@ -25,6 +25,7 @@ module Impl = (
   let ofNode = (node: Dom.node): option<T.t> =>
     Webapi__Dom__Node.nodeType(node) == Webapi__Dom__Types.Document ? Some(Obj.magic(node)) : None
 
+  @get @return(nullable) external activeElement: T.t => option<Dom.element> = "activeElement"
   @get external characterSet: T.t => string = "characterSet"
   @get external compatMode: T.t => string = "compatMode" /* experimental */
   let compatMode: T.t => Webapi__Dom__Types.compatMode = self =>
@@ -103,6 +104,7 @@ module Impl = (
   @send external getElementsByClassName: (T.t, string) => Dom.htmlCollection = "getElementsByClassName"
   @send external getElementsByTagName: (T.t, string) => Dom.htmlCollection = "getElementsByTagName"
   @send external getElementsByTagNameNS: (T.t, string, string) => Dom.htmlCollection = "getElementsByTagNameNS"
+  @send external hasFocus: T.t => bool = "hasFocus"
   @send external importNode: (T.t, Dom.element_like<'a>) => Dom.element_like<'a> = "importNode"
   @send
   external importNodeDeep: (T.t, Dom.element_like<'a>, @as(json`true`) _) => Dom.element_like<'a> =

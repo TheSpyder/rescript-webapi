@@ -3,6 +3,11 @@ open Document
 
 let el = document->createElement("strong")
 
+let _ = switch (document->activeElement) {
+  | Some(e) => Js.log(e)
+  | None => ()
+}
+
 let _ = document->characterSet
 let _ = document->compatMode
 let _ = document->doctype
@@ -72,6 +77,7 @@ let _ = document->getAnimations
 let _ = document->getElementsByClassName("lstlisting")
 let _ = document->getElementsByTagName("code")
 let _ = document->getElementsByTagNameNS("http://...", "foo")
+let _ = document->hasFocus
 let _ = document->importNode(el)
 let _ = document->importNodeDeep(el)
 /* TODO: These get dead code eliminated
