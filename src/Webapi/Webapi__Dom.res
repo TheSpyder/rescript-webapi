@@ -48,6 +48,7 @@ module PopStateEvent = Webapi__Dom__PopStateEvent
 module ProcessingInstruction = Webapi__Dom__ProcessingInstruction
 module ProgressEvent = Webapi__Dom__ProgressEvent
 module Range = Webapi__Dom__Range
+module RectList = Webapi__Dom__RectList
 module RelatedEvent = Webapi__Dom__RelatedEvent
 module Selection = Webapi__Dom__Selection
 module ShadowRoot = Webapi__Dom__ShadowRoot

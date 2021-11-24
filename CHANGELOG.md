@@ -6,6 +6,7 @@
 * Removed deprecated APIs (#16)
 * Updated `Window.getSelection` api to return an option (#15)
 * Updated `Document.elementFromPoint` api to return an option and be @nullable (#35)
+* Updated `getClientRects` method on `Document` and `Range` to return a `Dom.RectList.t` (#36)
 
 ### Added and Updated (non-breaking)
 * `WebSocket` bindings (#34)
