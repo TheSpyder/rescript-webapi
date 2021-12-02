@@ -16,6 +16,18 @@ type transferable
 
 type idleCallbackId /* used by requestIdleCallback and cancelIdleCallback */
 
+module Navigator = {
+  type t = navigator
+
+  include Webapi__Navigator__ID.Impl({ type t = t })
+  include Webapi__Navigator__Language.Impl({ type t = t })
+  include Webapi__Navigator__OnLine.Impl({ type t = t })
+  include Webapi__Navigator__ContentUtils.Impl({ type t = t })
+  include Webapi__Navigator__Cookies.Impl({ type t = t })
+  include Webapi__Navigator__Plugins.Impl({ type t = t })
+  include Webapi__Navigator__ConcurrentHardware.Impl({ type t = t })
+}
+
 module Impl = (
   T: {
     type t
@@ -125,7 +137,7 @@ module Impl = (
   @send
   external scrollTo: (t_window, float, float) => unit = "scrollTo" /* experimental, CSSOM View module */
   @send external stop: t_window => unit = "stop"
-  
+
   @send external scrollToWithOptions: (T.t, {"top": float, "left": float, "behavior": string}) => unit = "scrollTo"
 
   @send
@@ -148,7 +160,9 @@ module Impl = (
 
 type t = Dom.window
 
-/* include WindowOrWorkerGlobalScope? not really "dom" though */
+include Webapi__WindowOrWorkerGlobalScope.Impl({
+  type t = t
+})
 include Webapi__Dom__EventTarget.Impl({
   type t = t
 })

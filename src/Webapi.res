@@ -18,6 +18,8 @@ module ResizeObserver = Webapi__ResizeObserver
 module Url = Webapi__Url
 module WebSocket = Webapi__WebSocket
 
+module WorkerGlobalScope = Webapi__WorkerGlobalScope
+
 type rafId
 
 @val external requestAnimationFrame: (float => unit) => unit = "requestAnimationFrame"
