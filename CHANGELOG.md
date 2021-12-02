@@ -1,3 +1,8 @@
+## Unreleased
+
+### Added
+* Added new `StaticRange` module. (#47)
+
 ## 1.0 Changes
 
 ### Breaking Changes
