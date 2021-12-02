@@ -3,6 +3,7 @@ module Blob = Webapi__Blob
 module Canvas = Webapi__Canvas
 module Dom = Webapi__Dom
 module File = Webapi__File
+module FileList = Webapi__FileList
 module Fetch = Webapi__Fetch
 module FormData = Webapi__FormData
 
