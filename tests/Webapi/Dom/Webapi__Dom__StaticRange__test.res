@@ -4,15 +4,15 @@ open StaticRange
 let node = document->Document.createElement("strong")
 let text = document->Document.createTextNode("text")
 
-let range = make({
+let range: StaticRange.t = make({
   startContainer: node,
   startOffset: 1,
   endContainer: text,
   endOffset: 1,
 })
-
-let _ = range->collapsed
-let _ = range->endContainer
-let _ = range->endOffset
-let _ = range->startContainer
-let _ = range->startOffset
+ 
+let collapsed: bool = range->collapsed
+let endContainer: Dom.node = range->endContainer
+let endOffset: int = range->endOffset
+let startContainer: Dom.node = range->startContainer
+let startOffset: int = range->startOffset
