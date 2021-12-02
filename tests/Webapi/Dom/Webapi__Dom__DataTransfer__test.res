@@ -16,3 +16,6 @@ dataTransfer->setData("text/plain", "text")
 dataTransfer->clearData("text/plain")
 dataTransfer->clearAllData
 let files: Webapi__FileList.t = dataTransfer->files
+
+let dropEffectString: string = dropEffectToString(#copy)
+let effectAllowedString: string = effectAllowedToString(#linkMove)
