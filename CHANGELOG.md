@@ -1,8 +1,3 @@
-## Unreleased
-
-### Added
-* Added new `StaticRange` module. (#47)
-
 ## 1.0 Changes
 
 ### Breaking Changes
@@ -20,6 +15,7 @@
 * `scrollToWithOptions` method to `window` (#26)
 * `HtmlDocument` methods `hasFocus` and `activeElement` moved to `Document` (#41)
   * They're still available on `HtmlDocument` thanks to the `include` structure
+* Added new `StaticRange` module. (#47)
 
 ### Miscellaneous
 * Converted project to rescript syntax (#18)
