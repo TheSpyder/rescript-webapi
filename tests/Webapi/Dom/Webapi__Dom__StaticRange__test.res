@@ -1,11 +1,11 @@
 open Webapi.Dom
 open StaticRange
 
-let node = document->Document.createElement("strong")
+let element = document->Document.createElement("strong")
 let text = document->Document.createTextNode("text")
 
 let range: StaticRange.t = make({
-  startContainer: node,
+  startContainer: element,
   startOffset: 1,
   endContainer: text,
   endOffset: 1,
