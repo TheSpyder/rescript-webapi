@@ -12,7 +12,7 @@ dataTransfer->setDragImage(document->Document.createElement("div"), 10, 10)
 
 let types: array<string> = dataTransfer->types
 let data: string = dataTransfer->getData("text/plain")
-dataTransfer->setData("text/plain", "text")
+dataTransfer->setData(~format="text/plain", "text")
 dataTransfer->clearData("text/plain")
 dataTransfer->clearAllData
 let files: Webapi__FileList.t = dataTransfer->files

@@ -26,7 +26,7 @@ type effectAllowed = [
 // old interface
 @get external types: t => array<string> = "types"
 @send external getData: (t, string) => string = "getData"
-@send external setData: (t, string, string) => unit = "setData"
+@send external setData: (t, ~format: string, string) => unit = "setData"
 @send external clearData: (t, string) => unit = "clearData"
 @send external clearAllData: t => unit = "clearData"
 @get external files: t => Webapi__FileList.t = "files"
