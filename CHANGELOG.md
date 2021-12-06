@@ -19,7 +19,7 @@
 * `StaticRange` bindings (#48)
 * Added bindings for the File constructor (#52)
 * Added bindings for the Blob constructor (#52)
-* `DataTransfer` bindings (#50)
+* `DataTransfer` bindings (#51)
 
 ### Miscellaneous
 * Converted project to rescript syntax (#18)
