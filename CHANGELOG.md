@@ -15,6 +15,7 @@
 * `scrollToWithOptions` method to `window` (#26)
 * `HtmlDocument` methods `hasFocus` and `activeElement` moved to `Document` (#41)
   * They're still available on `HtmlDocument` thanks to the `include` structure
+* `StaticRange` bindings (#48)
 
 ### Miscellaneous
 * Converted project to rescript syntax (#18)

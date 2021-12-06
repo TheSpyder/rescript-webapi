@@ -52,6 +52,7 @@ module RectList = Webapi__Dom__RectList
 module RelatedEvent = Webapi__Dom__RelatedEvent
 module Selection = Webapi__Dom__Selection
 module ShadowRoot = Webapi__Dom__ShadowRoot
+module StaticRange = Webapi__Dom__StaticRange
 module StorageEvent = Webapi__Dom__StorageEvent
 module SvgZoomEvent = Webapi__Dom__SvgZoomEvent
 module Text = Webapi__Dom__Text
