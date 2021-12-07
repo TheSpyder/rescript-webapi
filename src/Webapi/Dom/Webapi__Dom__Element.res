@@ -1,29 +1,27 @@
 /* internal, moved out of Impl to reduce unnecessary code duplication */
-let ofNode = (node: Dom.node): option<'a> =>
-  Webapi__Dom__Node.nodeType(node) == Webapi__Dom__Types.Element ? Some(Obj.magic(node)) : None
+%%private(
+  let ofNode = (node: Dom.node): option<'a> =>
+    Webapi__Dom__Node.nodeType(node) == Webapi__Dom__Types.Element ? Some(Obj.magic(node)) : None
+  
+  /*
+    At some point we can drop IE11 support and require constructor names to be available
+   */
+  let asHtmlElement = %raw(`
+    function(element) {
+      if ((window.constructor.name !== undefined && /^HTML\w*Element$/.test(element.constructor.name))
+          || (/^\[object HTML\w*Element\]$/.test(element.constructor.toString()))) {
+        return element;
+      }
+    }
+  `)
+)
 
 module Impl = (
   T: {
     type t
   },
 ) => {
-  let asHtmlElement: T.t => option<Dom.htmlElement> = %raw(`
-    function(element) {
-      var ownerDocument = element.ownerDocument;
-
-      if (ownerDocument != null) {
-        var defaultView = ownerDocument.defaultView;
-
-        if (defaultView != null) {
-          var HTMLElement = defaultView.HTMLElement;
-
-          if (HTMLElement != null && element instanceof HTMLElement) {
-            return element;
-          }
-        }
-      }
-    }
-  `)
+  let asHtmlElement: T.t => option<Dom.htmlElement> = asHtmlElement
 
   /** Unsafe cast, use [asHtmlElement] instead */
   external unsafeAsHtmlElement: T.t => Dom.htmlElement = "%identity"
