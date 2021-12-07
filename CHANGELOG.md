@@ -7,7 +7,7 @@
 * Updated `Window.getSelection` api to return an option (#15)
 * Updated `Document.elementFromPoint` api to return an option and be @nullable (#35)
 * Updated `getClientRects` method on `Document` and `Range` to return a `Dom.RectList.t` (#36)
-* Removed `preview` from File bindings couldn't find it in any specifications. (#52)
+* Removed `preview` from File bindings couldn't find it in any specifications. (#56)
 
 ### Added and Updated (non-breaking)
 * `WebSocket` bindings (#34)
@@ -17,8 +17,8 @@
 * `HtmlDocument` methods `hasFocus` and `activeElement` moved to `Document` (#41)
   * They're still available on `HtmlDocument` thanks to the `include` structure
 * `StaticRange` bindings (#48)
-* Added bindings for the File constructor (#52)
-* Added bindings for the Blob constructor (#52)
+* Added bindings for the File constructor (#56)
+* Added bindings for the Blob constructor (#56)
 * `DataTransfer` bindings (#51)
 
 ### Miscellaneous
