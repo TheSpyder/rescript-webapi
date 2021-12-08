@@ -7,7 +7,9 @@
 * Updated `Window.getSelection` api to return an option (#15)
 * Updated `Document.elementFromPoint` api to return an option and be @nullable (#35)
 * Updated `getClientRects` method on `Document` and `Range` to return a `Dom.RectList.t` (#36)
-* Removed `preview` from File bindings couldn't find it in any specifications. (#56)
+* Removed `preview` from File bindings. It doesn't seem to be in any specifications. (#56)
+* Updated some methods in `MutationRecord` to return nullable values (#59)
+* Corrected spelling of `nextSibling` in `MutationRecord` (#59)
 
 ### Added and Updated (non-breaking)
 * `WebSocket` bindings (#34)
