@@ -4,14 +4,17 @@ open MutationObserver
 let el = document->Document.createElement("strong")
 let observer: t = MutationObserver.make((_records, _observer) => ())
 
-let _ = observer->MutationObserver.observe(el, {
-  "subtree": true,
-  "childList": true,
-  "attributes": true,
-  "attributeOldValue": true,
-  "characterData": true,
-  "characterDataOldValue": true,
-})
+let _ = observer->MutationObserver.observe(
+  el,
+  {
+    "subtree": true,
+    "childList": true,
+    "attributes": true,
+    "attributeOldValue": true,
+    "characterData": true,
+    "characterDataOldValue": true,
+  },
+)
 
 let _ = observer->MutationObserver.disconnect
 let records: array<Dom.mutationRecord> = observer->MutationObserver.takeRecords
