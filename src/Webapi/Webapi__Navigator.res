@@ -24,14 +24,12 @@ type t
 /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorcontentutils */
 
 @send
-external _registerProtocolHandler: (t, string, string) => unit = "registerProtocolHandler"
-
-let registerProtocolHandler = (t, ~scheme, ~url) => _registerProtocolHandler(t, scheme, url)
+external registerProtocolHandler: (t, ~scheme: string, ~url: string) => unit =
+  "registerProtocolHandler"
 
 @send
-external _unregisterProtocolHandler: (t, string, string) => unit = "unregisterProtocolHandler"
-
-let unregisterProtocolHandler = (t, ~scheme, ~url) => _unregisterProtocolHandler(t, scheme, url)
+external unregisterProtocolHandler: (t, ~scheme: string, ~url: string) => unit =
+  "unregisterProtocolHandler"
 
 /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorcookies */
 
