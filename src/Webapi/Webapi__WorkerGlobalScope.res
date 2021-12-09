@@ -34,27 +34,27 @@ module Impl = (
   @variadic @val
   external importScripts: array<string> => unit = "importScripts"
 
-  type eventHandler = Dom.event => unit
-  @get external onerror: t_workerGlobalScope => eventHandler = "onerror"
-  @set external setOnerror: (t_workerGlobalScope, eventHandler) => unit = "onerror"
+  type eventHandler<'event> = 'event => unit
+  @get external onerror: t_workerGlobalScope => eventHandler<Webapi__Dom__ErrorEvent.t> = "onerror"
+  @set external setOnerror: (t_workerGlobalScope, eventHandler<Webapi__Dom__ErrorEvent.t>) => unit = "onerror"
 
-  @get external onlanguagechange: t_workerGlobalScope => eventHandler = "onlanguagechange"
+  @get external onlanguagechange: t_workerGlobalScope => eventHandler<Webapi__Dom__Event.t> = "onlanguagechange"
   @set
-  external setOnlanguagechange: (t_workerGlobalScope, eventHandler) => unit = "onlanguagechange"
+  external setOnlanguagechange: (t_workerGlobalScope, eventHandler<Webapi__Dom__Event.t>) => unit = "onlanguagechange"
 
-  @get external onoffline: t_workerGlobalScope => eventHandler = "onoffline"
-  @set external setOnoffline: (t_workerGlobalScope, eventHandler) => unit = "onoffline"
+  @get external onoffline: t_workerGlobalScope => eventHandler<Webapi__Dom__Event.t> = "onoffline"
+  @set external setOnoffline: (t_workerGlobalScope, eventHandler<Webapi__Dom__Event.t>) => unit = "onoffline"
 
-  @get external ononline: t_workerGlobalScope => eventHandler = "ononline"
-  @set external setOnonline: (t_workerGlobalScope, eventHandler) => unit = "ononline"
+  @get external ononline: t_workerGlobalScope => eventHandler<Webapi__Dom__Event.t> = "ononline"
+  @set external setOnonline: (t_workerGlobalScope, eventHandler<Webapi__Dom__Event.t>) => unit = "ononline"
 
-  @get external onrejectionhandled: t_workerGlobalScope => eventHandler = "onrejectionhandled"
+  @get external onrejectionhandled: t_workerGlobalScope => eventHandler<Webapi__Dom__PromiseRejectionEvent.t> = "onrejectionhandled"
   @set
-  external setOnrejectionhandled: (t_workerGlobalScope, eventHandler) => unit = "onrejectionhandled"
+  external setOnrejectionhandled: (t_workerGlobalScope, eventHandler<Webapi__Dom__PromiseRejectionEvent.t>) => unit = "onrejectionhandled"
 
-  @get external onunhandledrejection: t_workerGlobalScope => eventHandler = "onunhandledrejection"
+  @get external onunhandledrejection: t_workerGlobalScope => eventHandler<Webapi__Dom__PromiseRejectionEvent.t> = "onunhandledrejection"
   @set
-  external setOnunhandledrejection: (t_workerGlobalScope, eventHandler) => unit =
+  external setOnunhandledrejection: (t_workerGlobalScope, eventHandler<Webapi__Dom__PromiseRejectionEvent.t>) => unit =
     "onunhandledrejection"
 }
 
