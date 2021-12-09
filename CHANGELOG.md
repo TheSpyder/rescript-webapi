@@ -22,7 +22,7 @@
 * Added bindings for the File constructor (#56)
 * Added bindings for the Blob constructor (#56)
 * `DataTransfer` bindings (#51)
-* `WorkerGlobalScope`, `WindowOrWorkerGlobalScope`, `WorkerNavigator`, and `WorkerLocation` bindings (#21)
+* `WorkerGlobalScope`, `WindowOrWorkerGlobalScope`, `WorkerNavigator`, and `WorkerLocation` bindings (#57)
 
 ### Miscellaneous
 * Converted project to rescript syntax (#18)
