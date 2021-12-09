@@ -18,13 +18,7 @@ module Impl = (
   // Does not seem to be implemented in browsers?
   // @send external reportError: (t_windowOrWorkerGlobalScope, Webapi.Dom.ErrorEvent.t) => unit = ""
 
-  type timeoutHandle // float
-  @val external setTimeout: (@uncurry unit => unit, float) => timeoutHandle = "setTimeout"
-  @val external clearTimeout: timeoutHandle => unit = "clearTimeout"
-
-  type intervalHandle // float
-  @val external setInterval: (@uncurry unit => unit, float) => intervalHandle = "setInterval"
-  @val external clearInterval: intervalHandle => unit = "clearInterval"
+  // {set,clear}{Interval,Timeout} are not implemented here because they are in the rescript-compiler Js.Global module
 
   @val external queueMicrotask: (@uncurry unit => unit) => unit = "queueMicrotask"
 
