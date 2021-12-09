@@ -18,7 +18,7 @@ type t
 /**
  * Experimental. Returns a readonly array of BCP 47 language tags
  */
-// @get external languages: t => array<string> = "languages"
+@get external languages: t => array<string> = "languages"
 
 /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatoronline */
 

@@ -7,16 +7,9 @@ self->setOnoffline((_event) => ())
 let onOffline = onoffline(self)
 importScripts(["module1", "module2"])
 
-// Navigator__ID
-let userAgent = navigatorCopy->WorkerNavigator.userAgent
-let vendor = navigatorCopy->WorkerNavigator.vendor
-
-// Navigator__Language
-let language = navigatorCopy->WorkerNavigator.language
-let languages = navigatorCopy->WorkerNavigator.languages
-
-// Navigator__OnLine
-let onLine = navigatorCopy->WorkerNavigator.onLine
-
-// Navigator__ConcurrentHardware
-let hardwareConcurrency = navigatorCopy->WorkerNavigator.hardwareConcurrency
+let userAgent = navigatorCopy->Webapi.WorkerNavigator.userAgent
+let vendor = navigatorCopy->Webapi.WorkerNavigator.vendor
+let language = navigatorCopy->Webapi.WorkerNavigator.language
+let languages = navigatorCopy->Webapi.WorkerNavigator.languages
+let onLine = navigatorCopy->Webapi.WorkerNavigator.onLine
+let hardwareConcurrency = navigatorCopy->Webapi.WorkerNavigator.hardwareConcurrency

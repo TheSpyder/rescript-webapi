@@ -15,7 +15,7 @@ type t
 /**
  * Experimental. Returns a readonly array of BCP 47 language tags
  */
-// @get external languages: t => array<string> = "languages"
+@get external languages: t => array<string> = "languages"
 
 /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatoronline */
 
@@ -38,7 +38,6 @@ external cookieEnabled: t => bool = "cookieEnabled"
 
 /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins */
 
-@send external javaEnabled: t => bool = "javaEnabled"
 @get external pdfViewerEnabled: t => bool = "pdfViewerEnabled"
 
 /* Spec: https://html.spec.whatwg.org/multipage/workers.html#navigatorconcurrenthardware */
