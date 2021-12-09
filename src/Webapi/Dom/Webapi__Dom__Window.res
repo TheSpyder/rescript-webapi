@@ -4,7 +4,8 @@ type frameList /* array-like, WindowProxy? */
 type idleDeadline /* Cooperative Scheduling of Background Tasks */
 type locationbar /* "bar object" */
 type menubar /* "bar object" */
-type navigator
+@deprecated
+type navigator = Webapi__Navigator.t
 type personalbar /* "bar object" */
 type screen
 type scrollbars /* "bar object" */
@@ -15,18 +16,6 @@ type mediaQueryList /* CSSOM View module */
 type transferable
 
 type idleCallbackId /* used by requestIdleCallback and cancelIdleCallback */
-
-module Navigator = {
-  type t = navigator
-
-  include Webapi__Navigator__ID.Impl({ type t = t })
-  include Webapi__Navigator__Language.Impl({ type t = t })
-  include Webapi__Navigator__OnLine.Impl({ type t = t })
-  include Webapi__Navigator__ContentUtils.Impl({ type t = t })
-  include Webapi__Navigator__Cookies.Impl({ type t = t })
-  include Webapi__Navigator__Plugins.Impl({ type t = t })
-  include Webapi__Navigator__ConcurrentHardware.Impl({ type t = t })
-}
 
 module Impl = (
   T: {
@@ -47,7 +36,6 @@ module Impl = (
   @get external history: t_window => Dom.history = "history"
   @get external innerWidth: t_window => int = "innerWidth"
   @get external innerHeight: t_window => int = "innerHeight"
-  @get external isSecureContext: t_window => bool = "isSecureContext"
   @get external length: t_window => int = "length"
   @get external location: t_window => Dom.location = "location"
   @set external setLocation: (t_window, string) => unit = "location"
@@ -56,7 +44,7 @@ module Impl = (
   @get external menubar: t_window => menubar = "menubar"
   @get external name: t_window => string = "name"
   @set external setName: (t_window, string) => unit = "name"
-  @get external navigator: t_window => navigator = "navigator"
+  @get external navigator: t_window => Webapi__Navigator.t = "navigator"
   @get @return(nullable) external opener: t_window => option<Dom.window> = "opener"
   @get external outerWidth: t_window => int = "outerWidth"
   @get external outerHeight: t_window => int = "outerHeight"
