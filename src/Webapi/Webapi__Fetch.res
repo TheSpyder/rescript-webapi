@@ -104,30 +104,6 @@ let decodeReferrerPolicy = x =>
   | e => raise(Failure("Unknown referrerPolicy: " ++ e))
   }
 
-type requestType =
-  | None /* default? unknown? just empty string in spec */
-  | Audio
-  | Font
-  | Image
-  | Script
-  | Style
-  | Track
-  | Video
-let decodeRequestType = x =>
-  /* internal */
-
-  switch x {
-  | "audio" => Audio
-  | "" => None
-  | "font" => Font
-  | "image" => Image
-  | "script" => Script
-  | "style" => Style
-  | "track" => Track
-  | "video" => Video
-  | e => raise(Failure("Unknown requestType: " ++ e))
-  }
-
 type requestDestination =
   | None /* default? unknown? just empty string in spec */
   | Document
@@ -392,8 +368,6 @@ module Request = {
   let method_: t => requestMethod = self => decodeRequestMethod(method_(self))
   @get external url: t => string = "url"
   @get external headers: t => headers = "headers"
-  @get external type_: t => string = "type"
-  let type_: t => requestType = self => decodeRequestType(type_(self))
   @get external destination: t => string = "destination"
   let destination: t => requestDestination = self => decodeRequestDestination(destination(self))
   @get external referrer: t => string = "referrer"
