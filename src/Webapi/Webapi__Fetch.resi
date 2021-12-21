@@ -24,17 +24,6 @@ type signal = AbortController.signal
 type blob
 type file
 
-type requestMethod =
-  | Get
-  | Head
-  | Post
-  | Put
-  | Delete
-  | Connect
-  | Options
-  | Trace
-  | Patch
-  | Other(string)
 
 type referrerPolicy =
   | None
@@ -151,7 +140,7 @@ module RequestInit: {
   type t = requestInit
 
   let make: (
-    ~method_: requestMethod=?,
+    ~method: string=?,
     ~headers: headersInit=?,
     ~body: bodyInit=?,
     ~referrer: string=?,
@@ -175,7 +164,7 @@ module Request: {
   @new external makeWithRequest: t => t = "Request"
   @new external makeWithRequestInit: (t, requestInit) => t = "Request"
 
-  let method_: t => requestMethod
+  @get external method: t => string = "method"
   @get external url: t => string = "url"
   @get external headers: t => headers = "headers"
   let type_: t => requestType
