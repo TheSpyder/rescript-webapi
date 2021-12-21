@@ -37,7 +37,6 @@ type requestMethod =
   | Other(string)
 
 type referrerPolicy = [
-  | #""
   | #"no-referrer"
   | #"no-referrer-when-downgrade"
   | #"same-origin"
