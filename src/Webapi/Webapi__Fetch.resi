@@ -1,6 +1,6 @@
 module AbortController = Webapi__Fetch__AbortController
 
-/** Alias for anyone upgrading */
+/* * Alias for anyone upgrading */
 module FormData = Webapi__FormData
 type body
 type bodyInit
@@ -74,29 +74,33 @@ type requestDestination =
   | Worker
   | Xslt
 
-type requestMode =
-  | Navigate
-  | SameOrigin
-  | NoCORS
-  | CORS
+type requestMode = [
+  | #navigate
+  | #"same-origin"
+  | #"no-cors"
+  | #cors
+]
 
-type requestCredentials =
-  | Omit
-  | SameOrigin
-  | Include
+type requestCredentials = [
+  | #omit
+  | #"same-origin"
+  | #"include"
+]
 
-type requestCache =
-  | Default
-  | NoStore
-  | Reload
-  | NoCache
-  | ForceCache
-  | OnlyIfCached
+type requestCache = [
+  | #default
+  | #"no-store"
+  | #reload
+  | #"no-cache"
+  | #"force-cache"
+  | #"only-if-cached"
+]
 
-type requestRedirect =
-  | Follow
-  | Error
-  | Manual
+type requestRedirect = [
+  | #follow
+  | #error
+  | #manual
+]
 
 module HeadersInit: {
   type t = headersInit

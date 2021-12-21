@@ -166,105 +166,33 @@ let decodeRequestDestination = x =>
   | e => raise(Failure("Unknown requestDestination: " ++ e))
   }
 
-type requestMode =
-  | Navigate
-  | SameOrigin
-  | NoCORS
-  | CORS
-let encodeRequestMode = x =>
-  /* internal */
+type requestMode = [
+  | #navigate
+  | #"same-origin"
+  | #"no-cors"
+  | #cors
+]
 
-  switch x {
-  | Navigate => "navigate"
-  | SameOrigin => "same-origin"
-  | NoCORS => "no-cors"
-  | CORS => "cors"
-  }
-let decodeRequestMode = x =>
-  /* internal */
+type requestCredentials = [
+  | #omit
+  | #"same-origin"
+  | #"include"
+]
 
-  switch x {
-  | "navigate" => Navigate
-  | "same-origin" => SameOrigin
-  | "no-cors" => NoCORS
-  | "cors" => CORS
-  | e => raise(Failure("Unknown requestMode: " ++ e))
-  }
+type requestCache = [
+  | #default
+  | #"no-store"
+  | #reload
+  | #"no-cache"
+  | #"force-cache"
+  | #"only-if-cached"
+]
 
-type requestCredentials =
-  | Omit
-  | SameOrigin
-  | Include
-let encodeRequestCredentials = x =>
-  /* internal */
-
-  switch x {
-  | Omit => "omit"
-  | SameOrigin => "same-origin"
-  | Include => "include"
-  }
-let decodeRequestCredentials = x =>
-  /* internal */
-
-  switch x {
-  | "omit" => Omit
-  | "same-origin" => SameOrigin
-  | "include" => Include
-  | e => raise(Failure("Unknown requestCredentials: " ++ e))
-  }
-
-type requestCache =
-  | Default
-  | NoStore
-  | Reload
-  | NoCache
-  | ForceCache
-  | OnlyIfCached
-let encodeRequestCache = x =>
-  /* internal */
-
-  switch x {
-  | Default => "default"
-  | NoStore => "no-store"
-  | Reload => "reload"
-  | NoCache => "no-cache"
-  | ForceCache => "force-cache"
-  | OnlyIfCached => "only-if-cached"
-  }
-let decodeRequestCache = x =>
-  /* internal */
-
-  switch x {
-  | "default" => Default
-  | "no-store" => NoStore
-  | "reload" => Reload
-  | "no-cache" => NoCache
-  | "force-cache" => ForceCache
-  | "only-if-cached" => OnlyIfCached
-  | e => raise(Failure("Unknown requestCache: " ++ e))
-  }
-
-type requestRedirect =
-  | Follow
-  | Error
-  | Manual
-let encodeRequestRedirect = x =>
-  /* internal */
-
-  switch x {
-  | Follow => "follow"
-  | Error => "error"
-  | Manual => "manual"
-  }
-let decodeRequestRedirect = x =>
-  /* internal */
-
-  switch x {
-  | "follow" => Follow
-  | "error" => Error
-  | "manual" => Manual
-  | e => raise(Failure("Unknown requestRedirect: " ++ e))
-  }
+type requestRedirect = [
+  | #follow
+  | #error
+  | #manual
+]
 
 module HeadersInit = {
   type t = headersInit
@@ -337,10 +265,10 @@ module RequestInit = {
     ~body: bodyInit=?,
     ~referrer: string=?,
     ~referrerPolicy: string=?,
-    ~mode: string=?,
-    ~credentials: string=?,
-    ~cache: string=?,
-    ~redirect: string=?,
+    ~mode: requestMode=?,
+    ~credentials: requestCredentials=?,
+    ~cache: requestCache=?,
+    ~redirect: requestRedirect=?,
     ~integrity: string=?,
     ~keepalive: bool=?,
     ~signal: signal=?,
@@ -366,10 +294,10 @@ module RequestInit = {
       ~body?,
       ~referrer?,
       ~referrerPolicy=encodeReferrerPolicy(referrerPolicy),
-      ~mode=?map(encodeRequestMode, mode),
-      ~credentials=?map(encodeRequestCredentials, credentials),
-      ~cache=?map(encodeRequestCache, cache),
-      ~redirect=?map(encodeRequestRedirect, redirect),
+      ~mode?,
+      ~credentials?,
+      ~cache?,
+      ~redirect?,
       ~integrity,
       ~keepalive?,
       ~signal?,
@@ -399,14 +327,10 @@ module Request = {
   @get external referrer: t => string = "referrer"
   @get external referrerPolicy: t => string = "referrerPolicy"
   let referrerPolicy: t => referrerPolicy = self => decodeReferrerPolicy(referrerPolicy(self))
-  @get external mode: t => string = "mode"
-  let mode: t => requestMode = self => decodeRequestMode(mode(self))
-  @get external credentials: t => string = "credentials"
-  let credentials: t => requestCredentials = self => decodeRequestCredentials(credentials(self))
-  @get external cache: t => string = "cache"
-  let cache: t => requestCache = self => decodeRequestCache(cache(self))
-  @get external redirect: t => string = "redirect"
-  let redirect: t => requestRedirect = self => decodeRequestRedirect(redirect(self))
+  @get external mode: t => requestMode = "mode"
+  @get external credentials: t => requestCredentials = "credentials"
+  @get external cache: t => requestCache = "cache"
+  @get external redirect: t => requestRedirect = "redirect"
   @get external integrity: t => string = "integrity"
   @get external keepalive: t => bool = "keepalive"
   @get external signal: t => signal = "signal"
