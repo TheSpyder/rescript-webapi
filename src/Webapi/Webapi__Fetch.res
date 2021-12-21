@@ -64,45 +64,17 @@ let decodeRequestMethod = x =>
   | method_ => Other(method_)
   }
 
-type referrerPolicy =
-  | None
-  | NoReferrer
-  | NoReferrerWhenDowngrade
-  | SameOrigin
-  | Origin
-  | StrictOrigin
-  | OriginWhenCrossOrigin
-  | StrictOriginWhenCrossOrigin
-  | UnsafeUrl
-let encodeReferrerPolicy = x =>
-  /* internal */
-
-  switch x {
-  | NoReferrer => "no-referrer"
-  | None => ""
-  | NoReferrerWhenDowngrade => "no-referrer-when-downgrade"
-  | SameOrigin => "same-origin"
-  | Origin => "origin"
-  | StrictOrigin => "strict-origin"
-  | OriginWhenCrossOrigin => "origin-when-cross-origin"
-  | StrictOriginWhenCrossOrigin => "strict-origin-when-cross-origin"
-  | UnsafeUrl => "unsafe-url"
-  }
-let decodeReferrerPolicy = x =>
-  /* internal */
-
-  switch x {
-  | "no-referrer" => NoReferrer
-  | "" => None
-  | "no-referrer-when-downgrade" => NoReferrerWhenDowngrade
-  | "same-origin" => SameOrigin
-  | "origin" => Origin
-  | "strict-origin" => StrictOrigin
-  | "origin-when-cross-origin" => OriginWhenCrossOrigin
-  | "strict-origin-when-cross-origin" => StrictOriginWhenCrossOrigin
-  | "unsafe-url" => UnsafeUrl
-  | e => raise(Failure("Unknown referrerPolicy: " ++ e))
-  }
+type referrerPolicy = [
+  | #""
+  | #"no-referrer"
+  | #"no-referrer-when-downgrade"
+  | #"same-origin"
+  | #origin
+  | #"strict-origin"
+  | #"origin-when-cross-origin"
+  | #"strict-origin-when-cross-origin"
+  | #"unsafe-url"
+]
 
 type requestType =
   | None /* default? unknown? just empty string in spec */
@@ -336,7 +308,7 @@ module RequestInit = {
     ~headers: headersInit=?,
     ~body: bodyInit=?,
     ~referrer: string=?,
-    ~referrerPolicy: string=?,
+    ~referrerPolicy: referrerPolicy=?,
     ~mode: string=?,
     ~credentials: string=?,
     ~cache: string=?,
@@ -351,7 +323,7 @@ module RequestInit = {
     ~headers: option<headersInit>=?,
     ~body: option<bodyInit>=?,
     ~referrer: option<string>=?,
-    ~referrerPolicy: referrerPolicy=None,
+    ~referrerPolicy: option<referrerPolicy>=?,
     ~mode: option<requestMode>=?,
     ~credentials: option<requestCredentials>=?,
     ~cache: option<requestCache>=?,
@@ -365,7 +337,7 @@ module RequestInit = {
       ~headers?,
       ~body?,
       ~referrer?,
-      ~referrerPolicy=encodeReferrerPolicy(referrerPolicy),
+      ~referrerPolicy?,
       ~mode=?map(encodeRequestMode, mode),
       ~credentials=?map(encodeRequestCredentials, credentials),
       ~cache=?map(encodeRequestCache, cache),
@@ -397,8 +369,7 @@ module Request = {
   @get external destination: t => string = "destination"
   let destination: t => requestDestination = self => decodeRequestDestination(destination(self))
   @get external referrer: t => string = "referrer"
-  @get external referrerPolicy: t => string = "referrerPolicy"
-  let referrerPolicy: t => referrerPolicy = self => decodeReferrerPolicy(referrerPolicy(self))
+  @get external referrerPolicy: t => referrerPolicy = "referrerPolicy"
   @get external mode: t => string = "mode"
   let mode: t => requestMode = self => decodeRequestMode(mode(self))
   @get external credentials: t => string = "credentials"

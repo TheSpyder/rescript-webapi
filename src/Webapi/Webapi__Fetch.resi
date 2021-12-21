@@ -36,16 +36,17 @@ type requestMethod =
   | Patch
   | Other(string)
 
-type referrerPolicy =
-  | None
-  | NoReferrer
-  | NoReferrerWhenDowngrade
-  | SameOrigin
-  | Origin
-  | StrictOrigin
-  | OriginWhenCrossOrigin
-  | StrictOriginWhenCrossOrigin
-  | UnsafeUrl
+type referrerPolicy = [
+  | #""
+  | #"no-referrer"
+  | #"no-referrer-when-downgrade"
+  | #"same-origin"
+  | #origin
+  | #"strict-origin"
+  | #"origin-when-cross-origin"
+  | #"strict-origin-when-cross-origin"
+  | #"unsafe-url"
+]
 
 type requestType =
   | None /* default? unknown? just empty string in spec */
