@@ -6,6 +6,7 @@ type body
 type bodyInit
 type headers
 type headersInit
+type responseInit
 type response
 type request
 type requestInit
@@ -412,12 +413,34 @@ module Request = {
   @get external signal: t => signal = "signal"
 }
 
+module ResponseInit = {
+  type t = responseInit
+
+  @obj
+  external make: (
+    ~status: int=?,
+    ~statusText: string=?,
+    ~headers: headersInit=?,
+    unit,
+  ) => responseInit = ""
+  let make = (
+    ~status: option<int>=?,
+    ~statusText: option<string>=?,
+    ~headers: option<headersInit>=?,
+  ) => make(~status?, ~statusText?, ~headers?)
+}
+
 module Response = {
   type t = response
 
   include Body.Impl({
     type t = t
   })
+
+  @new external make: string => t = "Response"
+  @new external makeWithInit: (string, responseInit) => t = "Response"
+  @new external makeWithResponse: t => t = "Response"
+  @new external makeWithResponseInit: (t, responseInit) => t = "Response"
 
   @val external error: unit => t = "error"
   @val external redirect: string => t = "redirect"

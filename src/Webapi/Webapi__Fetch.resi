@@ -6,6 +6,7 @@ type body
 type bodyInit
 type headers
 type headersInit
+type responseInit
 type response
 type request
 type requestInit
@@ -201,8 +202,19 @@ module Request: {
   @send external text: t => Js.Promise.t<string> = "text"
 }
 
+module ResponseInit: {
+  type t = responseInit
+
+  let make: (~status: int=?, ~statusText: string=?, ~headers: headersInit=?, unit) => t
+}
+
 module Response: {
   type t = response
+
+  @new external make: string => t = "Response"
+  @new external makeWithInit: (string, responseInit) => t = "Response"
+  @new external makeWithResponse: t => t = "Response"
+  @new external makeWithResponseInit: (t, responseInit) => t = "Response"
 
   @val external error: unit => t = "error"
   @val external redirect: string => t = "redirect"
