@@ -7,6 +7,8 @@ module FileList = Webapi__FileList
 module Fetch = Webapi__Fetch
 module FormData = Webapi__FormData
 
+module Navigator = Webapi__Navigator
+
 module Iterator = Webapi__Iterator
 
 module Performance = Webapi__Performance
@@ -17,6 +19,9 @@ module IntersectionObserver = Webapi__IntersectionObserver
 module ResizeObserver = Webapi__ResizeObserver
 module Url = Webapi__Url
 module WebSocket = Webapi__WebSocket
+
+module WorkerGlobalScope = Webapi__WorkerGlobalScope
+module WorkerNavigator = Webapi__WorkerNavigator
 
 type rafId
 
