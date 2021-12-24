@@ -23,6 +23,7 @@
 * Added bindings for the Blob constructor (#56)
 * `DataTransfer` bindings (#51)
 * `WorkerGlobalScope`, `WindowOrWorkerGlobalScope`, `WorkerNavigator`, and `WorkerLocation` bindings (#57)
+* `Response` constructors to `Fetch` bindings (#64)
 
 ### Miscellaneous
 * Converted project to rescript syntax (#18)
