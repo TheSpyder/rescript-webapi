@@ -1,3 +1,6 @@
+/**
+ * Spec: https://dom.spec.whatwg.org/#interface-htmlcollection
+ */
 type t = Dom.htmlCollection
 
 @val @scope(("Array", "prototype", "slice"))

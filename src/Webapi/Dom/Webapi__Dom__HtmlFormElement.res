@@ -10,7 +10,16 @@ module Impl = (
 ) => {
   type t_htmlFormElement = T.t
 
-  /* TODO: elements: HTMLFormControlsCollection */
+  external unsafeAsFormElement: Dom.element => t_htmlFormElement = "%identity"
+  external asElement: t_htmlFormElement => Dom.element = "%identity"
+
+  let ofElement = (el): option<t_htmlFormElement> =>
+    switch Webapi__Dom__Element.tagName(el)->Js.String2.toUpperCase {
+    | "FORM" => el->unsafeAsFormElement->Some
+    | _ => None
+    }
+
+  @get external elements: t_htmlFormElement => Dom.htmlFormControlsCollection = "elements"
   @get external length: t_htmlFormElement => int = "length"
   @get external name: t_htmlFormElement => string = "name"
   @set external setName: (t_htmlFormElement, string) => unit = "name"
