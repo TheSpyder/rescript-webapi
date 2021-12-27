@@ -48,16 +48,6 @@ type referrerPolicy =
   | StrictOriginWhenCrossOrigin
   | UnsafeUrl
 
-type requestType =
-  | None /* default? unknown? just empty string in spec */
-  | Audio
-  | Font
-  | Image
-  | Script
-  | Style
-  | Track
-  | Video
-
 type requestDestination =
   | None /* default? unknown? just empty string in spec */
   | Document
@@ -179,7 +169,6 @@ module Request: {
   let method_: t => requestMethod
   @get external url: t => string = "url"
   @get external headers: t => headers = "headers"
-  let type_: t => requestType
   let destination: t => requestDestination
   @get external referrer: t => string = "referrer"
   let referrerPolicy: t => referrerPolicy
