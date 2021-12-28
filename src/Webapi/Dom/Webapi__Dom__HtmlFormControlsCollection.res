@@ -19,21 +19,40 @@ type t_namedItem =
   | Select(Dom.htmlSelectElement)
   | TextArea(Dom.htmlTextAreaElement)
 
-@send @return(nullable) external _namedItem: (t, string) => option<'element> = "namedItem"
+type elementOrRadioNodeList
 
-let namedItem = (t, name): option<t_namedItem> =>
+@send @return(nullable)
+external _namedItem: (t, string) => option<elementOrRadioNodeList> = "namedItem"
+
+let testRadioNodeList: elementOrRadioNodeList => option<Webapi__Dom__RadioNodeList.t> = %raw(`
+  function(el) {
+    if ((el.constructor.name != null && el.constructor.name === "RadioNodeList")
+      || /^\[object RadioNodeList\]$/.test(el.constructor.toString())) {
+      return el;
+    }
+  }
+`)
+
+external castElement: elementOrRadioNodeList => Dom.element = "%identity"
+
+let namedItem = (t, name): option<t_namedItem> => {
   switch _namedItem(t, name) {
-  | Some(el) if Webapi__Dom__RadioNodeList.isRadioNodeList(el) => el->Obj.magic->RadioNodeList->Some
-  | Some(el) => switch Webapi__Dom__Element.tagName(el) {
-    // fixme: this should be a classify function in Webapi__Dom__Element?
-    | "BUTTON" => el->Obj.magic->Button->Some
-    | "FIELDSET" => el->Obj.magic->FieldSet->Some
-    | "INPUT" => el->Obj.magic->Input->Some
-    | "OBJECT" => el->Obj.magic->Object->Some
-    | "OUTPUT" => el->Obj.magic->Output->Some
-    | "SELECT" => el->Obj.magic->Select->Some
-    | "TEXTAREA" => el->Obj.magic->TextArea->Some
-    | _ => None
+  | Some(value) =>
+    switch testRadioNodeList(value) {
+    | Some(radioNodeList) => radioNodeList->RadioNodeList->Some
+    | _ =>
+      switch value->castElement->Webapi__Dom__Element.tagName->Js.String2.toUpperCase {
+      // non-html documents may return in different casing
+      | "BUTTON" => value->Obj.magic->Button->Some
+      | "FIELDSET" => value->Obj.magic->FieldSet->Some
+      | "INPUT" => value->Obj.magic->Input->Some
+      | "OBJECT" => value->Obj.magic->Object->Some
+      | "OUTPUT" => value->Obj.magic->Output->Some
+      | "SELECT" => value->Obj.magic->Select->Some
+      | "TEXTAREA" => value->Obj.magic->TextArea->Some
+      | _ => None
+      }
     }
   | None => None
   }
+}
