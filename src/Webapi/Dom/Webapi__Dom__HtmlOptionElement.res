@@ -16,12 +16,6 @@ include Webapi__Dom__HtmlElement.Impl({
   type t = t
 })
 
-let ofElement = (el): option<t> =>
-  switch Webapi__Dom__Element.tagName(el)->Js.String2.toUpperCase {
-  | "OPTION" => el->Obj.magic->Some
-  | _ => None
-  }
-
 // common form element attributes
 @return(nullable) @get
 external form: t => option<Dom.htmlFormElement> = "form"

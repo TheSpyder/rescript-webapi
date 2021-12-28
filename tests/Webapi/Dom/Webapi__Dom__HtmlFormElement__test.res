@@ -16,7 +16,8 @@ let createLabelWithText = text => {
   el
 }
 
-let form = createElement("form")->ofElement->TestHelpers.unsafelyUnwrapOption
+let formEl = createElement("form")
+let form = formEl->ofElement->TestHelpers.unsafelyUnwrapOption
 
 let usernameInput = createInput()
 Element.setAttribute(usernameInput, "type", "text")
@@ -61,8 +62,6 @@ let usernameContainer = createElement("div")
 let passwordContainer = createElement("div")
 let radioContainer = createElement("div")
 let selectContainer = createElement("div")
-
-let formEl = form->asElement
 
 Element.appendChild(usernameContainer, usernameLabel)
 Element.appendChild(passwordContainer, passwordLabel)
