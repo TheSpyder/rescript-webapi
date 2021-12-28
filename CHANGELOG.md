@@ -26,6 +26,9 @@
 * `WorkerGlobalScope`, `WindowOrWorkerGlobalScope`, `WorkerNavigator`, and `WorkerLocation` bindings (#57)
 * `Response` constructors to `Fetch` bindings (#64)
 
+### Fixed
+* `ofElement` was incorrectly returning `Dom.htmlElement` type instead of the enclosing element type (#60)
+
 ### Miscellaneous
 * Converted project to rescript syntax (#18)
 * Added explicit values to all externals instead of using `= ""` (#40)

@@ -5,7 +5,7 @@ module Impl = (
 ) => {
   type t_htmlElement = T.t
 
-  let ofElement = Webapi__Dom__Element.asHtmlElement
+  let ofElement: Dom.element => option<t_htmlElement> = Obj.magic(Webapi__Dom__Element.asHtmlElement)
 
   @get external accessKey: t_htmlElement => string = "accessKey"
   @set external setAccessKey: (t_htmlElement, string) => unit = "accessKey"
