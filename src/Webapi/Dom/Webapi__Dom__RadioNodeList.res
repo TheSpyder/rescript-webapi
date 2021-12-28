@@ -16,3 +16,7 @@ type t = Dom.radioNodeList
 @get external value: t => string = "value"
 
 external unsafeAsRadioNodeList: 'a => t = "%identity"
+
+let isRadioNodeList: Dom.htmlElement => bool = %raw(`
+  function(x) { return x instanceof RadioNodeList; }
+`)

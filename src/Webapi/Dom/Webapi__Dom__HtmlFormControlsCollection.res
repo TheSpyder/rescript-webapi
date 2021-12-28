@@ -19,29 +19,21 @@ type t_namedItem =
   | Select(Dom.htmlSelectElement)
   | TextArea(Dom.htmlTextAreaElement)
 
-let isRadioNodeList: 'a => bool = %raw(`
-  function(x) { return x instanceof RadioNodeList; }
-`)
-
-@send @return(nullable) external _namedItem: (t, string) => option<'a> = "namedItem"
+@send @return(nullable) external _namedItem: (t, string) => option<'element> = "namedItem"
 
 let namedItem = (t, name): option<t_namedItem> =>
   switch _namedItem(t, name) {
-  | Some(el) =>
-    if Webapi__Dom__RadioNodeList.unsafeAsRadioNodeList(el)->isRadioNodeList {
-      el->Obj.magic->RadioNodeList->Some
-    } else {
-      switch Webapi__Dom__Element.tagName(el) {
-      // fixme: this should be a classify function in Webapi__Dom__Element?
-      | "BUTTON" => el->Obj.magic->Button->Some
-      | "FIELDSET" => el->Obj.magic->FieldSet->Some
-      | "INPUT" => el->Obj.magic->Input->Some
-      | "OBJECT" => el->Obj.magic->Object->Some
-      | "OUTPUT" => el->Obj.magic->Output->Some
-      | "SELECT" => el->Obj.magic->Select->Some
-      | "TEXTAREA" => el->Obj.magic->TextArea->Some
-      | _ => None
-      }
+  | Some(el) if Webapi__Dom__RadioNodeList.isRadioNodeList(el) => el->Obj.magic->RadioNodeList->Some
+  | Some(el) => switch Webapi__Dom__Element.tagName(el) {
+    // fixme: this should be a classify function in Webapi__Dom__Element?
+    | "BUTTON" => el->Obj.magic->Button->Some
+    | "FIELDSET" => el->Obj.magic->FieldSet->Some
+    | "INPUT" => el->Obj.magic->Input->Some
+    | "OBJECT" => el->Obj.magic->Object->Some
+    | "OUTPUT" => el->Obj.magic->Output->Some
+    | "SELECT" => el->Obj.magic->Select->Some
+    | "TEXTAREA" => el->Obj.magic->TextArea->Some
+    | _ => None
     }
   | None => None
   }

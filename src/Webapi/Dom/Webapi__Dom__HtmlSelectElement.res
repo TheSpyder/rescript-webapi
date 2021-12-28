@@ -93,5 +93,5 @@ external add: (
 
 @get external selectedIndex: t => int = "selectedIndex"
 @set external setSelectedIndex: (t, int) => unit = "selectedIndex"
-@send
+@set
 external clearSelectedIndex: (t, @as(json`-1`) _) => unit = "selectedIndex"

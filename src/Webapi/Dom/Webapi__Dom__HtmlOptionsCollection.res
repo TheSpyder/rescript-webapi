@@ -8,7 +8,8 @@ type t = Dom.htmlOptionsCollection
 external toArray: t => array<Dom.htmlOptionElement> = "call"
 
 @send @return(nullable) external item: (t, int) => option<Dom.htmlOptionElement> = "item"
-@send @return(nullable) external namedItem: (t, string) => option<Dom.htmlOptionElement> = "namedItem"
+@send @return(nullable)
+external namedItem: (t, string) => option<Dom.htmlOptionElement> = "namedItem"
 
 @get external length: t => int = "length"
 @set external setLength: (t, int) => unit = "length"
@@ -19,7 +20,7 @@ external toArray: t => array<Dom.htmlOptionElement> = "call"
 @get external selectedIndex: t => int = "selectedIndex"
 @set external setSelectedIndex: (t, int) => unit = "selectedIndex"
 
-@send external clearSelectedIndex: (t, @as(json`-1`) _) => unit = "selectedIndex"
+@set external clearSelectedIndex: (t, @as(json`-1`) _) => unit = "selectedIndex"
 
 /**
  * This method will throw a "HierarchyRequestError" DOMException if element is an ancestor of the element into which it is to be inserted.
