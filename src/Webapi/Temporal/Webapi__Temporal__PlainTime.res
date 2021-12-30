@@ -40,3 +40,86 @@ external fromInitWithOptions: (PlainTimeInit.t, {"overflow": [#constrain | #reje
 // TODO: add `with` binding
 @send external add: (t, Webapi__Temporal__Types.duration) => t = "add"
 @send external subtract: (t, Webapi__Temporal__Types.duration) => t = "subtract"
+@send external until: (t, t) => Webapi__Temporal__Types.duration = "until"
+@send
+external untilWithOptions: (
+  t,
+  t,
+  // TODO: Need a different type as the valid units don't include time here
+  Webapi__Temporal__Difference.DifferenceOptions.t,
+) => Webapi__Temporal__Types.duration = "until"
+@send external since: (t, t) => Webapi__Temporal__Types.duration = "since"
+@send
+external sinceWithOptions: (
+  t,
+  t,
+  Webapi__Temporal__Difference.DifferenceOptions.t,
+) => Webapi__Temporal__Types.duration = "since"
+@send external equals: (t, t) => bool = "equals"
+
+type roundTo = [
+  | #hour
+  | #minute
+  | #second
+  | #millisecond
+  | #microsecond
+  | #nanosecond
+]
+
+module RoundOptions = {
+  type t
+
+  @obj
+  external make: (
+    ~smallestUnit: roundTo,
+    ~roundingIncrement: int=?,
+    ~roundingMode: [#halfExpand | #ceil | #trunc | #floor]=?,
+  ) => t = ""
+}
+
+@send external round: (t, ~to: roundTo) => t = "round"
+@send external roundWithOptions: (t, RoundOptions.t) => t = "round"
+
+module ToStringOptions = {
+  type t
+
+  @obj
+  external make: (
+    ~timeZone: Webapi__Temporal__Types.timeZone=?,
+    ~fractionalSecondDigits: [#auto | #0 | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9]=?,
+    ~smallestUnit: [
+      | #minute
+      | #second
+      | #millisecond
+      | #microsecond
+      | #nanosecond
+    ]=?,
+    ~roundingMode: [#halfExpand | #ceil | #trunc | #floor]=?,
+  ) => t = ""
+}
+
+@send external toString: t => string = "toString"
+@send external toStringWithOptions: (t, ToStringOptions.t) => string = "toString"
+// TODO: toLocaleString, need Intl bindings
+@send
+external toZonedDateTime: (
+  t,
+  {"timeZone": Webapi__Temporal__Types.timeZone, "plainDate": Webapi__Temporal__Types.plainDate},
+) => Webapi__Temporal__ZonedDateTime.t = "toZonedDateTime"
+@send
+external toPlainDateTime: (
+  t,
+  Webapi__Temporal__Types.plainDate,
+) => Webapi__Temporal__ZonedDateTime.t = "toPlainDateTime"
+
+type isoFields = {
+  isoHour: int,
+  isoMinute: int,
+  isoSecond: int,
+  isoMillisecond: int,
+  isoMicrosecond: int,
+  isoNanosecond: int,
+  calendar: Webapi__Temporal__Types.calendar,
+}
+
+@send external getISOFields: t => isoFields = "getISOFields"
