@@ -15,25 +15,20 @@ module PlainDateInit = {
   @obj
   external make: (
     ~year: int=?,
+    ~month: int=?,
+    ~day: int=?,
     ~era: string=?,
     ~eraYear: int=?,
-    ~month: int=?,
     ~monthCode: string=?,
   ) => t = ""
 }
 
-module FromOptions = {
-  type t
-
-  @obj external make: (~overflow: [#constrain | #reject]=?) => t = ""
-}
-
 @scope("Temporal.PlainDate") @val external fromString: string => t = "from"
 @scope("Temporal.PlainDate") @val
-external fromStringWithOptions: (string, FromOptions.t) => t = "from"
+external fromStringWithOptions: (string, {"overflow": [#constrain | #reject]}) => t = "from"
 @scope("Temporal.PlainDate") @val external fromInit: PlainDateInit.t => t = "from"
 @scope("Temporal.PlainDate") @val
-external fromInitWithOptions: (PlainDateInit.t, FromOptions.t) => t = "from"
+external fromInitWithOptions: (PlainDateInit.t, {"overflow": [#constrain | #reject]}) => t = "from"
 @scope("Temporal.PlainDate") @val external compare: (t, t) => int = "compare"
 @get external year: t => int = "year"
 @get external month: t => int = "month"
@@ -104,9 +99,15 @@ module ToZonedDateTimeOptions = {
   ) => t = ""
 }
 
-@send external toZonedDateTime: (t, ToZonedDateTimeOptions.t) => Webapi__Temporal__Types.zonedDateTime = "toZonedDateTime"
+@send
+external toZonedDateTime: (t, ToZonedDateTimeOptions.t) => Webapi__Temporal__Types.zonedDateTime =
+  "toZonedDateTime"
 @send external toPlainDateTime: t => Webapi__Temporal__Types.plainDateTime = "toPlainDateTime"
-@send external toPlainDateTimeWithPlainTime: (t, Webapi__Temporal__Types.plainTime) => Webapi__Temporal__Types.plainDateTime = "toPlainDateTime"
+@send
+external toPlainDateTimeWithPlainTime: (
+  t,
+  Webapi__Temporal__Types.plainTime,
+) => Webapi__Temporal__Types.plainDateTime = "toPlainDateTime"
 @send external toPlainYearMonth: t => Webapi__Temporal__Types.plainYearMonth = "toPlainYearMonth"
 @send external toPlainMonthDay: t => Webapi__Temporal__Types.plainMonthDay = "toPlainMonthDay"
 
