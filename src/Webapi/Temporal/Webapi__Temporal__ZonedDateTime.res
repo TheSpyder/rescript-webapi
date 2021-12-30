@@ -78,14 +78,14 @@ external fromInitWithOptions: (ZonedDateTimeInit.t, FromOptions.t) => t = "from"
 external addWithOptions: (
   t,
   Webapi__Temporal__Types.duration,
-  Webapi__Temporal__ArithmaticOptions.t,
+  {"overflow": [#constrain | #reject]},
 ) => t = "add"
 @send external subtract: (t, Webapi__Temporal__Types.duration) => t = "subtract"
 @send
 external subtractWithOptions: (
   t,
   Webapi__Temporal__Types.duration,
-  Webapi__Temporal__ArithmaticOptions.t,
+  {"overflow": [#constrain | #reject]},
 ) => t = "subtract"
 
 @send external until: (t, t) => Webapi__Temporal__Types.duration = "until"

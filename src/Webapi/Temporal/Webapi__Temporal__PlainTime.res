@@ -20,7 +20,6 @@ module PlainTimeInit = {
     ~millisecond: int=?,
     ~microsecond: int=?,
     ~nanosecond: int=?,
-    ~calendar: Webapi__Temporal__Types.calendar=?,
   ) => t = ""
 }
 
@@ -38,3 +37,6 @@ external fromInitWithOptions: (PlainTimeInit.t, {"overflow": [#constrain | #reje
 @get external microsecond: t => int = "microsecond"
 @get external nanosecond: t => int = "nanosecond"
 @get external calendar: t => Webapi__Temporal__Types.calendar = "calendar"
+// TODO: add `with` binding
+@send external add: (t, Webapi__Temporal__Types.duration) => t = "add"
+@send external subtract: (t, Webapi__Temporal__Types.duration) => t = "subtract"
