@@ -55,8 +55,15 @@ external fromInitWithOptions: (PlainDateInit.t, FromOptions.t) => t = "from"
 @send external withCalendar: (t, Webapi__Temporal__Types.calendar) => t = "withCalendar"
 @send external add: (t, Webapi__Temporal__Types.duration) => t = "add"
 @send
-external addWithOptions: (t, Webapi__Temporal__Types.duration, Webapi__Temporal__ArithmaticOptions.t) => t = "add"
+external addWithOptions: (
+  t,
+  Webapi__Temporal__Types.duration,
+  Webapi__Temporal__ArithmaticOptions.t,
+) => t = "add"
 @send external subtract: (t, Webapi__Temporal__Types.duration) => t = "subtract"
 @send
-external subtractWithOptions: (t, Webapi__Temporal__Types.duration, Webapi__Temporal__ArithmaticOptions.t) => t =
-  "subtract"
+external subtractWithOptions: (
+  t,
+  Webapi__Temporal__Types.duration,
+  Webapi__Temporal__ArithmaticOptions.t,
+) => t = "subtract"

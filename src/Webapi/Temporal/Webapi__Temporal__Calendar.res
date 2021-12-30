@@ -1,1 +1,1 @@
-type t= Webapi__Temporal__Types.calendar
+type t = Webapi__Temporal__Types.calendar
