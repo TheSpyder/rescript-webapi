@@ -67,3 +67,53 @@ external subtractWithOptions: (
   Webapi__Temporal__Types.duration,
   Webapi__Temporal__ArithmaticOptions.t,
 ) => t = "subtract"
+@send external until: (t, t) => Webapi__Temporal__Types.duration = "until"
+@send
+external untilWithOptions: (
+  t,
+  t,
+  // TODO: Need a different type as the valid units don't include time here
+  Webapi__Temporal__Difference.DifferenceOptions.t,
+) => Webapi__Temporal__Types.duration = "until"
+@send external since: (t, t) => Webapi__Temporal__Types.duration = "since"
+@send
+external sinceWithOptions: (
+  t,
+  t,
+  Webapi__Temporal__Difference.DifferenceOptions.t,
+) => Webapi__Temporal__Types.duration = "since"
+@send external equals: (t, t) => bool = "equals"
+
+module ToStringOptions = {
+  type t
+
+  @obj
+  external make: (~calendarName: [#auto | #always | #never]=?) => t = ""
+}
+
+@send external toString: t => string = "toString"
+@send external toStringWithOptions: (t, ToStringOptions.t) => string = "toString"
+// TODO: toLocaleString, need Intl bindings
+
+module ToZonedDateTimeOptions = {
+  type t
+  @obj
+  external make: (
+    ~plainTime: Webapi__Temporal__Types.plainTime=?,
+    ~timeZone: Webapi__Temporal__Types.timeZone,
+  ) => t = ""
+}
+
+@send external toZonedDateTime: (t, ToZonedDateTimeOptions.t) => Webapi__Temporal__Types.zonedDateTime = "toZonedDateTime"
+@send external toPlainDateTime: t => Webapi__Temporal__Types.plainDateTime = "toPlainDateTime"
+@send external toPlainDateTimeWithPlainTime: (t, Webapi__Temporal__Types.plainTime) => Webapi__Temporal__Types.plainDateTime = "toPlainDateTime"
+@send external toPlainYearMonth: t => Webapi__Temporal__Types.plainYearMonth = "toPlainYearMonth"
+@send external toPlainMonthDay: t => Webapi__Temporal__Types.plainMonthDay = "toPlainMonthDay"
+
+type isoFields = {
+  isoYear: int,
+  isoMonth: int,
+  isoDay: int,
+  calendar: Webapi__Temporal__Types.calendar,
+}
+@send external getISOFields: t => isoFields = "getISOFields"

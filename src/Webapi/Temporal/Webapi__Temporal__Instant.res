@@ -23,7 +23,7 @@ external toZonedDateTimeISO: (
 @send
 external toZonedDateTime: (
   t,
-  {"timneZone": Webapi__Temporal__Types.timeZone, "calendar": Webapi__Temporal__Types.calendar},
+  {"timeZone": Webapi__Temporal__Types.timeZone, "calendar": Webapi__Temporal__Types.calendar},
 ) => Webapi__Temporal__ZonedDateTime.t = "toZonedDateTime"
 @send external add: (t, Webapi__Temporal__Types.duration) => t = "add"
 @send external subtract: (t, Webapi__Temporal__Types.duration) => t = "subtract"
