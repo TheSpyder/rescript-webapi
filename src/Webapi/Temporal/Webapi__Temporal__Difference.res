@@ -17,5 +17,6 @@ module DifferenceOptions = {
     ~smallestUnit: durationUnit=?,
     ~roundingIncrement: int=?,
     ~roundingMode: [#halfExpand | #ceil | #trunc | #floor]=?,
+    unit
   ) => t = ""
 }

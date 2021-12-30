@@ -1,7 +1,7 @@
 type t = Webapi__Temporal__Types.zonedDateTime
 
-// @new external make: (~epochNanoseconds: BigInt.t, ~timeZone: TimeZone.t) => t = "Temporal.ZonedDateTime"
-// @new external makeWithCalendar: (~epochNanoseconds: BigInt.t, ~timeZone: TimeZone.t, ~calendar: Calendar.t) => t = "Temporal.ZonedDateTime"
+// @new external make: (~epochNanoseconds: BigInt.t, ~timeZone: TimeZone.t, unit) => t = "Temporal.ZonedDateTime"
+// @new external makeWithCalendar: (~epochNanoseconds: BigInt.t, ~timeZone: TimeZone.t, ~calendar: Calendar.t, unit) => t = "Temporal.ZonedDateTime"
 
 module ZonedDateTimeInit = {
   type t
@@ -17,6 +17,7 @@ module ZonedDateTimeInit = {
     ~millisecond: int=?,
     ~microsecond: int=?,
     ~nanosecond: int=?,
+    unit
   ) => t = ""
 }
 
@@ -28,6 +29,7 @@ module FromOptions = {
     ~overflow: [#constrain | #reject]=?,
     ~disambiguation: [#compatible | #earlier | #later | #reject]=?,
     ~offset: [#use | #ignore | #prefer | #reject]=?,
+    unit
   ) => t = ""
 }
 
@@ -121,6 +123,7 @@ module ToStringOptions = {
       | #nanosecond
     ]=?,
     ~roundingMode: [#halfExpand | #ceil | #trunc | #floor]=?,
+    unit
   ) => t = ""
 }
 

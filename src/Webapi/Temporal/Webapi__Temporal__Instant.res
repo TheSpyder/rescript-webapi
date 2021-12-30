@@ -60,6 +60,7 @@ module RoundOptions = {
     ~smallestUnit: roundTo,
     ~roundingIncrement: int=?,
     ~roundingMode: [#halfExpand | #ceil | #trunc | #floor]=?,
+    unit
   ) => t = ""
 }
 
@@ -82,6 +83,7 @@ module ToStringOptions = {
       | #nanosecond
     ]=?,
     ~roundingMode: [#halfExpand | #ceil | #trunc | #floor]=?,
+    unit
   ) => t = ""
 }
 

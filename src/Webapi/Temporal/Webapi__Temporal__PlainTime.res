@@ -8,6 +8,7 @@ external make: (
   ~isoMillisecond: int=?,
   ~isoMicrosecond: int=?,
   ~isoNanosecond: int=?,
+  unit
 ) => t = "Temporal.PlainTime"
 
 module PlainTimeInit = {
@@ -20,6 +21,7 @@ module PlainTimeInit = {
     ~millisecond: int=?,
     ~microsecond: int=?,
     ~nanosecond: int=?,
+    unit
   ) => t = ""
 }
 
@@ -74,6 +76,7 @@ module RoundOptions = {
     ~smallestUnit: roundTo,
     ~roundingIncrement: int=?,
     ~roundingMode: [#halfExpand | #ceil | #trunc | #floor]=?,
+    unit
   ) => t = ""
 }
 
@@ -95,6 +98,7 @@ module ToStringOptions = {
       | #nanosecond
     ]=?,
     ~roundingMode: [#halfExpand | #ceil | #trunc | #floor]=?,
+    unit
   ) => t = ""
 }
 

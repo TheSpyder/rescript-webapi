@@ -6,6 +6,7 @@ external make: (
   ~isoMonth: int,
   ~isoDay: int,
   ~calendar: Webapi__Temporal__Types.calendar=?,
+  unit
 ) => t = "Temporal.PlainDate"
 
 module PlainDateInit = {
@@ -20,6 +21,7 @@ module PlainDateInit = {
     ~era: string=?,
     ~eraYear: int=?,
     ~monthCode: string=?,
+    unit
   ) => t = ""
 }
 
@@ -96,6 +98,7 @@ module ToZonedDateTimeOptions = {
   external make: (
     ~plainTime: Webapi__Temporal__Types.plainTime=?,
     ~timeZone: Webapi__Temporal__Types.timeZone,
+    unit
   ) => t = ""
 }
 
