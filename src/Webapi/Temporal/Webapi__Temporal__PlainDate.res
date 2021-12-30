@@ -5,7 +5,7 @@ external make: (
   ~isoYear: int,
   ~isoMonth: int,
   ~isoDay: int,
-  ~calendar: Webapi__Temporal__Types.calendar,
+  ~calendar: Webapi__Temporal__Types.calendar=?,
 ) => t = "Temporal.PlainDate"
 
 module PlainDateInit = {
