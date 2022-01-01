@@ -1,4 +1,8 @@
-type t
+type t = {
+  encoding: string,
+  fatal: bool,
+  ignoreBOM: bool,
+}
 
 type decoderOptions
 
@@ -29,9 +33,3 @@ let makeWithOptions = (~encoding="utf-8", ~fatal=?, ~ignoreBOM=?, ()) =>
 @send external decode: (t, Js.TypedArray2.Uint8Array.t) => string = "decode"
 
 let decodeStream = (t, array) => _decodeWithOptions(t, array, makeDecodeOptions(~stream=true))
-
-@get external encoding: t => string = "encoding"
-
-@get external fatal: t => bool = "fatal"
-
-@get external ignoreBOM: t => bool = "ignoreBOM"
