@@ -30,14 +30,6 @@ See the [examples folder](https://github.com/tinymce/rescript-webapi/tree/main/e
 
 Please only use the modules exposed through the toplevel module `Webapi`, for example `Webapi.Dom.Element`. In particular, don't use the 'flat' modules like `Webapi__Dom__Element` as these are considered private and are not guaranteed to be backwards-compatible.
 
-## License and Credits
-
-All code is licensed as MIT. See [LICENSE](LICENSE).
-
-This project has been forked from [bs-webapi](https://github.com/reasonml-community/bs-webapi-incubator) after it was mostly abandoned. Rather than offer to continue that project, we took the opportunity to make major changes to the API and bring it up to modern ReScript development practices by renaming it.
-
-Primary development on this project is sponsored by [Tiny](https://github.com/tinymce/).
-
 ## Some notes on the DOM API
 
 The DOM API is mostly organized into interfaces and relies heavily on inheritance. The ergonomics of the API is also heavily dependent on dynamic typing, which makes it somewhat challenging to implement a thin binding layer that is both safe and ergonomic. To achieve this we employ subtyping and implementation inheritance, concepts which aren't very idiomatic to OCaml (or Reason), but all the more beneficial to understand in order to be able to use these bindings effectively.
@@ -80,3 +72,11 @@ Implementation inheritance is used instead of subtyping to make it easier to und
 ## Changes
 
 See [CHANGELOG.md](CHANGELOG.md).
+
+## License and Credits
+
+All code is licensed as MIT. See [LICENSE](LICENSE).
+
+This project has been forked from [bs-webapi](https://github.com/reasonml-community/bs-webapi-incubator) after it was mostly abandoned. Rather than offer to continue that project, we took the opportunity to make major changes to the API and bring it up to modern ReScript development practices by renaming it.
+
+Primary development on this project is sponsored by [Tiny](https://github.com/tinymce/).
