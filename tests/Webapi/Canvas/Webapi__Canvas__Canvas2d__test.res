@@ -68,6 +68,24 @@ let measureText = ctx->measureText("foo")
 let width = width(measureText)
 ctx->fillText("foo!", ~x=0.0, ~y=0.0, ~maxWidth=width, ())
 ctx->strokeText("foo!", ~x=0.0, ~y=0.0, ~maxWidth=width, ())
+
+let image = HtmlImageElement.makeWithSize(16, 16)
+let _: unit = image->HtmlImageElement.drawImage(~ctx, ~dx=0.0, ~dy=0.0)
+let _: unit =
+  image->HtmlImageElement.drawImageScale(~ctx, ~dx=0.0, ~dy=0.0, ~dWidth=16.0, ~dHeight=16.0)
+let _: unit =
+  image->HtmlImageElement.drawImageFull(
+    ~ctx,
+    ~sx=0.0,
+    ~sy=0.0,
+    ~sWidth=16.0,
+    ~sHeight=16.0,
+    ~dx=0.0,
+    ~dy=0.0,
+    ~dHeight=16.0,
+    ~dWidth=16.0,
+  )
+
 let imageData = createImageDataCoords(ctx, ~width=0.0, ~height=0.0)
 let _ = createImageDataFromImage(ctx, imageData)
 let _ = Image.width(imageData)
