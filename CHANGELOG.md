@@ -25,6 +25,7 @@
 * `DataTransfer` bindings (#51)
 * `WorkerGlobalScope`, `WindowOrWorkerGlobalScope`, `WorkerNavigator`, and `WorkerLocation` bindings (#57)
 * `Response` constructors to `Fetch` bindings (#64)
+* `TextEncoder` and `TextDecoder` bindings (#78)
 
 ### Fixed
 * `ofElement` was incorrectly returning `Dom.htmlElement` type instead of the enclosing element type (#60)
