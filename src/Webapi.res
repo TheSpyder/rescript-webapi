@@ -6,6 +6,8 @@ module File = Webapi__File
 module FileList = Webapi__FileList
 module Fetch = Webapi__Fetch
 module FormData = Webapi__FormData
+module TextEncoder = Webapi__TextEncoder
+module TextDecoder = Webapi__TextDecoder
 
 module Navigator = Webapi__Navigator
 
