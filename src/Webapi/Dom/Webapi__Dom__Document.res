@@ -33,6 +33,7 @@ module Impl = (
   @get external doctype: T.t => Dom.documentType = "doctype"
   @get external documentElement: T.t => Dom.element = "documentElement"
   @get external documentURI: T.t => string = "documentURI"
+  @get external forms: T.t => Dom.htmlCollection = "forms"
   @get external hidden: T.t => bool = "hidden"
   @get external implementation: T.t => Dom.domImplementation = "implementation"
   @get external lastStyleSheetSet: T.t => string = "lastStyleSheetSet"

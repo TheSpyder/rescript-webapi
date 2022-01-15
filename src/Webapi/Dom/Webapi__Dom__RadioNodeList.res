@@ -1,7 +1,9 @@
 /**
- * Spec: https://dom.spec.whatwg.org/#interface-nodelist
+ * Spec: https://html.spec.whatwg.org/#radionodelist
+ * Extends: NodeList
  */
-type t = Dom.nodeList
+
+type t = Dom.radioNodeList
 
 @val external toArray: t => array<Dom.node> = "Array.prototype.slice.call"
 
@@ -10,3 +12,7 @@ type t = Dom.nodeList
 @get external length: t => int = "length"
 
 @send @return(nullable) external item: (t, int) => option<Dom.node> = "item"
+
+@get external value: t => string = "value"
+
+external unsafeAsRadioNodeList: 'a => t = "%identity"

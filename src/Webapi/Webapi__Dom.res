@@ -3,11 +3,11 @@ module Attr = Webapi__Dom__Attr
 module BeforeUnloadEvent = Webapi__Dom__BeforeUnloadEvent
 module CdataSection = Webapi__Dom__CdataSection
 module CharacterData = Webapi__Dom__CharacterData
-module Comment = Webapi__Dom__Comment
-module CssStyleDeclaration = Webapi__Dom__CssStyleDeclaration
 module ClipboardEvent = Webapi__Dom__ClipboardEvent
 module CloseEvent = Webapi__Dom__CloseEvent
+module Comment = Webapi__Dom__Comment
 module CompositionEvent = Webapi__Dom__CompositionEvent
+module CssStyleDeclaration = Webapi__Dom__CssStyleDeclaration
 module CustomEvent = Webapi__Dom__CustomEvent
 module DataTransfer = Webapi__Dom__DataTransfer
 module DataTransferItem = Webapi__Dom__DataTransferItem
@@ -26,12 +26,22 @@ module Event = Webapi__Dom__Event
 module EventTarget = Webapi__Dom__EventTarget
 module FocusEvent = Webapi__Dom__FocusEvent
 module History = Webapi__Dom__History
+module HtmlButtonElement = Webapi__Dom__HtmlButtonElement
 module HtmlCollection = Webapi__Dom__HtmlCollection
 module HtmlDocument = Webapi__Dom__HtmlDocument
 module HtmlElement = Webapi__Dom__HtmlElement
+module HtmlFieldSetElement = Webapi__Dom__HtmlFieldSetElement
+module HtmlFormControlsCollection = Webapi__Dom__HtmlFormControlsCollection
 module HtmlFormElement = Webapi__Dom__HtmlFormElement
 module HtmlImageElement = Webapi__Dom__HtmlImageElement
 module HtmlInputElement = Webapi__Dom__HtmlInputElement
+module HtmlObjectElement = Webapi__Dom__HtmlObjectElement
+module HtmlOptGroupElement = Webapi__Dom__HtmlOptGroupElement
+module HtmlOptionElement = Webapi__Dom__HtmlOptionElement
+module HtmlOptionsCollection = Webapi__Dom__HtmlOptionsCollection
+module HtmlOutputElement = Webapi__Dom__HtmlOutputElement
+module HtmlSelectElement = Webapi__Dom__HtmlSelectElement
+module HtmlTextAreaElement = Webapi__Dom__HtmlTextAreaElement
 module IdbVersionChangeEvent = Webapi__Dom__IdbVersionChangeEvent
 module Image = Webapi__Dom__Image
 module InputEvent = Webapi__Dom__InputEvent
@@ -50,6 +60,7 @@ module PointerEvent = Webapi__Dom__PointerEvent
 module PopStateEvent = Webapi__Dom__PopStateEvent
 module ProcessingInstruction = Webapi__Dom__ProcessingInstruction
 module ProgressEvent = Webapi__Dom__ProgressEvent
+module RadioNodeList = Webapi__Dom__RadioNodeList
 module Range = Webapi__Dom__Range
 module RectList = Webapi__Dom__RectList
 module RelatedEvent = Webapi__Dom__RelatedEvent
@@ -138,18 +149,13 @@ include Webapi__Dom__Types
    HTMLMetaElement
    HTMLMeterElement
    HTMLModElement
-   HTMLObjectElement
    HTMLOListElement
-   HTMLOptGroupElement
-   HTMLOptionElement
-   HTMLOutputElement
    HTMLParagraphElement
    HTMLParamElement
    HTMLPreElement
    HTMLProgressElement
    HTMLQuoteElement
    HTMLScriptElement
-   HTMLSelectElement
    HTMLSourceElement
    HTMLSpanElement
    HTMLStyleElement
@@ -161,7 +167,6 @@ include Webapi__Dom__Types
    HTMLTableColElement
    HTMLTableRowElement
    HTMLTableSectionElement
-   HTMLTextAreaElement
    HTMLTimeElement
    HTMLTitleElement
    HTMLTrackElement
@@ -178,11 +183,8 @@ include Webapi__Dom__Types
    CanvasPixelArray
    NotifyAudioAvailableEvent
    HTMLAllCollection
-   HTMLFormControlsCollection
-   HTMLOptionsCollection
    HTMLPropertiesCollection
    DOMStringMap
-   RadioNodeList
    MediaError
 
    /* SVG Element interfaces */

@@ -10,7 +10,7 @@ module Impl = (
 ) => {
   type t_htmlFormElement = T.t
 
-  /* TODO: elements: HTMLFormControlsCollection */
+  @get external elements: t_htmlFormElement => Dom.htmlFormControlsCollection = "elements"
   @get external length: t_htmlFormElement => int = "length"
   @get external name: t_htmlFormElement => string = "name"
   @set external setName: (t_htmlFormElement, string) => unit = "name"
