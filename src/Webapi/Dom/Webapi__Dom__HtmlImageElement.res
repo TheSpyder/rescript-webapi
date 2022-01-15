@@ -45,6 +45,3 @@ include Webapi__Dom__Element.Impl({
 include Webapi__Dom__HtmlElement.Impl({
   type t = t
 })
-include Webapi__Canvas__CanvasImageSource.Impl({
-  type t = t
-})

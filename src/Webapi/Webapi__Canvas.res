@@ -1,5 +1,6 @@
 module Canvas2d = Webapi__Canvas__Canvas2d
 module WebGl = Webapi__Canvas__WebGl
+module CanvasImageSource = Webapi__Canvas__CanvasImageSource
 
 module CanvasElement = {
   @send external getContext2d: (Dom.element, @as("2d") _) => Canvas2d.t = "getContext"
