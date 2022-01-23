@@ -70,18 +70,12 @@ ctx->fillText("foo!", ~x=0.0, ~y=0.0, ~maxWidth=width, ())
 ctx->strokeText("foo!", ~x=0.0, ~y=0.0, ~maxWidth=width, ())
 
 let image = HtmlImageElement.makeWithSize(16, 16)
-let _: unit = ctx->drawImage(image->CanvasImageSource.ofImage, ~dx=0.0, ~dy=0.0)
+let _: unit = ctx->drawImage(#HtmlImageElement(image), ~dx=0.0, ~dy=0.0)
 let _: unit =
-  ctx->drawImageScale(
-    image->CanvasImageSource.ofImage,
-    ~dx=0.0,
-    ~dy=0.0,
-    ~dWidth=16.0,
-    ~dHeight=16.0,
-  )
+  ctx->drawImageScale(#HtmlImageElement(image), ~dx=0.0, ~dy=0.0, ~dWidth=16.0, ~dHeight=16.0)
 let _: unit =
   ctx->drawImageFull(
-    image->CanvasImageSource.ofImage,
+    #HtmlImageElement(image),
     ~sx=0.0,
     ~sy=0.0,
     ~sWidth=16.0,

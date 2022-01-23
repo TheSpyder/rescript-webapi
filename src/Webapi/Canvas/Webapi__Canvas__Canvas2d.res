@@ -3,6 +3,28 @@ type gradient
 type pattern
 type measureText
 
+/*
+ * FIXME: canvasImageSource should have the following items:
+ *
+ *  type canvasImageSource = [
+ *    | #HtmlImageElement(Webapi__Dom__HtmlImageElement.t)
+ *    | #HtmlSVGElement(Webapi__Dom__HtmlSVGElement.t)
+ *    | #HtmlVideoElement(Webapi__Dom__HtmlVideoElement.t)
+ *    | #HtmlCanvasElement(Webapi__Dom__HtmlCanvasElement.t)
+ *    | #HtmlCanvasElement(Webapi__ImageBitmap.t)           // TODO: where should this go?
+ *    | #OffScreenCanvas(Webapi__Canvas__OffscreenCanvas.t) // TODO: where should this go?
+ *  ]
+ *
+ * Also note that at the current time @unwrap requires canvasImageSource to be inlined.
+ * The following functions should have this inlined:
+ * - drawImage
+ * - drawImageScale
+ * - drawImageFull
+ * - createPattern  // TODO: this takes a Dom.Element currently.  This should be a canvasImageSource
+ * - createImageBitmap
+ */
+type canvasImageSource = [#HtmlImageElement(Webapi__Dom__HtmlImageElement.t)]
+
 /* Sub-modules (and their interfaces) for string enum arguments: */
 module type CompositeType = {
   type t = private string
@@ -273,13 +295,19 @@ external putImageDataWithDirtyRect: (
 
 /* Image rendering */
 @send
-external drawImage: (t, Webapi__Canvas__CanvasImageSource.t, ~dx: float, ~dy: float) => unit =
-  "drawImage"
+external drawImage: (
+  t,
+  // should match canvasImageSource
+  @unwrap [#HtmlImageElement(Webapi__Dom__HtmlImageElement.t)],
+  ~dx: float,
+  ~dy: float,
+) => unit = "drawImage"
 
 @send
 external drawImageScale: (
   t,
-  Webapi__Canvas__CanvasImageSource.t,
+  // should match canvasImageSource
+  @unwrap [#HtmlImageElement(Webapi__Dom__HtmlImageElement.t)],
   ~dx: float,
   ~dy: float,
   ~dWidth: float,
@@ -289,7 +317,8 @@ external drawImageScale: (
 @send
 external drawImageFull: (
   t,
-  Webapi__Canvas__CanvasImageSource.t,
+  // should match canvasImageSource
+  @unwrap [#HtmlImageElement(Webapi__Dom__HtmlImageElement.t)],
   ~sx: float,
   ~sy: float,
   ~sWidth: float,
