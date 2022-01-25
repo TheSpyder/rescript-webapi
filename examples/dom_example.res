@@ -53,7 +53,7 @@ let _ =
   document
   ->Document.asHtmlDocument
   ->flatMap(HtmlDocument.body)
-  ->map(body => body->Element.appendChild(el))
+  ->map(body => body->Element.appendChild(~child=el))
 
 /*
  /*

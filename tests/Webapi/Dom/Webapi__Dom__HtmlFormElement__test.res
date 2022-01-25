@@ -12,7 +12,7 @@ let createInput = () => createElement("input")
 let createLabelWithText = text => {
   let el = createElement("label")
   let textNode = createTextNode(text)
-  Element.appendChild(el, textNode)
+  Element.appendChild(el, ~child=textNode)
   el
 }
 
@@ -25,7 +25,7 @@ Element.setAttribute(usernameInput, "name", "username")
 Element.setAttribute(usernameInput, "value", "username")
 
 let usernameLabel = createLabelWithText("Username:")
-Element.appendChild(usernameLabel, usernameInput)
+Element.appendChild(usernameLabel, ~child=usernameInput)
 
 let passwordInput = createInput()
 Element.setAttribute(passwordInput, "type", "password")
@@ -33,7 +33,7 @@ Element.setAttribute(passwordInput, "name", "password")
 Element.setAttribute(passwordInput, "value", "password")
 
 let passwordLabel = createLabelWithText("Password:")
-Element.appendChild(passwordLabel, passwordInput)
+Element.appendChild(passwordLabel, ~child=passwordInput)
 
 let radioInput1 = createInput()
 Element.setAttribute(radioInput1, "type", "radio")
@@ -42,7 +42,7 @@ Element.setAttribute(radioInput1, "value", "one")
 Element.setAttribute(radioInput1, "checked", "true")
 
 let radioLabel1 = createLabelWithText("Choice 1:")
-Element.appendChild(radioLabel1, radioInput1)
+Element.appendChild(radioLabel1, ~child=radioInput1)
 
 let radioInput2 = createInput()
 Element.setAttribute(radioInput2, "type", "radio")
@@ -51,34 +51,34 @@ Element.setAttribute(radioInput2, "value", "two")
 // Element.setAttribute(radioInput2, "checked", "true");
 
 let radioLabel2 = createLabelWithText("Choice 2:")
-Element.appendChild(radioLabel2, radioInput2)
+Element.appendChild(radioLabel2, ~child=radioInput2)
 
 let select = createElement("select")
 Element.setAttribute(select, "name", "select")
 let selectLabel = createLabelWithText("Select:")
-Element.appendChild(selectLabel, select)
+Element.appendChild(selectLabel, ~child=select)
 
 let usernameContainer = createElement("div")
 let passwordContainer = createElement("div")
 let radioContainer = createElement("div")
 let selectContainer = createElement("div")
 
-Element.appendChild(usernameContainer, usernameLabel)
-Element.appendChild(passwordContainer, passwordLabel)
-Element.appendChild(radioContainer, radioLabel1)
-Element.appendChild(radioContainer, radioLabel2)
-Element.appendChild(selectContainer, selectLabel)
-Element.appendChild(formEl, usernameContainer)
-Element.appendChild(formEl, passwordContainer)
-Element.appendChild(formEl, radioContainer)
-Element.appendChild(formEl, selectContainer)
+Element.appendChild(usernameContainer, ~child=usernameLabel)
+Element.appendChild(passwordContainer, ~child=passwordLabel)
+Element.appendChild(radioContainer, ~child=radioLabel1)
+Element.appendChild(radioContainer, ~child=radioLabel2)
+Element.appendChild(selectContainer, ~child=selectLabel)
+Element.appendChild(formEl, ~child=usernameContainer)
+Element.appendChild(formEl, ~child=passwordContainer)
+Element.appendChild(formEl, ~child=radioContainer)
+Element.appendChild(formEl, ~child=selectContainer)
 
 let body =
   Document.asHtmlDocument(document)
   ->Belt.Option.flatMap(HtmlDocument.body)
   ->TestHelpers.unsafelyUnwrapOption
 
-Element.appendChild(body, formEl)
+Element.appendChild(body, ~child=formEl)
 
 let collection = elements(form)
 
@@ -151,7 +151,7 @@ HtmlOptionsCollection.setLength(opts, 0)
 
 let opt1 = createElement("option")
 Element.setAttribute(opt1, "value", "1")
-Element.appendChild(opt1, createTextNode("opt1"))
+Element.appendChild(opt1, ~child=createTextNode("opt1"))
 
 HtmlOptionsCollection.add(
   opts,
@@ -164,7 +164,7 @@ Js.log2("collection length:", HtmlOptionsCollection.length(opts))
 
 let opt2 = createElement("option")
 Element.setAttribute(opt2, "value", "2")
-Element.appendChild(opt2, createTextNode("opt2"))
+Element.appendChild(opt2, ~child=createTextNode("opt2"))
 
 let item = HtmlOptionsCollection.item(opts, 0)
 jsAssert(Belt.Option.isSome(item), "HtmlOptionsCollection.item should return an item")
@@ -189,7 +189,7 @@ jsAssert(HtmlOptionsCollection.selectedIndex(opts) == -1, "HtmlOptionsCollection
 
 let opt3 = createElement("option")
 Element.setAttribute(opt3, "value", "3")
-Element.appendChild(opt3, createTextNode("opt3"))
+Element.appendChild(opt3, ~child=createTextNode("opt3"))
 
 HtmlOptionsCollection.add(
   opts,
@@ -230,7 +230,7 @@ HtmlSelectElement.setLength(select, 0)
 
 let opt1 = createElement("option")
 Element.setAttribute(opt1, "value", "1")
-Element.appendChild(opt1, createTextNode("opt1"))
+Element.appendChild(opt1, ~child=createTextNode("opt1"))
 
 HtmlSelectElement.add(
   select,
@@ -243,7 +243,7 @@ Js.log2("collection length:", HtmlSelectElement.length(select))
 
 let opt2 = createElement("option")
 Element.setAttribute(opt2, "value", "2")
-Element.appendChild(opt2, createTextNode("opt2"))
+Element.appendChild(opt2, ~child=createTextNode("opt2"))
 
 let item = HtmlSelectElement.item(select, 0)
 jsAssert(Belt.Option.isSome(item), "HtmlSelectElement.item should return an item")
@@ -268,7 +268,7 @@ jsAssert(HtmlSelectElement.selectedIndex(select) == -1, "HtmlSelectElement.clear
 
 let opt3 = createElement("option")
 Element.setAttribute(opt3, "value", "3")
-Element.appendChild(opt3, createTextNode("opt3"))
+Element.appendChild(opt3, ~child=createTextNode("opt3"))
 
 HtmlSelectElement.add(
   select,
