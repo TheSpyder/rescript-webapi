@@ -3,8 +3,14 @@ open History
 
 let _ = history->length
 let _ = history->scrollRestoration
-let _ = history->setScrollRestoration(true)
+let _ = history->setScrollRestoration(#auto)
+let _ = history->setScrollRestoration(#manual)
 let _ = history->state
+
+switch (history->scrollRestoration) {
+  | #auto => Js.log("auto scroll")
+  | #manual => Js.log("manual scroll")
+}
 
 history->back
 history->forward

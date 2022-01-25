@@ -7,4 +7,4 @@ include Webapi__Dom__Event.Impl({
 @new external make: string => t = "PopStateEvent"
 @new external makeWithOptions: (string, {..}) => t = "PopStateEvent"
 
-@get external state: t => {..} = "state"
+@get external state: t => Webapi__Dom__History.state = "state"
