@@ -8,11 +8,7 @@ module EntryValue: {
   let classify: t => [> #String(string) | #File(Webapi__File.t)]
 }
 
-type t = private {
-  keys: Webapi__Iterator.t<string>,
-  values: Webapi__Iterator.t<EntryValue.t>,
-  entries: Webapi__Iterator.t<(string, EntryValue.t)>,
-}
+type t
 
 @new external make: unit => t = "FormData"
 @send external append: (t, string, string) => unit = "append"
