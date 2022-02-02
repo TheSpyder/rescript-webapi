@@ -1,4 +1,4 @@
-type t = {
+type t = private {
   /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorid */
   userAgent: string,
   vendor: string,
