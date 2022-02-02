@@ -13,6 +13,7 @@
 * Corrected spelling of `nextSibling` in `MutationRecord` (#59)
 * Updated `History.scrollRestoration` to use `auto` and `manual` instead of a boolean (#88)
 * `PopStateEvent.state` now returns a history state type instead of an open object (#88)
+* Updated `InputEvent.data` to return a nullable value (#90)
 
 ### Added (non-breaking)
 * `WebSocket` bindings (#34)
@@ -29,6 +30,7 @@
 * `Response` constructors to `Fetch` bindings (#64)
 * `HTMLFormControlsCollection`, `HTMLOptionsCollection`, `HTMLFieldSetElement`, `Document.forms`, `HTMLFormElement.elements`, `HTMLObjectElement`, `HTMLOptGroupElement`, `HTMLOptionElement`, `HTMLOutputElement`, `HTMLSelectElement`, `HTMLTextAreaElement`, and `RadioNodeList` bindings (#73)
 * `Canvas2d` bindings `drawImage`, `drawImageScale`, and `drawImageFull` added (#83)
+* `InputEvent` bindings for `inputType`, `dataTransfer` and `getTargetRanges` (#90)
 
 ### Fixed
 * `ofElement` was incorrectly returning `Dom.htmlElement` type instead of the enclosing element type (#60)

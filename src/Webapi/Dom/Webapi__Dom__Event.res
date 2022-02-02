@@ -35,7 +35,6 @@ include Impl({
 /*
     Unimplemented Event interfaces
 
-    BeforeInputEvent /* experimental? Looks like it might just be an InputEvent */
     BlobEvent /* experimental, MediaStream recording */
     CSSFontFaceLoadEvent /* experimental - https://www.w3.org/TR/css-font-loading-3/#dom-cssfontfaceloadevent */
     DeviceLightEvent /* experimenta, Ambient Light */
