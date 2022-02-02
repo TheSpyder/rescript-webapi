@@ -33,20 +33,23 @@ module Impl = (
   @get external textContent: T.t => string = "textContent"
   @set external setTextContent: (T.t, string) => unit = "textContent"
 
-  @send external appendChild: (T.t, Dom.node_like<'a>) => unit = "appendChild"
+  @send external appendChild: (T.t, ~child: Dom.node_like<'a>) => unit = "appendChild"
   @send external cloneNode: T.t => T.t = "cloneNode"
   @send external cloneNodeDeep: (T.t, @as(json`true`) _) => T.t = "cloneNode"
   @send
-  external compareDocumentPosition: (T.t, Dom.node_like<'a>) => int = "compareDocumentPosition" /* returns a bitmask which could also be represeneted as an enum, see https://developer.mozilla.org/en-US/docs/Web/API/Node/compareDocumentPosition */
-  @send external contains: (T.t, Dom.node_like<'a>) => bool = "contains"
+  external compareDocumentPosition: (T.t, ~other: Dom.node_like<'a>) => int = "compareDocumentPosition" /* returns a bitmask which could also be represeneted as an enum, see https://developer.mozilla.org/en-US/docs/Web/API/Node/compareDocumentPosition */
+  @send external contains: (T.t, ~child: Dom.node_like<'a>) => bool = "contains"
   @send external getRootNode: T.t => Dom.node = "getRootNode"
   @send
   external getRootNodeComposed: (T.t, @as(json`{ "composed": true }`) _) => Dom.node = "getRootNode"
   @send external hasChildNodes: T.t => bool = "hasChildNodes"
   @send
-  external insertBefore: (T.t, Dom.node_like<'a>, Dom.node_like<'b>) => Dom.node_like<'a> = "insertBefore"
+  external insertBefore: (T.t, ~new: Dom.node_like<'a>, ~before: Dom.node_like<'b>) => Dom.node_like<'a> = "insertBefore"
+  @send
+  external insertAtEnd: (T.t, ~new: Dom.node_like<'a>, @as(json`null`) _) => Dom.node_like<'a> = "insertBefore"
   @send external isDefaultNamespace: (T.t, string) => bool = "isDefaultNamespace"
   @send external isEqualNode: (T.t, Dom.node_like<'a>) => bool = "isEqualNode"
+  @deprecated("There is no need to use isSameNode(); instead use the === strict equality operator.")
   @send external isSameNode: (T.t, Dom.node_like<'a>) => bool = "isSameNode"
   @send @return(nullable) external lookupNamespaceURI: (T.t, string) => option<string> = "lookupNamespaceURI"
   @send @return(nullable)
@@ -54,9 +57,9 @@ module Impl = (
     "lookupNamespaceURI"
   @send external lookupPrefix: T.t => string = "lookupPrefix"
   @send external normalize: T.t => unit = "normalize"
-  @send external removeChild: (T.t, Dom.node_like<'a>) => Dom.node_like<'a> = "removeChild"
+  @send external removeChild: (T.t, ~child: Dom.node_like<'a>) => Dom.node_like<'a> = "removeChild"
 
-  @send external replaceChild: (T.t, Dom.node_like<'a>, Dom.node_like<'b>) => Dom.node_like<'b> = "replaceChild"
+  @send external replaceChild: (T.t, ~new: Dom.node_like<'a>, ~child: Dom.node_like<'b>) => Dom.node_like<'b> = "replaceChild"
 }
 
 type t = Dom.node

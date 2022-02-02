@@ -25,22 +25,21 @@ let _ = node->rootNode
 let _ = node->textContent
 let _ = node->setTextContent("foo")
 
-let _ = node->appendChild(node2)
+let _ = node->appendChild(~child=node2)
 let _ = node->cloneNode
 let _ = node->cloneNodeDeep
-let _ = node->compareDocumentPosition(node2)
-let _ = node->contains(node2)
+let _ = node->compareDocumentPosition(~other=node2)
+let _ = node->contains(~child=node2)
 let _ = node->getRootNode
 let _ = node->getRootNodeComposed
 let _ = node->hasChildNodes
-let _ = node->insertBefore(node2, node3)
-/* **let _ node->= insertBefore(node2, None); */
+let _ = node->insertBefore(~new=node2, ~before=node3)
+let _ = node->insertAtEnd(~new=node2)
 let _ = node->isDefaultNamespace("http://...")
 let _ = node->isEqualNode(node2)
-let _ = node->isSameNode(node2)
 let _ = node->lookupPrefix
 let _ = node->lookupNamespaceURI("https://...")
 let _ = node->lookupDefaultNamespaceURI
 let _ = node->normalize
-let _ = node->removeChild(node2)
-let _ = node->replaceChild(node3, node2)
+let _ = node->removeChild(~child=node2)
+let _ = node->replaceChild(~new=node3, ~child=node2)
