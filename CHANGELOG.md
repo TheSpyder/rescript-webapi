@@ -11,6 +11,8 @@
 * Updated `Document.elementFromPoint` binding to return a nullable value (#35)
 * Updated `MutationRecord` bindings `nextSibling`, `attributeName`, `attributeNamespace` and `oldValue` to return nullable values (#59)
 * Corrected spelling of `nextSibling` in `MutationRecord` (#59)
+* Updated `History.scrollRestoration` to use `auto` and `manual` instead of a boolean (#88)
+* `PopStateEvent.state` now returns a history state type instead of an open object (#88)
 
 ### Added (non-breaking)
 * `WebSocket` bindings (#34)

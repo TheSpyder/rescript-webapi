@@ -1,13 +1,17 @@
 type t = Dom.history
-type state /* TODO: should be "anything that can be serializable" apparently */
+
+@ocaml.doc("State could be anything that is serializable, to use this convert manually using %identity externals")
+type state
 
 @get external length: t => int = "length"
-@get external scrollRestoration: t => bool = "scrollRestoration" /* experimental */
-@set external setScrollRestoration: (t, bool) => unit = "scrollRestoration" /* experimental */
-@get external state: t => state = "state"
+@get external scrollRestoration: t => [#auto | #manual] = "scrollRestoration"
+@set external setScrollRestoration: (t, [#auto | #manual]) => unit = "scrollRestoration"
 
 @send external back: t => unit = "back"
 @send external forward: t => unit = "forward"
 @send external go: (t, int) => unit = "go"
+
+/** To add a popstate listener, use Window.addPopStateEventListener */
+@get external state: t => state = "state"
 @send external pushState: (t, state, string, string) => unit = "pushState"
 @send external replaceState: (t, state, string, string) => unit = "replaceState"
