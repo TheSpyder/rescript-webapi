@@ -1,4 +1,4 @@
 open Webapi.Base64
 
-let _ = atob("foo")
-let _ = btoa("gibberish")
+let binary: string = atob("foo")
+let ascii: string = btoa("gibberish")
