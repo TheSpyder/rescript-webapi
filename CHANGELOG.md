@@ -26,6 +26,7 @@
 * `WorkerGlobalScope`, `WindowOrWorkerGlobalScope`, `WorkerNavigator`, and `WorkerLocation` bindings (#57)
 * `Response` constructors to `Fetch` bindings (#64)
 * `HTMLFormControlsCollection`, `HTMLOptionsCollection`, `HTMLFieldSetElement`, `Document.forms`, `HTMLFormElement.elements`, `HTMLObjectElement`, `HTMLOptGroupElement`, `HTMLOptionElement`, `HTMLOutputElement`, `HTMLSelectElement`, `HTMLTextAreaElement`, and `RadioNodeList` bindings (#73)
+* `Canvas2d` bindings `drawImage`, `drawImageScale`, and `drawImageFull` added (#83)
 
 ### Fixed
 * `ofElement` was incorrectly returning `Dom.htmlElement` type instead of the enclosing element type (#60)

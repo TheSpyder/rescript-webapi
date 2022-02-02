@@ -3,6 +3,28 @@ type gradient
 type pattern
 type measureText
 
+/*
+ * FIXME: canvasImageSource should have the following items:
+ *
+ *  type canvasImageSource = [
+ *    | #HtmlImageElement(Webapi__Dom__HtmlImageElement.t)
+ *    | #HtmlSVGElement(Webapi__Dom__HtmlSVGElement.t)
+ *    | #HtmlVideoElement(Webapi__Dom__HtmlVideoElement.t)
+ *    | #HtmlCanvasElement(Webapi__Dom__HtmlCanvasElement.t)
+ *    | #HtmlCanvasElement(Webapi__ImageBitmap.t)           // TODO: where should this go?
+ *    | #OffScreenCanvas(Webapi__Canvas__OffscreenCanvas.t) // TODO: where should this go?
+ *  ]
+ *
+ * Also note that at the current time @unwrap requires canvasImageSource to be inlined.
+ * The following functions should have this inlined:
+ * - drawImage
+ * - drawImageScale
+ * - drawImageFull
+ * - createPattern  // TODO: this takes a Dom.Element currently.  This should be a canvasImageSource
+ * - createImageBitmap
+ */
+type canvasImageSource = [#HtmlImageElement(Webapi__Dom__HtmlImageElement.t)]
+
 /* Sub-modules (and their interfaces) for string enum arguments: */
 module type CompositeType = {
   type t = private string
@@ -159,7 +181,8 @@ let strokeStyle = (ctx: t) => ctx->strokeStyle->reifyStyle
 
 /* Gradients */
 @send
-external createLinearGradient: (t, ~x0: float, ~y0: float, ~x1: float, ~y1: float) => gradient = "createLinearGradient"
+external createLinearGradient: (t, ~x0: float, ~y0: float, ~x1: float, ~y1: float) => gradient =
+  "createLinearGradient"
 @send
 external createRadialGradient: (
   t,
@@ -192,7 +215,9 @@ external createPattern: (
 @send external clip: t => unit = "clip"
 @send external moveTo: (t, ~x: float, ~y: float) => unit = "moveTo"
 @send external lineTo: (t, ~x: float, ~y: float) => unit = "lineTo"
-@send external quadraticCurveTo: (t, ~cp1x: float, ~cp1y: float, ~x: float, ~y: float) => unit = "quadraticCurveTo"
+@send
+external quadraticCurveTo: (t, ~cp1x: float, ~cp1y: float, ~x: float, ~y: float) => unit =
+  "quadraticCurveTo"
 @send
 external bezierCurveTo: (
   t,
@@ -203,7 +228,8 @@ external bezierCurveTo: (
   ~x: float,
   ~y: float,
 ) => unit = "bezierCurveTo"
-@send external arcTo: (t, ~x1: float, ~y1: float, ~x2: float, ~y2: float, ~r: float) => unit = "arcTo"
+@send
+external arcTo: (t, ~x1: float, ~y1: float, ~x2: float, ~y2: float, ~r: float) => unit = "arcTo"
 @send
 external arc: (
   t,
@@ -228,9 +254,11 @@ type path2d
 @set external textAlign: (t, string) => unit = "textAlign"
 @set external textBaseline: (t, string) => unit = "textBaseline"
 @send
-external fillText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, @ignore unit) => unit = "fillText"
+external fillText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, @ignore unit) => unit =
+  "fillText"
 @send
-external strokeText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, @ignore unit) => unit = "strokeText"
+external strokeText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, @ignore unit) => unit =
+  "strokeText"
 @send external measureText: (t, string) => measureText = "measureText"
 @get external width: measureText => float = "width"
 
@@ -239,6 +267,7 @@ external strokeText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, @igno
 @send external strokeRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "strokeRect"
 @send external clearRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "clearRect"
 
+/* Pixel maniplation */
 @send
 external createImageDataCoords: (t, ~width: float, ~height: float) => Webapi__Dom__Image.t =
   "createImageData"
@@ -263,3 +292,39 @@ external putImageDataWithDirtyRect: (
   ~dirtyWidth: float,
   ~dirtyHeight: float,
 ) => unit = "putImageData"
+
+/* Image rendering */
+@send
+external drawImage: (
+  t,
+  // should match canvasImageSource
+  @unwrap [#HtmlImageElement(Webapi__Dom__HtmlImageElement.t)],
+  ~dx: float,
+  ~dy: float,
+) => unit = "drawImage"
+
+@send
+external drawImageScale: (
+  t,
+  // should match canvasImageSource
+  @unwrap [#HtmlImageElement(Webapi__Dom__HtmlImageElement.t)],
+  ~dx: float,
+  ~dy: float,
+  ~dWidth: float,
+  ~dHeight: float,
+) => unit = "drawImage"
+
+@send
+external drawImageFull: (
+  t,
+  // should match canvasImageSource
+  @unwrap [#HtmlImageElement(Webapi__Dom__HtmlImageElement.t)],
+  ~sx: float,
+  ~sy: float,
+  ~sWidth: float,
+  ~sHeight: float,
+  ~dx: float,
+  ~dy: float,
+  ~dWidth: float,
+  ~dHeight: float,
+) => unit = "drawImage"
