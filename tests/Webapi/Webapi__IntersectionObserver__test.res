@@ -1,6 +1,6 @@
-let el = Webapi.Dom.document -> Webapi.Dom.Document.createElement("div")
+let el: Dom.element = Webapi.Dom.document -> Webapi.Dom.Document.createElement("div")
 
-let body =
+let body: Dom.element =
   Webapi.Dom.Document.asHtmlDocument(Webapi.Dom.document)
   ->Belt.Option.flatMap(Webapi.Dom.HtmlDocument.body)
   ->TestHelpers.unsafelyUnwrapOption
@@ -23,7 +23,7 @@ let handler = (entries, observer) => {
   Webapi.IntersectionObserver.unobserve(observer, el)
 }
 
-let observer = Webapi.IntersectionObserver.make(handler)
+let observer: Webapi.IntersectionObserver.t = Webapi.IntersectionObserver.make(handler)
 
 Webapi.IntersectionObserver.observe(observer, el)
 Webapi.IntersectionObserver.unobserve(observer, el)

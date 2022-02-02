@@ -1,9 +1,10 @@
-let el = Webapi.Dom.document->Webapi.Dom.Document.createElement("strong")
+let el: Dom.element = Webapi.Dom.document->Webapi.Dom.Document.createElement("strong")
 
 let handler = entries => {
   let entry = entries[0]
-  let _: Dom.domRect = entry->Webapi.ResizeObserver.ResizeObserverEntry.contentRect
-  let _: Dom.element = entry->Webapi.ResizeObserver.ResizeObserverEntry.target
+  let cr: Dom.domRect = entry->Webapi.ResizeObserver.ResizeObserverEntry.contentRect
+  let t: Dom.element = entry->Webapi.ResizeObserver.ResizeObserverEntry.target
+  Js.log2(cr, t)
 }
 
 let observer = Webapi.ResizeObserver.make(handler)
