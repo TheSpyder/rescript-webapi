@@ -19,7 +19,7 @@ type t = private {
   /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins */
   pdfViewerEnabled: bool,
   /* Spec: https://html.spec.whatwg.org/multipage/workers.html#navigatorconcurrenthardware */
-  hardwareConcurrency: float,
+  hardwareConcurrency: int,
 }
 
 /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorcontentutils */

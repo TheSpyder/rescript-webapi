@@ -18,5 +18,5 @@ type t = private {
   /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatoronline */
   onLine: bool,
   /* Spec: https://html.spec.whatwg.org/multipage/workers.html#navigatorconcurrenthardware */
-  hardwareConcurrency: float,
+  hardwareConcurrency: int,
 }
