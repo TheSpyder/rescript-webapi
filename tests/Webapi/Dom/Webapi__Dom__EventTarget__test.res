@@ -28,7 +28,7 @@ let customEvent = CustomEvent.makeWithOptions(
 )
 let _ = target->dispatchEvent(customEvent)
 
-/* another way */
+/* dispatch custom event with typed detail */
 module Detail = {
   type t = {test: string}
 }
