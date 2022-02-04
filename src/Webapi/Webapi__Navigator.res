@@ -1,25 +1,26 @@
-type t
-
-/* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorid */
-
-@get external userAgent: t => string = "userAgent"
-@get external vendor: t => string = "vendor"
-
-/* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorlanguage */
-
-/**
- * Returns a BCP 47 language tag
- */
-@get external language: t => string = "language"
-
-/**
- * Experimental. Returns a readonly array of BCP 47 language tags
- */
-@get external languages: t => array<string> = "languages"
-
-/* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatoronline */
-
-@get external onLine: t => bool = "onLine"
+type t = private {
+  /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorid */
+  userAgent: string,
+  vendor: string,
+  /**
+   * Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorlanguage
+   *
+   * Returns a BCP 47 language tag
+   */
+  language: string,
+  /**
+   * Experimental. Returns a readonly array of BCP 47 language tags
+   */
+  languages: array<string>,
+  /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatoronline */
+  onLine: bool,
+  /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorcookies */
+  cookieEnabled: bool,
+  /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins */
+  pdfViewerEnabled: bool,
+  /* Spec: https://html.spec.whatwg.org/multipage/workers.html#navigatorconcurrenthardware */
+  hardwareConcurrency: int,
+}
 
 /* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorcontentutils */
 
@@ -30,16 +31,3 @@ external registerProtocolHandler: (t, ~scheme: string, ~url: string) => unit =
 @send
 external unregisterProtocolHandler: (t, ~scheme: string, ~url: string) => unit =
   "unregisterProtocolHandler"
-
-/* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorcookies */
-
-@get
-external cookieEnabled: t => bool = "cookieEnabled"
-
-/* Spec: https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins */
-
-@get external pdfViewerEnabled: t => bool = "pdfViewerEnabled"
-
-/* Spec: https://html.spec.whatwg.org/multipage/workers.html#navigatorconcurrenthardware */
-
-@get external hardwareConcurrency: t => float = "hardwareConcurrency"

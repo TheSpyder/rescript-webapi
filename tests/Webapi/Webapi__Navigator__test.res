@@ -1,16 +1,16 @@
 open Webapi.Dom
 
-let navigatorCopy = window->Window.navigator
+let navigatorCopy: Webapi.Navigator.t = window->Window.navigator
 
-let userAgent = navigatorCopy->Webapi.Navigator.userAgent
-let vendor = navigatorCopy->Webapi.Navigator.vendor
-let language = navigatorCopy->Webapi.Navigator.language
-let languages = navigatorCopy->Webapi.Navigator.languages
-let onLine = navigatorCopy->Webapi.Navigator.onLine
-let hardwareConcurrency = navigatorCopy->Webapi.Navigator.hardwareConcurrency
+let userAgent: string = navigatorCopy.userAgent
+let vendor: string = navigatorCopy.vendor
+let language: string = navigatorCopy.language
+let languages: array<string> = navigatorCopy.languages
+let onLine: bool = navigatorCopy.onLine
+let hardwareConcurrency: int = navigatorCopy.hardwareConcurrency
 
 Webapi.Navigator.registerProtocolHandler(navigatorCopy, ~scheme="web+foo", ~url="foo?url=%s")
 Webapi.Navigator.unregisterProtocolHandler(navigatorCopy, ~scheme="web+foo", ~url="foo?url=%s")
 
-let cookieEnabled = navigatorCopy->Webapi.Navigator.cookieEnabled
-let pdfViewerEnabled = navigatorCopy->Webapi.Navigator.pdfViewerEnabled
+let cookieEnabled: bool = navigatorCopy.cookieEnabled
+let pdfViewerEnabled: bool = navigatorCopy.pdfViewerEnabled
