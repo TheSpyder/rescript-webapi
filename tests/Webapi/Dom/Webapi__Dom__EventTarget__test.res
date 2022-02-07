@@ -33,10 +33,6 @@ module Detail = {
   type t = {test: string}
 }
 
-let t: Detail.t = {
-  test: "test",
-}
-
 module EventWithDetail = CustomEvent.Make(Detail)
-let typedCustomEvent = EventWithDetail.makeWithOptions("event-with-detail", t)
+let typedCustomEvent = EventWithDetail.makeWithOptions("event-with-detail", {test: "test"})
 let _ = target->dispatchEvent(typedCustomEvent)

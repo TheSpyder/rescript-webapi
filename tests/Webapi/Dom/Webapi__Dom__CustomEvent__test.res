@@ -24,13 +24,12 @@ module Detail = {
   type t = {component: string}
 }
 
-let t: Detail.t = {
-  component: "test-component",
-}
-
 module EventWithDetail = Make(Detail)
 let eventWithDetail = EventWithDetail.make("event-with-detail")
-let eventWithOptions = EventWithDetail.makeWithOptions("event-with-detail", t)
+let eventWithOptions = EventWithDetail.makeWithOptions(
+  "event-with-detail",
+  {component: "test-component"},
+)
 
 /* Event */
 let _ = EventWithDetail.bubbles(eventWithDetail)
