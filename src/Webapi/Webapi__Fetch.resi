@@ -22,8 +22,8 @@ type signal = AbortController.signal
 
 @@ocaml.text(" File API ")
 
-type blob
-type file
+type blob = Webapi__Blob.t
+type file = Webapi__File.t
 
 type requestMethod =
   | Get
