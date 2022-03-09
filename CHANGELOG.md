@@ -39,6 +39,7 @@
 * `Canvas2d` bindings `drawImage`, `drawImageScale`, and `drawImageFull` added (#83)
 * `InputEvent` bindings for `inputType`, `dataTransfer` and `getTargetRanges` (#90)
 * `Node.insertAtEnd` binding (which does `parent.insertBefore(child, null)`) (#89)
+* CustomEvent Functor to make custom events with strongly typed `detail` fields (#93)
 
 ### Fixed
 * `ofElement` was incorrectly returning `Dom.htmlElement` type instead of the enclosing element type (#60)
