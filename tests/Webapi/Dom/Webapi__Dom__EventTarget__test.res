@@ -27,3 +27,12 @@ let customEvent = CustomEvent.makeWithOptions(
   },
 )
 let _ = target->dispatchEvent(customEvent)
+
+/* dispatch custom event with typed detail */
+module Detail = {
+  type t = {test: string}
+}
+
+module EventWithDetail = CustomEvent.Make(Detail)
+let typedCustomEvent = EventWithDetail.makeWithOptions("event-with-detail", {test: "test"})
+let _ = target->dispatchEvent(typedCustomEvent)
