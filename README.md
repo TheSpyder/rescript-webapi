@@ -77,6 +77,8 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 All code is licensed as MIT. See [LICENSE](LICENSE).
 
-This project has been forked from [bs-webapi](https://github.com/reasonml-community/bs-webapi-incubator) after it was mostly abandoned. Rather than offer to continue that project, we took the opportunity to make major changes to the API and bring it up to modern ReScript development practices by renaming it.
+This project was forked from [bs-webapi](https://github.com/reasonml-community/bs-webapi-incubator) after it was mostly abandoned. We took the opportunity to make major changes to the API and bring it up to modern ReScript development practices by renaming it.
+
+This project also forks [bs-fetch](https://github.com/reasonml-community/bs-fetch) and includes fetch as a first-class concept in the webapi.
 
 Primary development on this project is sponsored by [Tiny](https://github.com/tinymce/).
