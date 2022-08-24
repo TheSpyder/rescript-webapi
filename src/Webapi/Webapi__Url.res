@@ -49,4 +49,5 @@ type t
 @get external toJson: t => string = "toJson"
 
 @val @scope("URL") external createObjectURL: Webapi__File.t => string = "createObjectURL"
+@val @scope("URL") external createObjectURLFromBlob: Webapi__Blob.t => string = "createObjectURL"
 @val @scope("URL") external revokeObjectURL: string => unit = "revokeObjectURL"
