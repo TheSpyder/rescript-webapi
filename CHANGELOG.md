@@ -40,6 +40,7 @@
 * `InputEvent` bindings for `inputType`, `dataTransfer` and `getTargetRanges` (#90)
 * `Node.insertAtEnd` binding (which does `parent.insertBefore(child, null)`) (#89)
 * CustomEvent Functor to make custom events with strongly typed `detail` fields (#93)
+* `Webapi.Url.createObjectURLFromBlob` binding that takes a `Webapi.Blob.t` (#106)
 
 ### Fixed
 * `ofElement` was incorrectly returning `Dom.htmlElement` type instead of the enclosing element type (#60)
