@@ -12,6 +12,8 @@ module EntryValue = {
 type t
 
 @new external make: unit => t = "FormData"
+@new external makeWithHtmlForm: Webapi__Dom__HtmlFormElement.t => t = "FormData"
+
 @send external append: (t, string, string) => unit = "append"
 @send external delete: (t, string) => unit = "delete"
 @send external get: (t, string) => option<EntryValue.t> = "get"

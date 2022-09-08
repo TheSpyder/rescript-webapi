@@ -42,6 +42,8 @@
 * CustomEvent Functor to make custom events with strongly typed `detail` fields (#93)
 * `Webapi.Url.createObjectURLFromBlob` binding that takes a `Webapi.Blob.t` (#106)
 * `returnValue` setter for `BeforeUnloadEvent` (#110)
+* `Webapi.FormData.makeWithHtmlForm` binding that takes a `Webapi.Dom.HtmlFormElement.t` (#108)
+
 
 ### Fixed
 * `ofElement` was incorrectly returning `Dom.htmlElement` type instead of the enclosing element type (#60)
