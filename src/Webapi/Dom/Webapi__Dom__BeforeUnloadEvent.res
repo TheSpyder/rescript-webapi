@@ -8,3 +8,4 @@ include Webapi__Dom__Event.Impl({
 @new external makeWithOptions: (string, {..}) => t = "BeforeUnloadEvent"
 
 @get external returnValue: t => string = "returnValue"
+@set external returnValue: (t, string) => unit = "returnValue"
