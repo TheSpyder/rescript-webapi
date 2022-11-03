@@ -11,7 +11,7 @@ type cssRule /* TODO: Move to Webapi__Dom */
 @send external item: (t, int) => string = "item"
 @send external removeProperty: (t, string) => string = "removeProperty"
 @send external setProperty: (t, string, string, string) => unit = "setProperty"
-@send external setPropertyValue: (t, string, string) => unit = "setPropertyValue"
+@send external setPropertyValue: (t, string, string) => unit = "setProperty"
 
 /* CSS2Properties */
 @get external azimuth: t => string = "azimuth"
