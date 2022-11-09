@@ -89,3 +89,24 @@ let _ =
 document
 ->Document.createElement("div")
 ->Element.addMouseMoveEventListener(e => (MouseEvent.screenX(e), MouseEvent.screenY(e))->Js.log)
+
+
+// Showing use of event listener functions on the window object directly
+let _ = {
+  let handleClick = _ => Js.log("clicked")
+
+  window->Window.addEventListener("click", handleClick)
+  window->Window.addEventListenerWithOptions(
+    "click",
+    handleClick,
+    {"passive": true, "once": true, "capture": false},
+  )
+  window->Window.addEventListenerUseCapture("click", handleClick)
+  window->Window.removeEventListener("click", handleClick)
+  window->Window.removeEventListenerWithOptions(
+    "click",
+    handleClick,
+    {"passive": true, "capture": false},
+  )
+  window->Window.removeEventListenerUseCapture("click", handleClick)
+}
