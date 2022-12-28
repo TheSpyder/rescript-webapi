@@ -18,3 +18,16 @@ module CanvasElement = {
   @get external width: Dom.element => int = "width"
   @set external setWidth: (Dom.element, int) => unit = "width"
 }
+
+module OffscreenCanvas = {
+  type t
+  @new external make: (~width: float, ~height: float) => t = "OffscreenCanvas"
+
+  @send external getContext2d: (t, @as("2d") _) => Canvas2d.t = "getContext"
+  @send external getContextWebGl: (t, @as("webgl") _) => WebGl.glT = "getContext"
+
+  @get external height: t => int = "height"
+  @set external setHeight: (t, int) => unit = "height"
+  @get external width: t => int = "width"
+  @set external setWidth: (t, int) => unit = "width"
+}
