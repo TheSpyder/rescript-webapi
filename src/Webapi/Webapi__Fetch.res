@@ -47,7 +47,7 @@ let encodeRequestMethod = x =>
   | Options => "OPTIONS"
   | Trace => "TRACE"
   | Patch => "PATCH"
-  | Other(method_) => method_
+  | Other(method) => method
   }
 let decodeRequestMethod = x =>
   /* internal */
@@ -62,7 +62,7 @@ let decodeRequestMethod = x =>
   | "OPTIONS" => Options
   | "TRACE" => Trace
   | "PATCH" => Patch
-  | method_ => Other(method_)
+  | method => Other(method)
   }
 
 type referrerPolicy =
@@ -324,7 +324,7 @@ module RequestInit = {
     unit,
   ) => requestInit = ""
   let make = (
-    ~method_: option<requestMethod>=?,
+    ~method: option<requestMethod>=?,
     ~headers: option<headersInit>=?,
     ~body: option<bodyInit>=?,
     ~referrer: option<string>=?,
@@ -338,7 +338,7 @@ module RequestInit = {
     ~signal: option<signal>=?,
   ) =>
     make(
-      ~_method=?map(encodeRequestMethod, method_),
+      ~_method=?map(encodeRequestMethod, method),
       ~headers?,
       ~body?,
       ~referrer?,
@@ -365,8 +365,8 @@ module Request = {
   @new external makeWithRequest: t => t = "Request"
   @new external makeWithRequestInit: (t, requestInit) => t = "Request"
 
-  @get external method_: t => string = "method"
-  let method_: t => requestMethod = self => decodeRequestMethod(method_(self))
+  @get external method: t => string = "method"
+  let method: t => requestMethod = self => decodeRequestMethod(method(self))
   @get external url: t => string = "url"
   @get external headers: t => headers = "headers"
   @get external destination: t => string = "destination"

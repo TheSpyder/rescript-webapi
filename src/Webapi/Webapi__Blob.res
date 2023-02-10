@@ -7,7 +7,7 @@ module Impl = (
 
   @get external size: T.t => float = "size"
 
-  @send external slice: (T.t, ~start: int=?, ~end_: int=?, ~contentType: string=?, unit) => T.t = "slice"
+  @send external slice: (T.t, ~start: int=?, ~end: int=?, ~contentType: string=?, unit) => T.t = "slice"
 
   @send external stream: T.t => Webapi__ReadableStream.t = "stream"
 

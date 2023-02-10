@@ -125,7 +125,7 @@ module Impl = (
 
   @send external setSelectionRange: (t_htmlInputElement, int, int) => unit = "setSelectionRange"
   @send
-  external setSelectionRangeWithDirection_: (t_htmlInputElement, int, int, string) => unit =
+  external setSelectionRangeWithDirection: (t_htmlInputElement, int, int, string) => unit =
     "setSelectionRange"
   let setSelectionRangeWithDirection = (
     selectionStart,
@@ -133,7 +133,7 @@ module Impl = (
     selectionDirection,
     element,
   ) =>
-    element->setSelectionRangeWithDirection_(
+    element->setSelectionRangeWithDirection(
       selectionStart,
       selectionEnd,
       selectionDirection->SelectionDirection.toString,
@@ -161,7 +161,7 @@ module Impl = (
   external setRangeTextWithinInterval: (t_htmlInputElement, string, int, int) => unit =
     "setRangeText"
   @send
-  external setRangeTextWithinIntervalWithSelectionMode_: (
+  external setRangeTextWithinIntervalWithSelectionMode: (
     t_htmlInputElement,
     string,
     int,
@@ -175,7 +175,7 @@ module Impl = (
     selectionMode,
     element,
   ) =>
-    element->setRangeTextWithinIntervalWithSelectionMode_(
+    element->setRangeTextWithinIntervalWithSelectionMode(
       text,
       selectionStart,
       selectionEnd,
