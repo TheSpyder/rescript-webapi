@@ -81,4 +81,4 @@ This project was forked from [bs-webapi](https://github.com/reasonml-community/b
 
 This project also forks [bs-fetch](https://github.com/reasonml-community/bs-fetch) and includes fetch as a first-class concept in the webapi.
 
-Primary development on this project is sponsored by [Tiny](https://github.com/tinymce/).
+During 2021-2022 the development of this project was sponsored by [Tiny](https://github.com/tinymce/).
