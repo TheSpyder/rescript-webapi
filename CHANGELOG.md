@@ -44,10 +44,12 @@
 * `returnValue` setter for `BeforeUnloadEvent` (#110)
 * `Webapi.FormData.makeWithHtmlForm` binding that takes a `Webapi.Dom.HtmlFormElement.t` (#108)
 * `Canvas.toBlob` & `Canvas.toDataUrl` methods, with multiple argument variants (#111)
+* `OffscreenCanvas` bindings (#119)
 
 ### Fixed
 * `ofElement` was incorrectly returning `Dom.htmlElement` type instead of the enclosing element type (#60)
 *  `Dom.CssStyleDeclaration.setPropertyValue` was emitting the wrong function name (#114)
+* `Url.toJSON()` was emitting the wrong function name (#121)
 
 ### Miscellaneous
 * Converted project to rescript syntax (#18)
