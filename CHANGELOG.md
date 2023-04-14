@@ -50,6 +50,7 @@
 * `ofElement` was incorrectly returning `Dom.htmlElement` type instead of the enclosing element type (#60)
 *  `Dom.CssStyleDeclaration.setPropertyValue` was emitting the wrong function name (#114)
 * `Url.toJSON()` was emitting the wrong function name (#121)
+* The `options` signature in `Webapi.Dom.CustomEvent`'s `makeWithOption` (#122)
 
 ### Miscellaneous
 * Converted project to rescript syntax (#18)
