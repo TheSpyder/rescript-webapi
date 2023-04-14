@@ -19,8 +19,9 @@ module Make = (
   include Webapi__Dom__Event.Impl({
     type t = t
   })
+  type options = {detail: Detail.t}
 
   @new external make: string => t = "CustomEvent"
-  @new external makeWithOptions: (string, Detail.t) => t = "CustomEvent"
+  @new external makeWithOptions: (string, options) => t = "CustomEvent"
   @get external detail: t => Detail.t = "detail"
 }
