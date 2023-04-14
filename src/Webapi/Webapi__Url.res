@@ -46,7 +46,7 @@ type t
 @get external searchParams: t => URLSearchParams.t = "searchParams"
 @get external username: t => string = "username"
 @set external setUsername: (t, string) => unit = "username"
-@get external toJson: t => string = "toJson"
+@send external toJson: (t, unit) => string = "toJSON"
 
 @val @scope("URL") external createObjectURL: Webapi__File.t => string = "createObjectURL"
 @val @scope("URL") external createObjectURLFromBlob: Webapi__Blob.t => string = "createObjectURL"
