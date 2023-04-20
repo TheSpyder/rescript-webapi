@@ -1,6 +1,6 @@
 {
   "name": "rescript-webapi",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Reason / ReScript bindings to DOM",
   "repository": {
     "type": "git",
