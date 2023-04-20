@@ -28,7 +28,7 @@ module EventWithDetail = Make(Detail)
 let eventWithDetail = EventWithDetail.make("event-with-detail")
 let eventWithOptions = EventWithDetail.makeWithOptions(
   "event-with-detail",
-  {component: "test-component"},
+  {detail: {component: "test-component"}},
 )
 
 /* Event */
