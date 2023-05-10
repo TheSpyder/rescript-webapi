@@ -21,6 +21,7 @@
 * Updated `History.scrollRestoration` to use `auto` and `manual` instead of a boolean (#88)
 * `PopStateEvent.state` now returns a history state type instead of an open object (#88)
 * Updated `InputEvent.data` to return a nullable value (#90)
+* Corrected return type of `selectionStart` and `selectionEnd` for `input` and `textarea` elements (#124)
 
 ### Added (non-breaking)
 * `WebSocket` bindings (#34)
