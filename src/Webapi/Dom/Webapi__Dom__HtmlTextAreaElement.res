@@ -79,10 +79,10 @@ external form: t => option<Dom.htmlFormElement> = "form"
 type selectionDirection = [#forward | #backward | #none]
 
 @send external select: t => unit = "select"
-@get external selectionStart: t => int = "selectionStart"
-@set external setSelectionStart: (t, int) => unit = "selectionStart"
-@get external selectionEnd: t => int = "selectionEnd"
-@set external setSelectionEnd: (t, int) => unit = "selectionEnd"
+@get @return(nullable) external selectionStart: t => option<int> = "selectionStart"
+@set external setSelectionStart: (t, option<int>) => unit = "selectionStart"
+@get @return(nullable) external selectionEnd: t => option<int> = "selectionEnd"
+@set external setSelectionEnd: (t, option<int>) => unit = "selectionEnd"
 @get
 external selectionDirection: t => selectionDirection = "selectionDirection"
 @set
