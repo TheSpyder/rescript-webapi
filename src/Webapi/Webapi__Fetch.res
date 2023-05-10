@@ -23,47 +23,6 @@ type urlSearchParams /* URL */
 type blob = Webapi__Blob.t
 type file = Webapi__File.t
 
-type requestMethod =
-  | Get
-  | Head
-  | Post
-  | Put
-  | Delete
-  | Connect
-  | Options
-  | Trace
-  | Patch
-  | Other(string)
-let encodeRequestMethod = x =>
-  /* internal */
-
-  switch x {
-  | Get => "GET"
-  | Head => "HEAD"
-  | Post => "POST"
-  | Put => "PUT"
-  | Delete => "DELETE"
-  | Connect => "CONNECT"
-  | Options => "OPTIONS"
-  | Trace => "TRACE"
-  | Patch => "PATCH"
-  | Other(method_) => method_
-  }
-let decodeRequestMethod = x =>
-  /* internal */
-
-  switch x {
-  | "GET" => Get
-  | "HEAD" => Head
-  | "POST" => Post
-  | "PUT" => Put
-  | "DELETE" => Delete
-  | "CONNECT" => Connect
-  | "OPTIONS" => Options
-  | "TRACE" => Trace
-  | "PATCH" => Patch
-  | method_ => Other(method_)
-  }
 
 type referrerPolicy =
   | None
@@ -309,7 +268,7 @@ module RequestInit = {
 
   @obj
   external make: (
-    ~_method: string=?,
+    ~method: string=?,
     ~headers: headersInit=?,
     ~body: bodyInit=?,
     ~referrer: string=?,
@@ -324,7 +283,7 @@ module RequestInit = {
     unit,
   ) => requestInit = ""
   let make = (
-    ~method_: option<requestMethod>=?,
+    ~method: option<string>=?,
     ~headers: option<headersInit>=?,
     ~body: option<bodyInit>=?,
     ~referrer: option<string>=?,
@@ -338,7 +297,7 @@ module RequestInit = {
     ~signal: option<signal>=?,
   ) =>
     make(
-      ~_method=?map(encodeRequestMethod, method_),
+      ~method?,
       ~headers?,
       ~body?,
       ~referrer?,
@@ -365,8 +324,7 @@ module Request = {
   @new external makeWithRequest: t => t = "Request"
   @new external makeWithRequestInit: (t, requestInit) => t = "Request"
 
-  @get external method_: t => string = "method"
-  let method_: t => requestMethod = self => decodeRequestMethod(method_(self))
+  @get external method: t => string = "method"
   @get external url: t => string = "url"
   @get external headers: t => headers = "headers"
   @get external destination: t => string = "destination"
