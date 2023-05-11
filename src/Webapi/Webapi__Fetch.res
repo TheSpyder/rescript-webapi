@@ -336,6 +336,7 @@ module RequestInit = {
     ~integrity: string="",
     ~keepalive: option<bool>=?,
     ~signal: option<signal>=?,
+    ()
   ) =>
     make(
       ~_method=?map(encodeRequestMethod, method_),
@@ -350,6 +351,7 @@ module RequestInit = {
       ~integrity,
       ~keepalive?,
       ~signal?,
+      ()
     )
 }
 
@@ -401,7 +403,8 @@ module ResponseInit = {
     ~status: option<int>=?,
     ~statusText: option<string>=?,
     ~headers: option<headersInit>=?,
-  ) => make(~status?, ~statusText?, ~headers?)
+    ()
+  ) => make(~status?, ~statusText?, ~headers?, ())
 }
 
 module Response = {

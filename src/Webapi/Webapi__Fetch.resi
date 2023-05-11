@@ -103,14 +103,14 @@ module Headers: {
   @new external make: t = "Headers"
   @new external makeWithInit: headersInit => t = "Headers"
 
-  @send external append: t => (string, string) => unit = "append"
-  @send external delete: t => string => unit = "delete"
+  @send external append: (t, string, string) => unit = "append"
+  @send external delete: (t, string) => unit = "delete"
   /* entries */ /* very experimental */
   @send @return(null_to_opt)
-  external get: t => string => option<string> = "get"
-  @send external has: t => string => bool = "has"
+  external get: (t, string) => option<string> = "get"
+  @send external has: (t, string) => bool = "has"
   /* keys */ /* very experimental */
-  @send external set: t => (string, string) => unit = "set"
+  @send external set: (t, string, string) => unit = "set"
   /* values */
   /* very experimental */
 }
