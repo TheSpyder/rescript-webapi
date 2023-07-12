@@ -7,7 +7,7 @@
   resolved "https://registry.yarnpkg.com/@ryyppy/rescript-promise/-/rescript-promise-2.1.0.tgz#a33861274c41360cfbe872cf489f3dcb8dd526e6"
   integrity sha512-+dW6msBrj2Lr2hbEMX+HoWCvN89qVjl94RwbYWJgHQuj8jm/izdPC0YzxgpGoEFdeAEW2sOozoLcYHxT6o5WXQ==
 
-rescript@^9.1.4:
-  version "9.1.4"
-  resolved "https://registry.yarnpkg.com/rescript/-/rescript-9.1.4.tgz#1eb126f98d6c16942c0bf0df67c050198e580515"
-  integrity sha512-aXANK4IqecJzdnDpJUsU6pxMViCR5ogAxzuqS0mOr8TloMnzAjJFu63fjD6LCkWrKAhlMkFFzQvVQYaAaVkFXw==
+rescript@next:
+  version "11.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/rescript/-/rescript-11.0.0-beta.3.tgz#f883a19aa8cb2ab162fd2c9f3d46d2c05cc5710b"
+  integrity sha512-j3YT3VdWMoHgwL4RydKJm9O/VIpN3NTI6keP18rZVJ8ansRKgkHYGLaIwoG6iVqSYYwBjb6d8l8oZ1Jz0fmTeQ==

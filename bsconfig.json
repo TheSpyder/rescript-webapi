@@ -1,6 +1,8 @@
 {
   "name": "rescript-webapi",
-  "bsc-flags": ["-bs-no-version-header"],
+  "bsc-flags": [
+    "-bs-no-version-header"
+  ],
   "sources": [
     {
       "dir": "src",
@@ -20,6 +22,7 @@
     "number": "+A",
     "error": "+A"
   },
+  "uncurried": false,
   "bs-dev-dependencies": [
     "@ryyppy/rescript-promise"
   ]
