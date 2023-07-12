@@ -15,7 +15,8 @@
     },
     {
       "dir": "examples",
-      "type": "dev"
+      "type": "dev",
+      "subdirs": true
     }
   ],
   "warnings": {
