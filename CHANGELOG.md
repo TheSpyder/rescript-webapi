@@ -11,6 +11,8 @@
 
 ## main
 
+## 0.9.0
+
 #### :boom: Breaking Change
 
 - Corrected return type of `selectionStart` and `selectionEnd` for `input` and `textarea` elements. https://github.com/TheSpyder/rescript-webapi/pull/124
