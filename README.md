@@ -6,7 +6,7 @@ Bindings to the DOM and other browser-specific web APIs.
 
 ## Stability
 
-This project is in the process of being forked; until the library reaches 1.0, expect major breaking changes to the API. See the [1.0 project](https://github.com/tinymce/rescript-webapi/projects/1) for the current progress towards that goal.
+This project is in the process of being forked; until the library reaches 1.0, expect major breaking changes to the API. See the [1.0 project](https://github.com/TheSpyder/rescript-webapi/projects/1) for the current progress towards that goal.
 
 ## Installation
 
@@ -26,7 +26,7 @@ Then add `rescript-webapi` to `bs-dependencies` in your `bsconfig.json`. A minim
 
 ## Usage
 
-See the [examples folder](https://github.com/tinymce/rescript-webapi/tree/main/examples).
+See the [examples folder](https://github.com/TheSpyder/rescript-webapi/tree/main/examples).
 
 Please only use the modules exposed through the toplevel module `Webapi`, for example `Webapi.Dom.Element`. In particular, don't use the 'flat' modules like `Webapi__Dom__Element` as these are considered private and are not guaranteed to be backwards-compatible.
 
