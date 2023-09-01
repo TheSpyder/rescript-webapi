@@ -8,7 +8,7 @@ let _ = {
 }
 
 let _ = {
-  Fetch.fetchWithInit("/api/hello", Fetch.RequestInit.make(~method_=Post, ()))
+  Fetch.fetchWithInit("/api/hello", Fetch.RequestInit.make(~method=Post, ()))
   ->then(Fetch.Response.text)
   ->then(text => print_endline(text)->resolve)
 }
@@ -31,7 +31,7 @@ let _ = {
   Fetch.fetchWithInit(
     "/api/hello",
     Fetch.RequestInit.make(
-      ~method_=Post,
+      ~method=Post,
       ~body=Fetch.BodyInit.make(Js.Json.stringify(Js.Json.object_(payload))),
       ~headers=Fetch.HeadersInit.make({"Content-Type": "application/json"}),
       (),
@@ -51,7 +51,7 @@ let _ = {
   Fetch.fetchWithInit(
     "/api/upload",
     Fetch.RequestInit.make(
-      ~method_=Post,
+      ~method=Post,
       ~body=Fetch.BodyInit.makeWithFormData(formData),
       ~headers=Fetch.HeadersInit.make({"Accept": "*"}),
       (),

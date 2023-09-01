@@ -142,7 +142,7 @@ module RequestInit: {
   type t = requestInit
 
   let make: (
-    ~method_: requestMethod=?,
+    ~method: requestMethod=?,
     ~headers: headersInit=?,
     ~body: bodyInit=?,
     ~referrer: string=?,
@@ -166,7 +166,7 @@ module Request: {
   @new external makeWithRequest: t => t = "Request"
   @new external makeWithRequestInit: (t, requestInit) => t = "Request"
 
-  let method_: t => requestMethod
+  let method: t => requestMethod
   @get external url: t => string = "url"
   @get external headers: t => headers = "headers"
   let destination: t => requestDestination

@@ -14,7 +14,7 @@ module Impl = (
   @get external length: t_htmlFormElement => int = "length"
   @get external name: t_htmlFormElement => string = "name"
   @set external setName: (t_htmlFormElement, string) => unit = "name"
-  @get external method_: t_htmlFormElement => string = "method_"
+  @get external method: t_htmlFormElement => string = "method"
   @set external setMethod: (t_htmlFormElement, string) => unit = "method"
   @get external target: t_htmlFormElement => string = "target"
   @set external setTarget: (t_htmlFormElement, string) => unit = "target"
