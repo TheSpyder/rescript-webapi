@@ -1,25 +1,25 @@
 open Webapi.Dom
 open AnimationEvent
 
-let event = make("my-event")
+let event: AnimationEvent.t = make("my-event")
 
 /* Event */
-let _ = bubbles(event)
-let _ = cancelable(event)
-let _ = composed(event)
-let _ = currentTarget(event)
-let _ = defaultPrevented(event)
-let _ = eventPhase(event)
-let _ = target(event)
-let _ = timeStamp(event)
-let _ = type_(event)
-let _ = isTrusted(event)
+let bubbles: bool = bubbles(event)
+let cancelable: bool = cancelable(event)
+let composed: bool = composed(event)
+let currentTarget: Dom.eventTarget = currentTarget(event)
+let defaultPrevented: bool = defaultPrevented(event)
+let eventPhase: EventPhase.t = eventPhase(event)
+let target: Dom.eventTarget = target(event)
+let timeStamp: float = timeStamp(event)
+let type_: string = type_(event)
+let isTrusted: bool = isTrusted(event)
 
 preventDefault(event)
 stopImmediatePropagation(event)
 stopPropagation(event)
 
 /* AnimationEvent */
-let _ = animationName(event)
-let _ = elapsedTime(event)
-let _ = pseudoElement(event)
+let animationName: string = animationName(event)
+let elapsedTime: float = elapsedTime(event)
+let pseudoElement: string = pseudoElement(event)

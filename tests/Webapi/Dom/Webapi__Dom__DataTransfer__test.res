@@ -1,7 +1,7 @@
 open Webapi.Dom
 open DataTransfer
 
-let dataTransfer = make()
+let dataTransfer: t = make()
 
 let dropEffect: dropEffect = dataTransfer->getDropEffect
 dataTransfer->setDropEffect(#copy)

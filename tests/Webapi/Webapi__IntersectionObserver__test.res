@@ -11,13 +11,14 @@ Webapi.Dom.Element.appendChild(body, ~child=el)
 
 let handler = (entries, observer) => {
   Js.Array.forEach(entry => {
-    Js.log(Webapi.IntersectionObserver.IntersectionObserverEntry.time(entry))
-    Js.log(Webapi.IntersectionObserver.IntersectionObserverEntry.rootBounds(entry))
-    Js.log(Webapi.IntersectionObserver.IntersectionObserverEntry.boundingClientRect(entry))
-    Js.log(Webapi.IntersectionObserver.IntersectionObserverEntry.intersectionRect(entry))
-    Js.log(Webapi.IntersectionObserver.IntersectionObserverEntry.isIntersecting(entry))
-    Js.log(Webapi.IntersectionObserver.IntersectionObserverEntry.intersectionRatio(entry))
-    Js.log(Webapi.IntersectionObserver.IntersectionObserverEntry.target(entry))
+    open Webapi.IntersectionObserver.IntersectionObserverEntry;
+    Js.log(time(entry))
+    Js.log(rootBounds(entry))
+    Js.log(boundingClientRect(entry))
+    Js.log(intersectionRect(entry))
+    Js.log(isIntersecting(entry))
+    Js.log(intersectionRatio(entry))
+    Js.log(target(entry))
   }, entries)
 
   Webapi.IntersectionObserver.unobserve(observer, el)
