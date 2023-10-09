@@ -1,14 +1,14 @@
 open Webapi
 open Dom
 
-let navigatorCopy = window->Window.navigator
+let navigatorCopy: Navigator.t = window->Window.navigator
 
-let userAgent = navigatorCopy.userAgent
-let vendor = navigatorCopy.vendor
-let language = navigatorCopy.language
-let languages = navigatorCopy.languages
-let onLine = navigatorCopy.onLine
-let hardwareConcurrency = navigatorCopy.hardwareConcurrency
+let userAgent: string = navigatorCopy.userAgent
+let vendor: string = navigatorCopy.vendor
+let language: string = navigatorCopy.language
+let languages: array<string> = navigatorCopy.languages
+let onLine: bool = navigatorCopy.onLine
+let hardwareConcurrency: int = navigatorCopy.hardwareConcurrency
 
 Navigator.registerProtocolHandler(navigatorCopy, ~scheme="web+foo", ~url="foo?url=%s")
 Navigator.unregisterProtocolHandler(navigatorCopy, ~scheme="web+foo", ~url="foo?url=%s")

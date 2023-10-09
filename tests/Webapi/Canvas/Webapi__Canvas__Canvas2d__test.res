@@ -89,7 +89,7 @@ let imageFromData: Image.t = createImageDataFromImage(ctx, imageFromCoords)
 let w: float = Image.width(imageFromCoords)
 let h: float = Image.height(imageFromCoords)
 
-let frameFromImage = getImageData(ctx, ~sx=0.0, ~sy=0.0, ~sw=0.0, ~sh=0.0)
+let frameFromImage: Image.t = getImageData(ctx, ~sx=0.0, ~sy=0.0, ~sw=0.0, ~sh=0.0)
 putImageData(ctx, ~imageData=imageFromCoords, ~dx=0.0, ~dy=0.0)
 putImageDataWithDirtyRect(
   ctx,
