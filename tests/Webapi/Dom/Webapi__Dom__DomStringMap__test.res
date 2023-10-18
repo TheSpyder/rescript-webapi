@@ -1,7 +1,7 @@
 open Webapi.Dom
 open Webapi.Dom.DomStringMap
 
-let dataset =
+let dataset: option<t> =
   document
   ->Document.createElement("div")
   ->Element.asHtmlElement
