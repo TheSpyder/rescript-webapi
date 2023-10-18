@@ -20,14 +20,14 @@ stopImmediatePropagation(event)
 stopPropagation(event)
 
 /* UIEvent */
-let _ = detail(event)
-let _ = view(event)
+let detail: int = detail(event)
+let view: Dom.window = view(event)
 
 /* MouseEvent */
-let _ = clientX(event)
+let clientX: int = clientX(event)
 
 /* WheelEvent */
-let _ = deltaX(event)
-let _ = deltaY(event)
-let _ = deltaZ(event)
-let _ = deltaMode(event)
+let deltaX: float = deltaX(event)
+let deltaY: float = deltaY(event)
+let deltaZ: float = deltaZ(event)
+let deltaMode: deltaMode = deltaMode(event)

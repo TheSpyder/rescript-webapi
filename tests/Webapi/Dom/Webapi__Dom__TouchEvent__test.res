@@ -20,14 +20,14 @@ stopImmediatePropagation(event)
 stopPropagation(event)
 
 /* UIEvent */
-let _ = detail(event)
-let _ = view(event)
+let detail: int = detail(event)
+let view: Dom.window = view(event)
 
 /* TouchEvent */
-let _ = altKey(event)
-let _ = changedTouches(event)
-let _ = ctrlKey(event)
-let _ = metaKey(event)
-let _ = shiftKey(event)
-let _ = targetTouches(event)
-let _ = touches(event)
+let altKey: bool = altKey(event)
+let changedTouches: touchList = changedTouches(event)
+let ctrlKey: bool = ctrlKey(event)
+let metaKey: bool = metaKey(event)
+let shiftKey: bool = shiftKey(event)
+let targetTouches: touchList = targetTouches(event)
+let touches: touchList = touches(event)

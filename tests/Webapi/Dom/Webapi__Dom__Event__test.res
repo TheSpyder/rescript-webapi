@@ -1,7 +1,7 @@
 open Webapi.Dom
 open Event
 
-let event = make("my-event")
+let event: t = make("my-event")
 
 /* Event */
 let bubbles: bool = bubbles(event)
