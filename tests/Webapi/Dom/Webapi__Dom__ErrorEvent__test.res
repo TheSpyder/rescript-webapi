@@ -1,7 +1,7 @@
 open Webapi.Dom
 open ErrorEvent
 
-let event = make("my-event")
+let event: t = make("my-event")
 
 /* Event */
 let bubbles: bool = bubbles(event)
@@ -20,8 +20,8 @@ stopImmediatePropagation(event)
 stopPropagation(event)
 
 /* ErrorEvent */
-let _ = message(event)
-let _ = filename(event)
-let _ = lineno(event)
-let _ = colno(event)
-let _ = error(event)
+let message: string = message(event)
+let filename: string = filename(event)
+let lineno: int = lineno(event)
+let colno: int = colno(event)
+let error: {..} = error(event)

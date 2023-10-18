@@ -20,13 +20,13 @@ stopImmediatePropagation(event)
 stopPropagation(event)
 
 /* UIEvent */
-let _ = detail(event)
-let _ = view(event)
+let detail: int = detail(event)
+let view: Dom.window = view(event)
 
 /* InputEvent */
-let _ = data(event)
-let _ = isComposing(event)
-let _ = getTargetRanges(event)
+let data: option<string> = data(event)
+let isComposing: bool = isComposing(event)
+let getTargetRanges: array<Dom.range> = getTargetRanges(event)
 switch event->inputType {
   | #deleteByCut => Js.log("valid input event type deleteByCut")
   | #deleteByDrag => Js.log("valid input event type deleteByDrag")

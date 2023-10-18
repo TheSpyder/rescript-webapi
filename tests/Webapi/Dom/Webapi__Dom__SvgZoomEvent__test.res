@@ -20,12 +20,12 @@ stopImmediatePropagation(event)
 stopPropagation(event)
 
 /* UIEvent */
-let _ = detail(event)
-let _ = view(event)
+let detail: int = detail(event)
+let view: Dom.window = view(event)
 
 /* SvgZoomEvent */
-let _ = zoomRectScreen(event)
-let _ = previousScale(event)
-let _ = previousTranslate(event)
-let _ = newScale(event)
-let _ = newTranslate(event)
+let zoomRectScreen: Dom.svgRect = zoomRectScreen(event)
+let previousScale: float = previousScale(event)
+let previousTranslate: Dom.svgPoint = previousTranslate(event)
+let newScale: float = newScale(event)
+let newTranslate: Dom.svgPoint = newTranslate(event)
