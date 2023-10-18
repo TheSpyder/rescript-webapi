@@ -1,21 +1,21 @@
 open Webapi.Dom
 open DomTokenList
 
-let tlist = document->Document.createElement("div")->Element.classList
+let tlist: t = document->Document.createElement("div")->Element.classList
 
-let _ = tlist->length
-let _ = tlist->item(3)
+let length: int = tlist->length
+let item: option<string> = tlist->item(3)
 
 tlist->add("my-class")
 tlist->addMany(["my-class", "my-other-class"])
-let _ = tlist->contains("my-class")
+let contains: bool = tlist->contains("my-class")
 tlist->forEach((item, _) => print_endline(item))
 tlist->remove("my-class")
 tlist->removeMany(["my-class", "my-other-class"])
 tlist->replace("my-class", "my-other-class")
-let _ = tlist->supports("my-class")
-let _ = tlist->toggle("my-class")
-let _ = tlist->toggleForced("my-class")
-let _ = tlist->toString
-let _ = tlist->value
-let _ = tlist->setValue("foo")
+let supports: bool = tlist->supports("my-class")
+let toggle: bool = tlist->toggle("my-class")
+let toggleForced: bool = tlist->toggleForced("my-class")
+let toString: string = tlist->toString
+let value: string = tlist->value
+let setValue: unit = tlist->setValue("foo")
