@@ -11,6 +11,12 @@
 
 ## main
 
+# 0.9.1
+
+#### :bug: Bug Fix
+
+- Fix binding compatibility with ReScript 11, which removed `_` variable mangling. https://github.com/TheSpyder/rescript-webapi/pull/129
+
 ## 0.9.0
 
 #### :boom: Breaking Change
