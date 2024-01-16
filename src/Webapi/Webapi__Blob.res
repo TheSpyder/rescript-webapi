@@ -7,7 +7,8 @@ module Impl = (
 
   @get external size: T.t => float = "size"
 
-  @send external slice: (T.t, ~start: int=?, ~end_: int=?, ~contentType: string=?, unit) => T.t = "slice"
+  @send
+  external slice: (T.t, ~start: int=?, ~end_: int=?, ~contentType: string=?, unit) => T.t = "slice"
 
   @send external stream: T.t => Webapi__ReadableStream.t = "stream"
 
@@ -27,7 +28,11 @@ type endingType = [#transparent | #native]
 type blobPropertyBag
 
 @obj
-external makeBlobPropertyBag: (~_type: string=?, ~endings: endingType=?, unit) => blobPropertyBag = ""
+external makeBlobPropertyBag: (
+  @as("type") ~_type: string=?,
+  ~endings: endingType=?,
+  unit,
+) => blobPropertyBag = ""
 
 type blobPart
 
