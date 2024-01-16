@@ -309,7 +309,7 @@ module RequestInit = {
 
   @obj
   external make: (
-    ~_method: string=?,
+    @as("method") ~_method: string=?,
     ~headers: headersInit=?,
     ~body: bodyInit=?,
     ~referrer: string=?,
@@ -336,7 +336,7 @@ module RequestInit = {
     ~integrity: string="",
     ~keepalive: option<bool>=?,
     ~signal: option<signal>=?,
-    ()
+    (),
   ) =>
     make(
       ~_method=?map(encodeRequestMethod, method_),
@@ -351,7 +351,7 @@ module RequestInit = {
       ~integrity,
       ~keepalive?,
       ~signal?,
-      ()
+      (),
     )
 }
 
@@ -403,7 +403,7 @@ module ResponseInit = {
     ~status: option<int>=?,
     ~statusText: option<string>=?,
     ~headers: option<headersInit>=?,
-    ()
+    (),
   ) => make(~status?, ~statusText?, ~headers?, ())
 }
 
