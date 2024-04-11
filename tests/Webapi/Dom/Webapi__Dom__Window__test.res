@@ -1,6 +1,7 @@
 open Webapi.Dom
 
 let el = document->Document.createElement("strong")
+let htmlEl = el->Element.unsafeAsHtmlElement
 let event = document->Document.createEvent("my-event")
 let handleClick = _ => print_endline("asd")
 
@@ -53,7 +54,9 @@ Window.close(window)
 let _ = window->Window.confirm("is ok?")
 Window.focus(window)
 let _ = window->Window.getComputedStyle(el)
+let _ = window->Window.getComputedStyle(htmlEl)
 let _ = window->Window.getComputedStyleWithPseudoElement(el, "hover")
+let _ = window->Window.getComputedStyleWithPseudoElement(htmlEl, "hover")
 let _ = Window.getSelection(window)
 let _ = window->Window.matchMedia("max-height: 400")
 let _ = window->Window.moveBy(10, -10)
