@@ -7,7 +7,8 @@ type cssRule /* TODO: Move to Webapi__Dom */
 @get external parentRule: t => cssRule = "parentRule"
 
 @send external getPropertyPriority: (t, string) => string = "getPropertyPriority"
-@send external getPropertyValue: (t, string) => string = "getPropertyValue"
+@send @return(nullable)
+external getPropertyValue: (t, string) => option<string> = "getPropertyValue"
 @send external item: (t, int) => string = "item"
 @send external removeProperty: (t, string) => string = "removeProperty"
 @send external setProperty: (t, string, string, string) => unit = "setProperty"

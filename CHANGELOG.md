@@ -11,6 +11,11 @@
 
 ## main
 
+
+#### :boom: Breaking Change
+
+- Corrected return type of `getPropertyValue` for CSS style attributes (it's nullable and now returns an option).
+
 # 0.9.1
 
 #### :bug: Bug Fix
