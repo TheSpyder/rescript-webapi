@@ -22,7 +22,7 @@
     "clean": "rescript clean",
     "doc-install": "npm install --no-save bsdoc",
     "doc": "rescript && bsdoc build api && bsdoc support-files",
-    "test": "rescript && echo 'checking for differences in compiled output...' && git diff-index --quiet HEAD -- && echo 'success!'",
+    "test": "rescript && echo 'checking for differences in compiled output...' && sleep 1 && git diff --exit-code HEAD -- && echo 'success!'",
     "format-all": "rescript format -all",
     "prepublishOnly": "rescript clean && rescript build"
   },
