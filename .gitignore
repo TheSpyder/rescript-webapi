@@ -7,3 +7,4 @@ node_modules/
 /lib/js/src
 /lib/js/tests/testHelpers.js
 npm-debug.log
+.yarn/install-state.gz

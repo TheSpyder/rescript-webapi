@@ -113,7 +113,19 @@ include Webapi__Dom__EventTarget.Impl({
 include Webapi__Dom__GlobalEventHandlers.Impl({
   type t = t
 })
+include Webapi__Dom__ParentNode.Impl({
+  type t = t
+})
+include Webapi__Dom__NonDocumentTypeChildNode.Impl({
+  type t = t
+})
+include Webapi__Dom__ChildNode.Impl({
+  type t = t
+})
 include Webapi__Dom__Element.Impl({
+  type t = t
+})
+include Webapi__Dom__Slotable.Impl({
   type t = t
 })
 include Impl({

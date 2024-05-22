@@ -1,11 +1,11 @@
 open Webapi.Dom
 open History
 
-let _ = history->length
-let _ = history->scrollRestoration
-let _ = history->setScrollRestoration(#auto)
-let _ = history->setScrollRestoration(#manual)
-let _ = history->state
+let length: int = history->length
+let scrollRestorationTest: [#auto | #manual] = history->scrollRestoration
+history->setScrollRestoration(#auto)
+history->setScrollRestoration(#manual)
+let stateTest: state = history->state
 
 switch (history->scrollRestoration) {
   | #auto => Js.log("auto scroll")

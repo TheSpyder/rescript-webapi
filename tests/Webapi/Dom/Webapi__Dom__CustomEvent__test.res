@@ -1,19 +1,19 @@
 open Webapi.Dom
 open CustomEvent
 
-let event = make("my-event")
+let event: CustomEvent.t = make("my-event")
 
 /* Event */
-let _ = bubbles(event)
-let _ = cancelable(event)
-let _ = composed(event)
-let _ = currentTarget(event)
-let _ = defaultPrevented(event)
-let _ = eventPhase(event)
-let _ = target(event)
-let _ = timeStamp(event)
-let _ = type_(event)
-let _ = isTrusted(event)
+let bubbles: bool = bubbles(event)
+let cancelable: bool = cancelable(event)
+let composed: bool = composed(event)
+let currentTarget: Dom.eventTarget = currentTarget(event)
+let defaultPrevented: bool = defaultPrevented(event)
+let eventPhase: EventPhase.t = eventPhase(event)
+let target: Dom.eventTarget = target(event)
+let timeStamp: float = timeStamp(event)
+let type_: string = type_(event)
+let isTrusted: bool = isTrusted(event)
 
 preventDefault(event)
 stopImmediatePropagation(event)
@@ -25,34 +25,34 @@ module Detail = {
 }
 
 module EventWithDetail = Make(Detail)
-let eventWithDetail = EventWithDetail.make("event-with-detail")
-let eventWithOptions = EventWithDetail.makeWithOptions(
+let eventWithDetail: Dom.event_like<_typedCustomEvent<Detail.t>> = EventWithDetail.make("event-with-detail")
+let eventWithOptions: Dom.event_like<_typedCustomEvent<Detail.t>> = EventWithDetail.makeWithOptions(
   "event-with-detail",
   {detail: {component: "test-component"}},
 )
 
 /* Event */
-let _ = EventWithDetail.bubbles(eventWithDetail)
-let _ = EventWithDetail.cancelable(eventWithDetail)
-let _ = EventWithDetail.composed(eventWithDetail)
-let _ = EventWithDetail.currentTarget(eventWithDetail)
-let _ = EventWithDetail.defaultPrevented(eventWithDetail)
-let _ = EventWithDetail.eventPhase(eventWithDetail)
-let _ = EventWithDetail.target(eventWithDetail)
-let _ = EventWithDetail.timeStamp(eventWithDetail)
-let _ = EventWithDetail.type_(eventWithDetail)
-let _ = EventWithDetail.isTrusted(eventWithDetail)
+let bubbles_withDetail: bool = EventWithDetail.bubbles(eventWithDetail)
+let cancelable_withDetail: bool = EventWithDetail.cancelable(eventWithDetail)
+let composed_withDetail: bool = EventWithDetail.composed(eventWithDetail)
+let currentTarget_withDetail: Dom.eventTarget = EventWithDetail.currentTarget(eventWithDetail)
+let defaultPrevented_withDetail: bool = EventWithDetail.defaultPrevented(eventWithDetail)
+let eventPhase_withDetail: EventPhase.t = EventWithDetail.eventPhase(eventWithDetail)
+let target_withDetail: Dom.eventTarget = EventWithDetail.target(eventWithDetail)
+let timeStamp_withDetail: float = EventWithDetail.timeStamp(eventWithDetail)
+let type_withDetail: string = EventWithDetail.type_(eventWithDetail)
+let isTrusted_withDetail: bool = EventWithDetail.isTrusted(eventWithDetail)
 
-let _ = EventWithDetail.bubbles(eventWithOptions)
-let _ = EventWithDetail.cancelable(eventWithOptions)
-let _ = EventWithDetail.composed(eventWithOptions)
-let _ = EventWithDetail.currentTarget(eventWithOptions)
-let _ = EventWithDetail.defaultPrevented(eventWithOptions)
-let _ = EventWithDetail.eventPhase(eventWithOptions)
-let _ = EventWithDetail.target(eventWithOptions)
-let _ = EventWithDetail.timeStamp(eventWithOptions)
-let _ = EventWithDetail.type_(eventWithOptions)
-let _ = EventWithDetail.isTrusted(eventWithOptions)
+let bubbles_withOptions: bool = EventWithDetail.bubbles(eventWithOptions)
+let cancelable_withOptions: bool = EventWithDetail.cancelable(eventWithOptions)
+let composed_withOptions: bool = EventWithDetail.composed(eventWithOptions)
+let currentTarget_withOptions: Dom.eventTarget = EventWithDetail.currentTarget(eventWithOptions)
+let defaultPrevented_withOptions: bool = EventWithDetail.defaultPrevented(eventWithOptions)
+let eventPhase_withOptions: EventPhase.t = EventWithDetail.eventPhase(eventWithOptions)
+let target_withOptions: Dom.eventTarget = EventWithDetail.target(eventWithOptions)
+let timeStamp_withOptions: float = EventWithDetail.timeStamp(eventWithOptions)
+let type__withOptions: string = EventWithDetail.type_(eventWithOptions)
+let isTrusted_withOptions: bool = EventWithDetail.isTrusted(eventWithOptions)
 
 EventWithDetail.preventDefault(eventWithDetail)
 EventWithDetail.stopImmediatePropagation(eventWithDetail)
@@ -62,4 +62,4 @@ EventWithDetail.preventDefault(eventWithOptions)
 EventWithDetail.stopImmediatePropagation(eventWithOptions)
 EventWithDetail.stopPropagation(eventWithOptions)
 
-let _ = (eventWithDetail->EventWithDetail.detail).component
+let component: string = (eventWithDetail->EventWithDetail.detail).component

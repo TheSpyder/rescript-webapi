@@ -75,6 +75,12 @@ include Webapi__Dom__EventTarget.Impl({
 include Webapi__Dom__GlobalEventHandlers.Impl({
   type t = t
 })
+include Webapi__Dom__NonElementParentNode.Impl({
+  type t = t
+})
+include Webapi__Dom__ParentNode.Impl({
+  type t = t
+})
 include Webapi__Dom__Document.Impl({
   type t = t
 })

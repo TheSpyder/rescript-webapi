@@ -4,29 +4,29 @@ open InputEvent
 let event = make("my-event")
 
 /* Event */
-let _ = bubbles(event)
-let _ = cancelable(event)
-let _ = composed(event)
-let _ = currentTarget(event)
-let _ = defaultPrevented(event)
-let _ = eventPhase(event)
-let _ = target(event)
-let _ = timeStamp(event)
-let _ = type_(event)
-let _ = isTrusted(event)
+let bubbles: bool = bubbles(event)
+let cancelable: bool = cancelable(event)
+let composed: bool = composed(event)
+let currentTarget: Dom.eventTarget = currentTarget(event)
+let defaultPrevented: bool = defaultPrevented(event)
+let eventPhase: EventPhase.t = eventPhase(event)
+let target: Dom.eventTarget = target(event)
+let timeStamp: float = timeStamp(event)
+let type_: string = type_(event)
+let isTrusted: bool = isTrusted(event)
 
 preventDefault(event)
 stopImmediatePropagation(event)
 stopPropagation(event)
 
 /* UIEvent */
-let _ = detail(event)
-let _ = view(event)
+let detail: int = detail(event)
+let view: Dom.window = view(event)
 
 /* InputEvent */
-let _ = data(event)
-let _ = isComposing(event)
-let _ = getTargetRanges(event)
+let data: option<string> = data(event)
+let isComposing: bool = isComposing(event)
+let getTargetRanges: array<Dom.range> = getTargetRanges(event)
 switch event->inputType {
   | #deleteByCut => Js.log("valid input event type deleteByCut")
   | #deleteByDrag => Js.log("valid input event type deleteByDrag")

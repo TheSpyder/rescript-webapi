@@ -21,7 +21,8 @@
     "start": "rescript build -w",
     "clean": "rescript clean",
     "doc-install": "npm install --no-save bsdoc",
-    "test": "rescript && bsdoc build api && bsdoc support-files",
+    "doc": "rescript && bsdoc build api && bsdoc support-files",
+    "test": "rescript && echo 'checking for differences in compiled output...' && git diff-index --quiet HEAD -- && echo 'success!'",
     "format-all": "rescript format -all",
     "prepublishOnly": "rescript clean && rescript build"
   },
@@ -34,5 +35,6 @@
   "devDependencies": {
     "@ryyppy/rescript-promise": "^2.1.0",
     "rescript": "^10.1.4"
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }

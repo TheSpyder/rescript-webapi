@@ -1,4 +1,4 @@
-type t = Dom.attr
+ type t = Dom.attr
 
 include Webapi__Dom__Node.Impl({
   type t = t
