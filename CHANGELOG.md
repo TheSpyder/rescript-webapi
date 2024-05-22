@@ -11,6 +11,15 @@
 
 ## main
 
+
+#### :boom: Breaking Change
+
+- Corrected return type of `getPropertyValue` for CSS style attributes (it's nullable and now returns an option).
+
+#### :bug: Bug Fix
+
+- Widened input type of `Window.getComputedStyle`, allowing subclasses of Element (such as HtmlElement).
+
 # 0.9.1
 
 #### :bug: Bug Fix

@@ -78,11 +78,13 @@ module Impl = (
   @send external close: t_window => unit = "close"
   @send external confirm: (t_window, string) => bool = "confirm"
   @send external focus: t_window => unit = "focus"
-  @send external getComputedStyle: (t_window, Dom.element) => Dom.cssStyleDeclaration = "getComputedStyle"
+  @send
+  external getComputedStyle: (t_window, Dom.element_like<'a>) => Dom.cssStyleDeclaration =
+    "getComputedStyle"
   @send
   external getComputedStyleWithPseudoElement: (
     t_window,
-    Dom.element,
+    Dom.element_like<'a>,
     string,
   ) => Dom.cssStyleDeclaration = "getComputedStyle"
   @send @return(nullable) external getSelection: t_window => option<Dom.selection> = "getSelection"
