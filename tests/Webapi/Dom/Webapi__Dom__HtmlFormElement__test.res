@@ -6,8 +6,8 @@ open Webapi.Dom.HtmlFormElement
 @scope("console")
 external jsAssert: (bool, string) => unit = "assert"
 
-let createElement = Document.createElement(document)
-let createTextNode = Document.createTextNode(document)
+let createElement = Document.createElement(document,_)
+let createTextNode = Document.createTextNode(document,_)
 let createInput = () => createElement("input")
 let createLabelWithText = text => {
   let el = createElement("label")

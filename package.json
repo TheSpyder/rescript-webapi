@@ -34,7 +34,7 @@
   "license": "MIT",
   "devDependencies": {
     "@ryyppy/rescript-promise": "^2.1.0",
-    "rescript": "^10.1.4"
+    "rescript": "^11.1.1"
   },
   "packageManager": "yarn@4.0.2"
 }
