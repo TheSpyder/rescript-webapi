@@ -1,4 +1,5 @@
 module Canvas2d = Webapi__Canvas__Canvas2d
+module Path2d = Webapi__Canvas__Path2d
 module WebGl = Webapi__Canvas__WebGl
 module Blob = Webapi__Blob
 
