@@ -1,17 +1,5 @@
 type t
 
-// addPath()
-// arc()
-// arcTo()
-// bezierCurveTo()
-// closePath()
-// ellipse()
-// lineTo()
-// moveTo()
-// quadraticCurveTo()
-// rect()
-// roundRect()
-
 /**
  * Path2D
  * all methods except addPath are common with CanvasRenderingContext2D
