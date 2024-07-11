@@ -215,10 +215,11 @@ external createPattern: (
 @send external isPointInPath: (t, ~x: float, ~y: float) => bool = "isPointInPath"
 
 /* Path2D */
-type path2d
-@new external newPath2D: string => path2d = "Path2D"
-@send external fillPath2D: (t, path2d) => unit = "fill"
-@send external strokePath2D: (t, path2d) => unit = "stroke"
+@send
+external fillPath2d: (t, Webapi__Canvas__Path2d.t) => unit = "fill"
+@send
+external strokePath2d: (t, Webapi__Canvas__Path2d.t) => unit = "stroke"
+
 
 /* Text */
 @set external font: (t, string) => unit = "font"
@@ -237,7 +238,6 @@ external strokeText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, @igno
 @send external fillRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "fillRect"
 @send external strokeRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "strokeRect"
 @send external clearRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "clearRect"
-
 
 module T = {
   type t = t

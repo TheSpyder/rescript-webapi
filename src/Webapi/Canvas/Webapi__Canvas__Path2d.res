@@ -1,9 +1,10 @@
-type t
-
 /**
  * Path2D
- * all methods except addPath are common with CanvasRenderingContext2D
+ * All methods but addPath are common with CanvasRenderingContext2D
  */
+
+type t
+
 @new
 external make: (~d: string=?, unit) => t = "Path2D"
 
