@@ -2,6 +2,11 @@ module type ModuleWithT = {
   type t
 }
 
+/**
+ * Named parameters have 1~3 of lenght, should resemble MDN/typescript docs/types.
+ * This module exposes the typescript CanvasPath interface
+ * https://github.com/microsoft/TypeScript/blob/46410044add2e9f53cea58e445de18dcda53443f/src/lib/dom.generated.d.ts#L5455
+ */
 module Make = (M: ModuleWithT) => {
   // type t = M.t
   /** https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc */
