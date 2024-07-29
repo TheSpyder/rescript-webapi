@@ -16,9 +16,9 @@ module Make = (M: ModuleWithT) => {
     ~x: float,
     ~y: float,
     ~r: float,
-    ~a1: float,
-    ~a2: float,
-    ~ccw: bool=?,
+    ~startAngle: float,
+    ~endAngle: float,
+    ~counterClockWise: bool=?,
     unit,
   ) => unit = "arc"
 
@@ -51,9 +51,9 @@ module Make = (M: ModuleWithT) => {
     ~rx: float,
     ~ry: float,
     ~rtn: float,
-    ~a1: float,
-    ~a2: float,
-    ~ccw: bool=?,
+    ~startAngle: float,
+    ~endAngle: float,
+    ~counterClockWise: bool=?,
     unit,
   ) => unit = "ellipse"
 
