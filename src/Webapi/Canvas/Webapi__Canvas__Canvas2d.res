@@ -239,12 +239,10 @@ external strokeText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, @igno
 @send external strokeRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "strokeRect"
 @send external clearRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "clearRect"
 
-module T = {
-  type t = t
-}
-
 // CanvasPathCommons
-include Webapi__Canvas__Path_Common.Make(T)
+include Webapi__Canvas__Path_Common.Impl({
+  type t = t
+})
 
 /* Pixel maniplation */
 @send

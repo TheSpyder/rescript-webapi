@@ -12,9 +12,7 @@ external make: (~d: string=?, unit) => t = "Path2D"
 @send
 external addPath: (t, t) => unit = "addPath"
 
-module T = {
-  type t = t
-}
-
 // CanvasPathCommons
-include Webapi__Canvas__Path_Common.Make(T)
+include Webapi__Canvas__Path_Common.Impl( {
+  type t = t
+})
