@@ -51,13 +51,25 @@ ctx->lineTo(~x=1., ~y=2.)
 ctx->quadraticCurveTo(~cpx=1., ~cpy=1., ~x=1., ~y=1.)
 ctx->bezierCurveTo(~cp1x=1., ~cp1y=1., ~cp2x=2., ~cp2y=2., ~x=4., ~y=4.)
 ctx->arcTo(~x1=1., ~y1=1., ~x2=2., ~y2=2., ~r=4.)
-ctx->arc(~x=1., ~y=1., ~r=4., ~a1=1., ~a2=3., ~ccw=true, ())
+ctx->arc(~x=1., ~y=1., ~r=4., ~startAngle=1., ~endAngle=3., ~counterClockWise=true, ())
+ctx->ellipse(
+  ~x=1.,
+  ~y=1.,
+  ~rx=4.,
+  ~ry=8.,
+  ~rtn=4.,
+  ~startAngle=1.,
+  ~endAngle=3.,
+  ~counterClockWise=true,
+  (),
+)
 ctx->rect(~x=0., ~y=0., ~w=10., ~h=10.)
 let pointInPath: bool = ctx->isPointInPath(~x=0., ~y=0.)
 
 let linearGradient: gradient = ctx->createLinearGradient(~x0=0.0, ~y0=0.0, ~x1=0.0, ~y1=0.0)
 setStrokeStyle(ctx, Gradient, linearGradient)
-let radialGradient: gradient = ctx->createRadialGradient(~x0=0.0, ~y0=0.0, ~x1=0.0, ~y1=0.0, ~r0=0.0, ~r1=0.0)
+let radialGradient: gradient =
+  ctx->createRadialGradient(~x0=0.0, ~y0=0.0, ~x1=0.0, ~y1=0.0, ~r0=0.0, ~r1=0.0)
 linearGradient->addColorStop(0.0, "red")
 let noRepeatPatern: pattern = ctx->createPattern(document->Document.createElement("img"), #noRepeat)
 let repeatPatern: pattern = ctx->createPattern(document->Document.createElement("img"), #repeat)
@@ -112,13 +124,14 @@ ctx->fillRect(~x=1., ~y=0., ~w=10., ~h=10.)
 ctx->strokeRect(~x=1., ~y=0., ~w=10., ~h=10.)
 ctx->clearRect(~x=1., ~y=0., ~w=10., ~h=10.)
 
-
 let path1 = Path2d.make()
-let path2 = Path2d.make(~d="M24.85,10.126c2.018-4.783,6.628-8.125,11.99-8.125c7.223"
-  ++ ",0,12.425,6.179,13.079,13.543 c0,0,0.353,1.828-0.424,5.119c-1.058,4.482"
-  ++ "-3.545,8.464-6.898,11.503L24.85,48L7.402,32.165c-3.353-3.038-5.84-7.021"
-  ++ "-6.898-11.503 c-0.777-3.291-0.424-5.119-0.424-5.119C0.734,8.179,5.936,2"
-  ++ ",13.159,2C18.522,2,22.832,5.343,24.85,10.126z",())
+let path2 = Path2d.make(
+  ~d="M24.85,10.126c2.018-4.783,6.628-8.125,11.99-8.125c7.223" ++
+  ",0,12.425,6.179,13.079,13.543 c0,0,0.353,1.828-0.424,5.119c-1.058,4.482" ++
+  "-3.545,8.464-6.898,11.503L24.85,48L7.402,32.165c-3.353-3.038-5.84-7.021" ++
+  "-6.898-11.503 c-0.777-3.291-0.424-5.119-0.424-5.119C0.734,8.179,5.936,2" ++ ",13.159,2C18.522,2,22.832,5.343,24.85,10.126z",
+  (),
+)
 
 path1->Path2d.rect(~x=1., ~y=2., ~w=10., ~h=10.)
 path2->Path2d.bezierCurveTo(~cp1x=1., ~cp1y=2., ~cp2x=2., ~cp2y=2., ~x=4., ~y=4.)
