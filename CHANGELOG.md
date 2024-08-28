@@ -11,10 +11,10 @@
 
 ## main
 
-
 #### :boom: Breaking Change
 
 - Corrected return type of `getPropertyValue` for CSS style attributes (it's nullable and now returns an option).
+- Corrected signature of `toggleForced` (for `Dom.domTokenList`) to accept a bool denoting whether to toggle the class on or off.
 
 #### :bug: Bug Fix
 
