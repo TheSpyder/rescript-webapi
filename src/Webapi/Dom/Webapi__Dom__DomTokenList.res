@@ -14,7 +14,7 @@ type t = Dom.domTokenList
 @send external replace: (t, string, string) => unit = "replace" /* experimental */
 @send external supports: (t, string) => bool = "supports" /* experimental, Content Management Level 1 */
 @send external toggle: (t, string) => bool = "toggle"
-@send external toggleForced: (t, string, @as(json`true`) _) => bool = "toggle"
+@send external toggleForced: (t, string, bool) => bool = "toggle"
 @send external toString: t => string = "toString"
 /* values: iterator API, should have language support */
 

@@ -15,7 +15,8 @@ tlist->removeMany(["my-class", "my-other-class"])
 tlist->replace("my-class", "my-other-class")
 let supports: bool = tlist->supports("my-class")
 let toggle: bool = tlist->toggle("my-class")
-let toggleForced: bool = tlist->toggleForced("my-class")
+let toggleForced_true: bool = tlist->toggleForced("my-class", true)
+let toggleForced_false: bool = tlist->toggleForced("my-class", false)
 let toString: string = tlist->toString
 let value: string = tlist->value
 let setValue: unit = tlist->setValue("foo")
