@@ -209,45 +209,17 @@ external createPattern: (
 
 /* Paths */
 @send external beginPath: t => unit = "beginPath"
-@send external closePath: t => unit = "closePath"
-@send external fill: t => unit = "fill"
 @send external stroke: t => unit = "stroke"
 @send external clip: t => unit = "clip"
-@send external moveTo: (t, ~x: float, ~y: float) => unit = "moveTo"
-@send external lineTo: (t, ~x: float, ~y: float) => unit = "lineTo"
-@send
-external quadraticCurveTo: (t, ~cp1x: float, ~cp1y: float, ~x: float, ~y: float) => unit =
-  "quadraticCurveTo"
-@send
-external bezierCurveTo: (
-  t,
-  ~cp1x: float,
-  ~cp1y: float,
-  ~cp2x: float,
-  ~cp2y: float,
-  ~x: float,
-  ~y: float,
-) => unit = "bezierCurveTo"
-@send
-external arcTo: (t, ~x1: float, ~y1: float, ~x2: float, ~y2: float, ~r: float) => unit = "arcTo"
-@send
-external arc: (
-  t,
-  ~x: float,
-  ~y: float,
-  ~r: float,
-  ~startAngle: float,
-  ~endAngle: float,
-  ~anticw: bool,
-) => unit = "arc"
-@send external rect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "rect"
+@send external fill: t => unit = "fill"
 @send external isPointInPath: (t, ~x: float, ~y: float) => bool = "isPointInPath"
 
 /* Path2D */
-type path2d
-@new external newPath2D: string => path2d = "Path2D"
-@send external fillPath2D: (t, path2d) => unit = "fill"
-@send external strokePath2D: (t, path2d) => unit = "stroke"
+@send
+external fillPath2d: (t, Webapi__Canvas__Path2d.t) => unit = "fill"
+@send
+external strokePath2d: (t, Webapi__Canvas__Path2d.t) => unit = "stroke"
+
 
 /* Text */
 @set external font: (t, string) => unit = "font"
@@ -266,6 +238,11 @@ external strokeText: (t, string, ~x: float, ~y: float, ~maxWidth: float=?, @igno
 @send external fillRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "fillRect"
 @send external strokeRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "strokeRect"
 @send external clearRect: (t, ~x: float, ~y: float, ~w: float, ~h: float) => unit = "clearRect"
+
+// CanvasPathCommons
+include Webapi__Canvas__Path_Common.Impl({
+  type t = t
+})
 
 /* Pixel maniplation */
 @send
