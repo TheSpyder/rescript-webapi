@@ -77,6 +77,7 @@ module TransitionEvent = Webapi__Dom__TransitionEvent
 module TreeWalker = Webapi__Dom__TreeWalker
 module UiEvent = Webapi__Dom__UiEvent
 module ValidityState = Webapi__Dom__ValidityState
+module VisualViewport = Webapi__Dom__VisualViewport
 module WebGlContextEvent = Webapi__Dom__WebGlContextEvent
 module WheelEvent = Webapi__Dom__WheelEvent
 module Window = Webapi__Dom__Window
