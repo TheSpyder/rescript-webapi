@@ -14,7 +14,7 @@
 #### :boom: Breaking Change
 
 - Corrected return type of `getPropertyValue` for CSS style attributes (it's nullable and now returns an option).
-- Corrected signature of `toggleForced` (for `Dom.domTokenList`) to accept a bool denoting whether to toggle the class on or off.
+- Corrected signature of `toggleForced` (for `Dom.domTokenList`) to accept a bool denoting whether to toggle the class on or off. https://github.com/TheSpyder/rescript-webapi/pull/136
 
 #### :bug: Bug Fix
 
