@@ -146,6 +146,9 @@ module Impl = (
   @set
   external setOnLoad: (t_window, unit => unit) => unit =
     "onload" /* use addEventListener instead? */
+
+  /* VisualViewport API */
+  @get external visualViewport: t_window => Webapi__Dom__VisualViewport.t = "visualViewport"
 }
 
 type t = Dom.window
