@@ -9,7 +9,7 @@
 > - :house: [Internal]
 > - :nail_care: [Polish]
 
-## main
+## 0.10.0
 
 #### :boom: Breaking Change
 
@@ -26,7 +26,7 @@
 
 - Widened input type of `Window.getComputedStyle`, allowing subclasses of Element (such as HtmlElement).
 
-# 0.9.1
+## 0.9.1
 
 #### :bug: Bug Fix
 

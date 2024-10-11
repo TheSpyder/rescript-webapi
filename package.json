@@ -1,6 +1,6 @@
 {
   "name": "rescript-webapi",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "description": "ReScript bindings to the DOM and other Web APIs",
   "repository": {
     "type": "git",
@@ -36,5 +36,5 @@
     "@ryyppy/rescript-promise": "^2.1.0",
     "rescript": "^10.1.4"
   },
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.5.0"
 }
