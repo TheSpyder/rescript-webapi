@@ -41,17 +41,14 @@ shadowOffsetY(ctx, 1.)
 shadowBlur(ctx, 1.)
 shadowColor(ctx, "red")
 
-ctx->beginPath
+// common things
 ctx->closePath
-ctx->fill
-ctx->stroke
-ctx->clip
 ctx->moveTo(~x=1., ~y=1.)
 ctx->lineTo(~x=1., ~y=2.)
 ctx->quadraticCurveTo(~cpx=1., ~cpy=1., ~x=1., ~y=1.)
 ctx->bezierCurveTo(~cp1x=1., ~cp1y=1., ~cp2x=2., ~cp2y=2., ~x=4., ~y=4.)
-ctx->arcTo(~x1=1., ~y1=1., ~x2=2., ~y2=2., ~r=4.)
 ctx->arc(~x=1., ~y=1., ~r=4., ~startAngle=1., ~endAngle=3., ~counterClockWise=true, ())
+ctx->arcTo(~x1=1., ~y1=1., ~x2=2., ~y2=2., ~r=4.)
 ctx->ellipse(
   ~x=1.,
   ~y=1.,
@@ -64,7 +61,16 @@ ctx->ellipse(
   (),
 )
 ctx->rect(~x=0., ~y=0., ~w=10., ~h=10.)
+ctx->roundRect(~x=0., ~y=0., ~w=10., ~h=10., ~r=10.)
+// end common things
+
+ctx->beginPath
+ctx->stroke
+ctx->clip
+ctx->fill
 let pointInPath: bool = ctx->isPointInPath(~x=0., ~y=0.)
+
+// fillPath2d and strokePath2d are in the Path2d module test
 
 let linearGradient: gradient = ctx->createLinearGradient(~x0=0.0, ~y0=0.0, ~x1=0.0, ~y1=0.0)
 setStrokeStyle(ctx, Gradient, linearGradient)

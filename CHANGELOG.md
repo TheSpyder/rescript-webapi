@@ -14,7 +14,13 @@
 #### :boom: Breaking Change
 
 - Corrected return type of `getPropertyValue` for CSS style attributes (it's nullable and now returns an option).
-- Corrected signature of `toggleForced` (for `Dom.domTokenList`) to accept a bool denoting whether to toggle the class on or off. https://github.com/TheSpyder/rescript-webapi/pull/136
+- Corrected signature of `DomTokenList.toggleForced` to accept a boolean, denoting whether to toggle the class on or off. https://github.com/TheSpyder/rescript-webapi/pull/136
+- Corrected argument names of Canvas2d and Path2d bindings https://github.com/TheSpyder/rescript-webapi/pull/133
+
+#### :rocket: New Feature
+
+- `VisualViewport` bindings. https://github.com/TheSpyder/rescript-webapi/pull/137
+- `Path2d` is now a separate module from `Canvas2d`, with more complete bindings https://github.com/TheSpyder/rescript-webapi/pull/133
 
 #### :bug: Bug Fix
 
