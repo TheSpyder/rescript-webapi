@@ -8,7 +8,7 @@ __metadata:
 "@ryyppy/rescript-promise@npm:^2.1.0":
   version: 2.1.0
   resolution: "@ryyppy/rescript-promise@npm:2.1.0"
-  checksum: a2c5784f1605751c851792ca3c1d0e9070116ad7535f9338b485f29a97ba63675ac8a5bf0f3c32212881be03eec5a8c202b635eca1311cf1b3bf3d09055aed53
+  checksum: 10c0/a2c5784f1605751c851792ca3c1d0e9070116ad7535f9338b485f29a97ba63675ac8a5bf0f3c32212881be03eec5a8c202b635eca1311cf1b3bf3d09055aed53
   languageName: node
   linkType: hard
 
@@ -29,6 +29,6 @@ __metadata:
     bsrefmt: bsrefmt
     bstracing: lib/bstracing
     rescript: rescript
-  checksum: 2549750314c865beed52f3fe828ca653386c784e053e640e011ef8165594757702abfe080f4ead5b0c95c3f577b1dd98a3df937e8e5256d69bc6bb13c8e31124
+  checksum: 10c0/2549750314c865beed52f3fe828ca653386c784e053e640e011ef8165594757702abfe080f4ead5b0c95c3f577b1dd98a3df937e8e5256d69bc6bb13c8e31124
   languageName: node
   linkType: hard
