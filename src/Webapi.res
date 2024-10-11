@@ -18,6 +18,7 @@ module ReadableStream = Webapi__ReadableStream
 module IntersectionObserver = Webapi__IntersectionObserver
 module ResizeObserver = Webapi__ResizeObserver
 module Url = Webapi__Url
+module Temporal = Webapi__Temporal
 module WebSocket = Webapi__WebSocket
 
 module WorkerGlobalScope = Webapi__WorkerGlobalScope
