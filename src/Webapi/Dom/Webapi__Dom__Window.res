@@ -12,7 +12,7 @@ type scrollbars /* "bar object" */
 type speechSynthesis
 type statusbar /* "bar object" */
 type toolbar /* "bar object" */
-type mediaQueryList /* CSSOM View module */
+type mediaQueryList = Webapi__Dom__MediaQueryList.t /* CSSOM View module */
 type transferable
 
 type idleCallbackId /* used by requestIdleCallback and cancelIdleCallback */
