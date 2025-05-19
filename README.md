@@ -6,7 +6,7 @@ Bindings to the DOM and other browser-specific web APIs.
 
 ## Stability
 
-This project is in the process of being forked; until the library reaches 1.0, expect major breaking changes to the API. See the [1.0 project](https://github.com/TheSpyder/rescript-webapi/projects/1) for the current progress towards that goal.
+This project is in the process of being forked; until the library reaches 1.0, expect major breaking changes to the API. Progress has however completely stalled after I stopped using it for my day job.
 
 ## Installation
 
